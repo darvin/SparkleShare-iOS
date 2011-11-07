@@ -1,0 +1,488 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		579F9AA914678A4E00709C70 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 579F9AA814678A4E00709C70 /* UIKit.framework */; };
+		579F9AAB14678A4E00709C70 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 579F9AAA14678A4E00709C70 /* Foundation.framework */; };
+		579F9AAD14678A4E00709C70 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 579F9AAC14678A4E00709C70 /* CoreGraphics.framework */; };
+		579F9AB314678A4E00709C70 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 579F9AB114678A4E00709C70 /* InfoPlist.strings */; };
+		579F9AB514678A4E00709C70 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 579F9AB414678A4E00709C70 /* main.m */; };
+		579F9AB914678A4E00709C70 /* SparkleShareAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 579F9AB814678A4E00709C70 /* SparkleShareAppDelegate.m */; };
+		579F9ABC14678A4E00709C70 /* SparkleShareMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 579F9ABB14678A4E00709C70 /* SparkleShareMasterViewController.m */; };
+		579F9ABF14678A4E00709C70 /* SparkleShareDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 579F9ABE14678A4E00709C70 /* SparkleShareDetailViewController.m */; };
+		579F9AC214678A4E00709C70 /* SparkleShareMasterViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 579F9AC014678A4E00709C70 /* SparkleShareMasterViewController_iPhone.xib */; };
+		579F9AC514678A4E00709C70 /* SparkleShareMasterViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 579F9AC314678A4E00709C70 /* SparkleShareMasterViewController_iPad.xib */; };
+		579F9AC814678A4E00709C70 /* SparkleShareDetailViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 579F9AC614678A4E00709C70 /* SparkleShareDetailViewController_iPhone.xib */; };
+		579F9ACB14678A4E00709C70 /* SparkleShareDetailViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 579F9AC914678A4E00709C70 /* SparkleShareDetailViewController_iPad.xib */; };
+		579F9AD314678A4E00709C70 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 579F9AD214678A4E00709C70 /* SenTestingKit.framework */; };
+		579F9AD414678A4E00709C70 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 579F9AA814678A4E00709C70 /* UIKit.framework */; };
+		579F9AD514678A4E00709C70 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 579F9AAA14678A4E00709C70 /* Foundation.framework */; };
+		579F9ADD14678A4E00709C70 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 579F9ADB14678A4E00709C70 /* InfoPlist.strings */; };
+		579F9AE014678A4E00709C70 /* SparkleShareTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 579F9ADF14678A4E00709C70 /* SparkleShareTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		579F9AD614678A4E00709C70 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 579F9A9B14678A4D00709C70 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 579F9AA314678A4E00709C70;
+			remoteInfo = SparkleShare;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		579F9AA414678A4E00709C70 /* SparkleShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SparkleShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		579F9AA814678A4E00709C70 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		579F9AAA14678A4E00709C70 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		579F9AAC14678A4E00709C70 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		579F9AB014678A4E00709C70 /* SparkleShare-Info.plist */ = {isa = PBXFileReference; path = "SparkleShare-Info.plist"; sourceTree = "<group>"; };
+		579F9AB214678A4E00709C70 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		579F9AB414678A4E00709C70 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		579F9AB614678A4E00709C70 /* SparkleShare-Prefix.pch */ = {isa = PBXFileReference; path = "SparkleShare-Prefix.pch"; sourceTree = "<group>"; };
+		579F9AB714678A4E00709C70 /* SparkleShareAppDelegate.h */ = {isa = PBXFileReference; path = SparkleShareAppDelegate.h; sourceTree = "<group>"; };
+		579F9AB814678A4E00709C70 /* SparkleShareAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SparkleShareAppDelegate.m; sourceTree = "<group>"; };
+		579F9ABA14678A4E00709C70 /* SparkleShareMasterViewController.h */ = {isa = PBXFileReference; path = SparkleShareMasterViewController.h; sourceTree = "<group>"; };
+		579F9ABB14678A4E00709C70 /* SparkleShareMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SparkleShareMasterViewController.m; sourceTree = "<group>"; };
+		579F9ABD14678A4E00709C70 /* SparkleShareDetailViewController.h */ = {isa = PBXFileReference; path = SparkleShareDetailViewController.h; sourceTree = "<group>"; };
+		579F9ABE14678A4E00709C70 /* SparkleShareDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SparkleShareDetailViewController.m; sourceTree = "<group>"; };
+		579F9AC114678A4E00709C70 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SparkleShareMasterViewController_iPhone.xib; sourceTree = "<group>"; };
+		579F9AC414678A4E00709C70 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SparkleShareMasterViewController_iPad.xib; sourceTree = "<group>"; };
+		579F9AC714678A4E00709C70 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SparkleShareDetailViewController_iPhone.xib; sourceTree = "<group>"; };
+		579F9ACA14678A4E00709C70 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SparkleShareDetailViewController_iPad.xib; sourceTree = "<group>"; };
+		579F9AD114678A4E00709C70 /* SparkleShareTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SparkleShareTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		579F9AD214678A4E00709C70 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		579F9ADA14678A4E00709C70 /* SparkleShareTests-Info.plist */ = {isa = PBXFileReference; path = "SparkleShareTests-Info.plist"; sourceTree = "<group>"; };
+		579F9ADC14678A4E00709C70 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		579F9ADE14678A4E00709C70 /* SparkleShareTests.h */ = {isa = PBXFileReference; path = SparkleShareTests.h; sourceTree = "<group>"; };
+		579F9ADF14678A4E00709C70 /* SparkleShareTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SparkleShareTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		579F9AA114678A4E00709C70 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				579F9AA914678A4E00709C70 /* UIKit.framework in Frameworks */,
+				579F9AAB14678A4E00709C70 /* Foundation.framework in Frameworks */,
+				579F9AAD14678A4E00709C70 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		579F9ACD14678A4E00709C70 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				579F9AD314678A4E00709C70 /* SenTestingKit.framework in Frameworks */,
+				579F9AD414678A4E00709C70 /* UIKit.framework in Frameworks */,
+				579F9AD514678A4E00709C70 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		579F9A9914678A4D00709C70 = {
+			isa = PBXGroup;
+			children = (
+				579F9AAE14678A4E00709C70 /* SparkleShare */,
+				579F9AD814678A4E00709C70 /* SparkleShareTests */,
+				579F9AA714678A4E00709C70 /* Frameworks */,
+				579F9AA514678A4E00709C70 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		579F9AA514678A4E00709C70 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				579F9AA414678A4E00709C70 /* SparkleShare.app */,
+				579F9AD114678A4E00709C70 /* SparkleShareTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		579F9AA714678A4E00709C70 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				579F9AA814678A4E00709C70 /* UIKit.framework */,
+				579F9AAA14678A4E00709C70 /* Foundation.framework */,
+				579F9AAC14678A4E00709C70 /* CoreGraphics.framework */,
+				579F9AD214678A4E00709C70 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		579F9AAE14678A4E00709C70 /* SparkleShare */ = {
+			isa = PBXGroup;
+			children = (
+				579F9AB714678A4E00709C70 /* SparkleShareAppDelegate.h */,
+				579F9AB814678A4E00709C70 /* SparkleShareAppDelegate.m */,
+				579F9ABA14678A4E00709C70 /* SparkleShareMasterViewController.h */,
+				579F9ABB14678A4E00709C70 /* SparkleShareMasterViewController.m */,
+				579F9ABD14678A4E00709C70 /* SparkleShareDetailViewController.h */,
+				579F9ABE14678A4E00709C70 /* SparkleShareDetailViewController.m */,
+				579F9AC014678A4E00709C70 /* SparkleShareMasterViewController_iPhone.xib */,
+				579F9AC314678A4E00709C70 /* SparkleShareMasterViewController_iPad.xib */,
+				579F9AC614678A4E00709C70 /* SparkleShareDetailViewController_iPhone.xib */,
+				579F9AC914678A4E00709C70 /* SparkleShareDetailViewController_iPad.xib */,
+				579F9AAF14678A4E00709C70 /* Supporting Files */,
+			);
+			path = SparkleShare;
+			sourceTree = "<group>";
+		};
+		579F9AAF14678A4E00709C70 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				579F9AB014678A4E00709C70 /* SparkleShare-Info.plist */,
+				579F9AB114678A4E00709C70 /* InfoPlist.strings */,
+				579F9AB414678A4E00709C70 /* main.m */,
+				579F9AB614678A4E00709C70 /* SparkleShare-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		579F9AD814678A4E00709C70 /* SparkleShareTests */ = {
+			isa = PBXGroup;
+			children = (
+				579F9ADE14678A4E00709C70 /* SparkleShareTests.h */,
+				579F9ADF14678A4E00709C70 /* SparkleShareTests.m */,
+				579F9AD914678A4E00709C70 /* Supporting Files */,
+			);
+			path = SparkleShareTests;
+			sourceTree = "<group>";
+		};
+		579F9AD914678A4E00709C70 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				579F9ADA14678A4E00709C70 /* SparkleShareTests-Info.plist */,
+				579F9ADB14678A4E00709C70 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		579F9AA314678A4E00709C70 /* SparkleShare */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 579F9AE314678A4E00709C70 /* Build configuration list for PBXNativeTarget "SparkleShare" */;
+			buildPhases = (
+				579F9AA014678A4E00709C70 /* Sources */,
+				579F9AA114678A4E00709C70 /* Frameworks */,
+				579F9AA214678A4E00709C70 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SparkleShare;
+			productName = SparkleShare;
+			productReference = 579F9AA414678A4E00709C70 /* SparkleShare.app */;
+			productType = "com.apple.product-type.application";
+		};
+		579F9AD014678A4E00709C70 /* SparkleShareTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 579F9AE614678A4F00709C70 /* Build configuration list for PBXNativeTarget "SparkleShareTests" */;
+			buildPhases = (
+				579F9ACC14678A4E00709C70 /* Sources */,
+				579F9ACD14678A4E00709C70 /* Frameworks */,
+				579F9ACE14678A4E00709C70 /* Resources */,
+				579F9ACF14678A4E00709C70 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				579F9AD714678A4E00709C70 /* PBXTargetDependency */,
+			);
+			name = SparkleShareTests;
+			productName = SparkleShareTests;
+			productReference = 579F9AD114678A4E00709C70 /* SparkleShareTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		579F9A9B14678A4D00709C70 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 579F9A9E14678A4D00709C70 /* Build configuration list for PBXProject "SparkleShare" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 579F9A9914678A4D00709C70;
+			productRefGroup = 579F9AA514678A4E00709C70 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				579F9AA314678A4E00709C70 /* SparkleShare */,
+				579F9AD014678A4E00709C70 /* SparkleShareTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		579F9AA214678A4E00709C70 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				579F9AB314678A4E00709C70 /* InfoPlist.strings in Resources */,
+				579F9AC214678A4E00709C70 /* SparkleShareMasterViewController_iPhone.xib in Resources */,
+				579F9AC514678A4E00709C70 /* SparkleShareMasterViewController_iPad.xib in Resources */,
+				579F9AC814678A4E00709C70 /* SparkleShareDetailViewController_iPhone.xib in Resources */,
+				579F9ACB14678A4E00709C70 /* SparkleShareDetailViewController_iPad.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		579F9ACE14678A4E00709C70 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				579F9ADD14678A4E00709C70 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		579F9ACF14678A4E00709C70 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		579F9AA014678A4E00709C70 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				579F9AB514678A4E00709C70 /* main.m in Sources */,
+				579F9AB914678A4E00709C70 /* SparkleShareAppDelegate.m in Sources */,
+				579F9ABC14678A4E00709C70 /* SparkleShareMasterViewController.m in Sources */,
+				579F9ABF14678A4E00709C70 /* SparkleShareDetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		579F9ACC14678A4E00709C70 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				579F9AE014678A4E00709C70 /* SparkleShareTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		579F9AD714678A4E00709C70 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 579F9AA314678A4E00709C70 /* SparkleShare */;
+			targetProxy = 579F9AD614678A4E00709C70 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		579F9AB114678A4E00709C70 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				579F9AB214678A4E00709C70 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		579F9AC014678A4E00709C70 /* SparkleShareMasterViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				579F9AC114678A4E00709C70 /* en */,
+			);
+			name = SparkleShareMasterViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		579F9AC314678A4E00709C70 /* SparkleShareMasterViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				579F9AC414678A4E00709C70 /* en */,
+			);
+			name = SparkleShareMasterViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+		579F9AC614678A4E00709C70 /* SparkleShareDetailViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				579F9AC714678A4E00709C70 /* en */,
+			);
+			name = SparkleShareDetailViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		579F9AC914678A4E00709C70 /* SparkleShareDetailViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				579F9ACA14678A4E00709C70 /* en */,
+			);
+			name = SparkleShareDetailViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+		579F9ADB14678A4E00709C70 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				579F9ADC14678A4E00709C70 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		579F9AE114678A4E00709C70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		579F9AE214678A4E00709C70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		579F9AE414678A4E00709C70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SparkleShare/SparkleShare-Prefix.pch";
+				INFOPLIST_FILE = "SparkleShare/SparkleShare-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		579F9AE514678A4E00709C70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SparkleShare/SparkleShare-Prefix.pch";
+				INFOPLIST_FILE = "SparkleShare/SparkleShare-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		579F9AE714678A4F00709C70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SparkleShare.app/SparkleShare";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SparkleShare/SparkleShare-Prefix.pch";
+				INFOPLIST_FILE = "SparkleShareTests/SparkleShareTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		579F9AE814678A4F00709C70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SparkleShare.app/SparkleShare";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SparkleShare/SparkleShare-Prefix.pch";
+				INFOPLIST_FILE = "SparkleShareTests/SparkleShareTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		579F9A9E14678A4D00709C70 /* Build configuration list for PBXProject "SparkleShare" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				579F9AE114678A4E00709C70 /* Debug */,
+				579F9AE214678A4E00709C70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		579F9AE314678A4E00709C70 /* Build configuration list for PBXNativeTarget "SparkleShare" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				579F9AE414678A4E00709C70 /* Debug */,
+				579F9AE514678A4E00709C70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		579F9AE614678A4F00709C70 /* Build configuration list for PBXNativeTarget "SparkleShareTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				579F9AE714678A4F00709C70 /* Debug */,
+				579F9AE814678A4F00709C70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 579F9A9B14678A4D00709C70 /* Project object */;
+}
