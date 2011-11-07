@@ -17,10 +17,9 @@
 
 -(id) initWithAddress:(NSString*)anAddress code:(NSString*)aCode
 {
-    if (self=[self init]){
-        address = anAddress;
-        code = aCode;
-    }
+    self=[self init];
+    address = anAddress;
+    code = aCode;
     return self;
 }
 

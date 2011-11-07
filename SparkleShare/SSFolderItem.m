@@ -16,12 +16,11 @@
                 ssid:(NSString*)anId
                  url:(NSString*)anUrl
 {
-    if (self=[self init]) {
-        folder = aFolder;
-        name = aName;
-        ssid = anId;
-        url = anUrl;
-    }
+    self=[self init];
+    folder = aFolder;
+    name = aName;
+    ssid = anId;
+    url = anUrl;
     return self;
 }
 

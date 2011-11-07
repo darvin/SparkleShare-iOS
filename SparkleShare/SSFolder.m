@@ -22,12 +22,11 @@
                     ssid:(NSString*)anId
                     type:(NSString*)aType
 {
-    if (self=[self init]){
-        connection = aConnection;
-        name = aName;
-        ssid = anId;
-        type = aType;
-    }
+    self=[self init];
+    connection = aConnection;
+    name = aName;
+    ssid = anId;
+    type = aType;
     return self;
 }
 
