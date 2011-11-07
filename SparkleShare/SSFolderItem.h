@@ -21,7 +21,8 @@
                     name:(NSString*)aName 
                     ssid:(NSString*)anId
                     url:(NSString*)anUrl;
-
+-(NSData*) getDataWithMethod:(NSString*)method;
+-(id*) getObjectWithMethod:(NSString*)method;
 
 @property (readonly) NSString* name;
 @property (readonly) NSString* ssid;

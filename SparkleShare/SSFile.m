@@ -17,6 +17,7 @@
 //(BINARY DATA)
 -(NSData*) content
 {
-    
+    return [self getDataWithMethod:@"getFile"];
 }
+
 @end

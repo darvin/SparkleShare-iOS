@@ -8,6 +8,11 @@
 
 #import "SSFolder.h"
 
+@interface SSFolder () 
+-(NSData*) getDataWithMethod:(NSString*)method;
+-(id*) getObjectWithMethod:(NSString*)method;
+@end
+
 @implementation SSFolder
 @synthesize name, ssid, type;
 
@@ -34,6 +39,8 @@
 {
     if (!count){
         //perform
+        [self getDataWithMethod:@"getAllItemCount"];
+
     }
     return count;
 }
@@ -46,6 +53,8 @@
 {
     if (!revision){
         //perform
+        [self getDataWithMethod:@"getFolderRevision"];
+
     }
     return revision;
 }
@@ -59,6 +68,7 @@
 {
     if (!items){
         //perform
+        [self getDataWithMethod:@"getFolderContent"];
     }
     return items;
 }
@@ -66,13 +76,27 @@
 //returns data from url http://localhost:3000/api/{method}/{self->ssid}?{path}
 -(NSData*) getDataWithMethod:(NSString*)method path:(NSString*)path
 {
-    
+    return [connection getDataWithRequest:[NSString stringWithFormat:@"%@/%@?%@", method, ssid, path]];
 }
 
 //returns decoded data from url http://localhost:3000/api/{method}/{self->ssid}?{path}
 -(id*) getObjectWithMethod:(NSString*)method path:(NSString*)path
 {
-    
+    return [connection getObjectWithRequest:[NSString stringWithFormat:@"%@/%@?%@", method, ssid, path]];
 }
+
+
+//returns data from url http://localhost:3000/api/{method}/{self->ssid}
+-(NSData*) getDataWithMethod:(NSString*)method
+{
+    return [connection getDataWithRequest:[NSString stringWithFormat:@"%@/%@", method, ssid]];
+}
+
+//returns decoded data from url http://localhost:3000/api/{method}/{self->ssid}
+-(id*) getObjectWithMethod:(NSString*)method
+{
+    return [connection getObjectWithRequest:[NSString stringWithFormat:@"%@/%@", method, ssid]];
+}
+
 
 @end

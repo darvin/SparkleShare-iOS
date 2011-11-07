@@ -18,6 +18,8 @@
 {
     if (!count){
         //perform
+        [self getDataWithMethod:@"getFolderItemCount"];
+
     }
     return count;
 }
@@ -34,6 +36,7 @@
 {
     if (!items){
         //perform
+        [self getDataWithMethod:@"getFolderContent"];
     }
     return items;
 }

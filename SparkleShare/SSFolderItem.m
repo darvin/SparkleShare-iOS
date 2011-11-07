@@ -24,4 +24,15 @@
     }
     return self;
 }
+
+-(NSData*) getDataWithMethod:(NSString*)method
+{
+    return [folder getDataWithMethod:method path:url];
+}
+
+-(id*) getObjectWithMethod:(NSString*)method
+{
+    return [folder getObjectWithMethod:method path:url];
+}
+
 @end
