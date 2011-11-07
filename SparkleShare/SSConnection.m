@@ -26,7 +26,7 @@
 
 -(id) initWithAddress:(NSString*)anAddress identCode:(NSString*)anIdentCode authCode:(NSString*)anAuthCode
 {
-    if ([self init]){
+    if (self=[self init]){
         authCode = anAuthCode;
         identCode = anIdentCode;
     }
