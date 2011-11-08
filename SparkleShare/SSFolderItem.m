@@ -9,18 +9,19 @@
 #import "SSFolderItem.h"
 
 @implementation SSFolderItem
-@synthesize name, ssid, url;
+@synthesize name, ssid, url, folder;
 
 -(id) initWithFolder:(SSFolder*)aFolder
                 name:(NSString*)aName 
                 ssid:(NSString*)anId
                  url:(NSString*)anUrl
 {
-    self=[self init];
-    folder = aFolder;
-    name = aName;
-    ssid = anId;
-    url = anUrl;
+    if (self=[super init]){
+        self.folder = aFolder;
+        name = aName;
+        ssid = anId;
+        url = anUrl;
+    }
     return self;
 }
 

@@ -8,7 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SSConnection : NSObject
+@protocol SSConnectionDelegate <NSObject>
+-(NSData*) getDataWithRequest:(NSString*)request;
+-(id*) getObjectWithRequest:(NSString*)request;
+@end
+
+@interface SSConnection : NSObject <SSConnectionDelegate>
 {
 @private
     NSString* address;

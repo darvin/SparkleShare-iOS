@@ -15,6 +15,7 @@
 
 @implementation SSFolder
 @synthesize name, ssid, type;
+@synthesize connection;
 
 
 -(id) initWithConnection:(SSConnection*)aConnection
@@ -22,11 +23,12 @@
                     ssid:(NSString*)anId
                     type:(NSString*)aType
 {
-    self=[self init];
-    connection = aConnection;
-    name = aName;
-    ssid = anId;
-    type = aType;
+    if (self=[super init]){
+        self.connection = aConnection;
+        name = aName;
+        ssid = anId;
+        type = aType;
+    }
     return self;
 }
 

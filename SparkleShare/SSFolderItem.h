@@ -14,7 +14,7 @@
     NSString* name;
     NSString* ssid;
     NSString* url;
-    SSFolder* folder;
+    id<SSFolderDelegate> folder;
 }
 
 -(id) initWithFolder:(SSFolder*)aFolder
@@ -27,5 +27,5 @@
 @property (readonly) NSString* name;
 @property (readonly) NSString* ssid;
 @property (readonly) NSString* url;
-
+@property (nonatomic, strong) id<SSFolderDelegate> folder;
 @end
