@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface SparkleShareAppDelegate : UIResponder <UIApplicationDelegate>
+#import "LoginInputViewController.h"
+@interface SparkleShareAppDelegate : UIResponder <UIApplicationDelegate, LoginInputViewControllerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

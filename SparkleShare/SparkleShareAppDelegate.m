@@ -20,35 +20,42 @@
 @synthesize navigationController = _navigationController;
 @synthesize splitViewController = _splitViewController;
 
+-(void) openMainViews
+{
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        SparkleShareMasterViewController *masterViewController = [[SparkleShareMasterViewController alloc] initWithNibName:@"SparkleShareMasterViewController_iPhone" bundle:nil];
+        self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
+        self.window.rootViewController = self.navigationController;
+    } else {
+        SparkleShareMasterViewController *masterViewController = [[SparkleShareMasterViewController alloc] initWithNibName:@"SparkleShareMasterViewController_iPad" bundle:nil];
+        UINavigationController *masterNavigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
+        
+        SparkleShareDetailViewController *detailViewController = [[SparkleShareDetailViewController alloc] initWithNibName:@"SparkleShareDetailViewController_iPad" bundle:nil];
+        UINavigationController *detailNavigationController = [[UINavigationController alloc] initWithRootViewController:detailViewController];
+        
+        self.splitViewController = [[UISplitViewController alloc] init];
+        self.splitViewController.delegate = detailViewController;
+        self.splitViewController.viewControllers = [NSArray arrayWithObjects:masterNavigationController, detailNavigationController, nil];
+        
+        self.window.rootViewController = self.splitViewController;
+    }
+
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
-    if (YES) {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+
+    if (![userDefaults objectForKey:@"link"]) {
         
         SelectLoginInputViewController* selectLoginInputViewController = [[SelectLoginInputViewController alloc] initWithNibName:@"SelectLoginInputViewController" bundle:nil];
+        selectLoginInputViewController.delegate = self;
         self.navigationController = [[UINavigationController alloc] initWithRootViewController:selectLoginInputViewController];
         self.window.rootViewController = self.navigationController;
     }
     else {
-    
-        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-            SparkleShareMasterViewController *masterViewController = [[SparkleShareMasterViewController alloc] initWithNibName:@"SparkleShareMasterViewController_iPhone" bundle:nil];
-            self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
-            self.window.rootViewController = self.navigationController;
-        } else {
-            SparkleShareMasterViewController *masterViewController = [[SparkleShareMasterViewController alloc] initWithNibName:@"SparkleShareMasterViewController_iPad" bundle:nil];
-            UINavigationController *masterNavigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
-            
-            SparkleShareDetailViewController *detailViewController = [[SparkleShareDetailViewController alloc] initWithNibName:@"SparkleShareDetailViewController_iPad" bundle:nil];
-            UINavigationController *detailNavigationController = [[UINavigationController alloc] initWithRootViewController:detailViewController];
-            
-            self.splitViewController = [[UISplitViewController alloc] init];
-            self.splitViewController.delegate = detailViewController;
-            self.splitViewController.viewControllers = [NSArray arrayWithObjects:masterNavigationController, detailNavigationController, nil];
-            
-            self.window.rootViewController = self.splitViewController;
-        }
+        [self openMainViews];
     }
     [self.window makeKeyAndVisible];
     return YES;
@@ -93,4 +100,15 @@
      */
 }
 
+-(void)loginInputViewController: (LoginInputViewController*) loginInputViewController   
+                    willSetLink:(NSURL*) link code:(NSString*) code;
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setURL:link forKey:@"link"];
+    [userDefaults setObject:code forKey:@"code"];
+    
+    [userDefaults synchronize];
+    [self openMainViews];
+
+}
 @end
