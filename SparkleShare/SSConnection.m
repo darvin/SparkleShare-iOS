@@ -15,7 +15,7 @@
 @implementation SSConnection
 @synthesize identCode, authCode, address;
 
--(id) initWithAddress:(NSString*)anAddress code:(NSString*)aCode
+-(id) initWithAddress:(NSURL*)anAddress code:(NSString*)aCode
 {
     self=[self init];
     address = anAddress;
@@ -23,15 +23,26 @@
     return self;
 }
 
--(id) initWithAddress:(NSString*)anAddress identCode:(NSString*)anIdentCode authCode:(NSString*)anAuthCode
+-(id) initWithAddress:(NSURL*)anAddress identCode:(NSString*)anIdentCode authCode:(NSString*)anAuthCode
 {
-    if (self=[self init]){
-        authCode = anAuthCode;
-        identCode = anIdentCode;
-    }
+    self=[self init];
+    address = anAddress;
+    authCode = anAuthCode;
+    identCode = anIdentCode;
     return self;
 }
 
+-(id) initWithUserDefaults
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    if (![userDefaults URLForKey:@"link"])
+        @throw([NSException exceptionWithName:@"IncorrectUserDefaults" reason:@"no link in user defaults" userInfo:nil]);
+    if (![userDefaults boolForKey:@"linked"])
+        return [self initWithAddress:[userDefaults URLForKey:@"link"] code:[userDefaults objectForKey:@"code"]];
+    else
+        return [self initWithAddress:[userDefaults URLForKey:@"link"] identCode:[userDefaults objectForKey:@"identCode"] authCode:[userDefaults objectForKey:@"authCode"]];
+        
+}
 
 //$ curl --data "code=286685&name=My%20Name" http://localhost:3000/api/getAuthCode
 //{"ident":"qj7cGswA","authCode":"iteLARuURXKzGNJ...solGzbOutrWcfOWaUnm7ZIgNyn-"}
@@ -41,6 +52,14 @@
         //fixme post data
         identCode = @"";
         authCode = @"";
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        [userDefaults setObject:identCode forKey:@"identCode"];
+        [userDefaults setObject:authCode forKey:@"authCode"];
+        [userDefaults setURL:address forKey:@"link"];
+        [userDefaults setBool:YES forKey:@"linked"];
+        [userDefaults removeObjectForKey:@"code"];
+
+        [userDefaults synchronize];
     }
     
 }

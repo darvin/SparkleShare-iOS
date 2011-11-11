@@ -47,7 +47,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
 
-    if (![userDefaults objectForKey:@"link"]) {
+    if (![userDefaults boolForKey:@"linked"]) {
         
         SelectLoginInputViewController* selectLoginInputViewController = [[SelectLoginInputViewController alloc] initWithNibName:@"SelectLoginInputViewController" bundle:nil];
         selectLoginInputViewController.delegate = self;
@@ -106,9 +106,7 @@
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setURL:link forKey:@"link"];
     [userDefaults setObject:code forKey:@"code"];
-    
     [userDefaults synchronize];
     [self openMainViews];
-
 }
 @end

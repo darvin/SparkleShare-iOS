@@ -16,7 +16,7 @@
 @interface SSConnection : NSObject <SSConnectionDelegate>
 {
 @private
-    NSString* address;
+    NSURL* address;
     NSString* code;
     NSString* identCode;
     NSString* authCode;
@@ -26,9 +26,10 @@
 @property (readonly) NSArray* folders;
 @property (readonly) NSString* identCode;
 @property (readonly) NSString* authCode;
-@property (readonly) NSString* address;
--(id) initWithAddress:(NSString*)anAddress code:(NSString*)aCode;
--(id) initWithAddress:(NSString*)anAddress identCode:(NSString*)anIdentCode authCode:(NSString*)anAuthCode;
+@property (readonly) NSURL* address;
+-(id) initWithAddress:(NSURL*)anAddress code:(NSString*)aCode;
+-(id) initWithAddress:(NSURL*)anAddress identCode:(NSString*)anIdentCode authCode:(NSString*)anAuthCode;
+-(id) initWithUserDefaults;
 -(NSData*) getDataWithRequest:(NSString*)request;
 -(id*) getObjectWithRequest:(NSString*)request;
 
