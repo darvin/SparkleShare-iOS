@@ -7,7 +7,8 @@
 //
 
 #import "SSConnection.h"
-
+#import "AFNetworking.h"
+#import "TTTURLRequestFormatter.h"
 @interface SSConnection ()
 -(void) linkDevice;
 @end
@@ -15,11 +16,20 @@
 @implementation SSConnection
 @synthesize identCode, authCode, address;
 
+-(id) init
+{
+    if (self = [super init]){
+        queue = [[NSOperationQueue alloc] init];
+    }
+    return self;
+}
+
 -(id) initWithAddress:(NSURL*)anAddress code:(NSString*)aCode
 {
     self=[self init];
     address = anAddress;
     code = aCode;
+    [self linkDevice];
     return self;
 }
 
@@ -49,17 +59,37 @@
 -(void) linkDevice
 {
     if (!identCode||!authCode) {
-        //fixme post data
-        identCode = @"";
-        authCode = @"";
-        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-        [userDefaults setObject:identCode forKey:@"identCode"];
-        [userDefaults setObject:authCode forKey:@"authCode"];
-        [userDefaults setURL:address forKey:@"link"];
-        [userDefaults setBool:YES forKey:@"linked"];
-        [userDefaults removeObjectForKey:@"code"];
+        ;
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[address URLByAppendingPathComponent:  @"api/getAuthCode"]];
+        [request setHTTPMethod:@"POST"];
+        NSString* requestString = [NSString stringWithFormat:@"code=%@&name=%@",
+                                   [code stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding],
+                                   [[[UIDevice currentDevice] name] stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
+        NSData *requestData = [NSData dataWithBytes: [requestString UTF8String] length: [requestString length]];
+        [request setHTTPBody: requestData];
 
-        [userDefaults synchronize];
+        NSLog(@"%@", [TTTURLRequestFormatter cURLCommandFromURLRequest:request]);
+        
+        AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSURLResponse *response, id JSON) {
+            identCode = [JSON valueForKey:@"ident"];
+            authCode = [JSON valueForKey:@"authCode"];
+            NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+            [userDefaults setObject:identCode forKey:@"identCode"];
+            [userDefaults setObject:authCode forKey:@"authCode"];
+            [userDefaults setURL:address forKey:@"link"];
+            [userDefaults setBool:YES forKey:@"linked"];
+            [userDefaults removeObjectForKey:@"code"];
+            
+            [userDefaults synchronize];
+            NSLog(@"wea are good");
+
+
+
+        } failure:^( NSURLRequest *request , NSURLResponse *response , NSError *error , id JSON ){
+            NSLog(@"resp %@     err  %@", response, error);
+        }];
+        
+        [queue addOperation:operation];
     }
     
 }
@@ -79,12 +109,10 @@
 //returns data from url {self->
 -(NSData*) getDataWithRequest:(NSString*)request
 {
-    [self linkDevice];
 }
 
 -(id*) getObjectWithRequest:(NSString*)request
 {
-    [self linkDevice];
 
 }
 

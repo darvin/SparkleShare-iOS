@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-
 @class SparkleShareDetailViewController;
+@class SSConnection;
 
 @interface SparkleShareMasterViewController : UITableViewController
+
+{
+    SSConnection * connection;
+}
 
 @property (strong, nonatomic) SparkleShareDetailViewController *detailViewController;
 

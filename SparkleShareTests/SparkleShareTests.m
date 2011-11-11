@@ -7,6 +7,7 @@
 //
 
 #import "SparkleShareTests.h"
+#import "SSConnection.h"
 
 @implementation SparkleShareTests
 
@@ -24,9 +25,10 @@
     [super tearDown];
 }
 
-- (void)testExample
+- (void)testConnectionLinking
 {
-    STFail(@"Unit tests are not implemented yet in SparkleShareTests");
+    SSConnection* connection = [[SSConnection alloc] initWithAddress:[NSURL URLWithString:@"http://127.0.0.1:3000"] code:@"123124"];
+    
 }
 
 @end

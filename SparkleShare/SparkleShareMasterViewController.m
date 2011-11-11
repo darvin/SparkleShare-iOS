@@ -9,6 +9,7 @@
 #import "SparkleShareMasterViewController.h"
 
 #import "SparkleShareDetailViewController.h"
+#import "SSConnection.h"
 
 @implementation SparkleShareMasterViewController
 
@@ -23,6 +24,9 @@
             self.clearsSelectionOnViewWillAppear = NO;
             self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
         }
+        
+        connection = [[SSConnection alloc] initWithUserDefaults];
+        
     }
     return self;
 }

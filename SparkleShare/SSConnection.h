@@ -21,6 +21,8 @@
     NSString* identCode;
     NSString* authCode;
     NSArray* folders;
+    
+    NSOperationQueue *queue;
 }
 
 @property (readonly) NSArray* folders;
