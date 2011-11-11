@@ -7,14 +7,19 @@
 //
 
 #import "QRCodeLoginInputViewController.h"
+#import "ZBarSDK.h"
+@interface QRCodeLoginInputViewController()
+@end
+
 
 @implementation QRCodeLoginInputViewController
+@synthesize readerView, urlLabel, codeLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        [ZBarReaderView class];
     }
     return self;
 }
@@ -31,8 +36,18 @@
 
 - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    // the delegate receives decode results
+    readerView.readerDelegate = self;
+    qrCaptured = NO;
+    // you can use this to support the simulator
+    if(TARGET_IPHONE_SIMULATOR) {
+        cameraSim = [[ZBarCameraSimulator alloc]
+                     initWithViewController: self];
+        cameraSim.readerView = readerView;
+    }    
+
 }
 
 - (void)viewDidUnload
@@ -42,10 +57,54 @@
     // e.g. self.myOutlet = nil;
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [readerView start];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [readerView stop];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
+
+- (void) readerView: (ZBarReaderView*) view
+     didReadSymbols: (ZBarSymbolSet*) syms
+          fromImage: (UIImage*) img
+{
+    NSString* result;
+    NSString* prefix = @"SSHARE:";
+    // do something useful with results
+    for(ZBarSymbol *sym in syms) {
+        result = sym.data;
+        break;
+    }
+    
+    if ([result hasPrefix:prefix]){
+        NSArray *chunks = [[result substringFromIndex:[prefix length]] componentsSeparatedByString: @"#"];
+        if ([chunks count]==2){
+            self.urlLabel.text = [chunks objectAtIndex:0];
+            self.codeLabel.text = [chunks objectAtIndex:1];
+            qrCaptured = YES;
+        }
+    }
+    
+}
+
+-(void) editDone:(id) sender
+{
+    if (qrCaptured)
+        [self.delegate loginInputViewController:self willSetLink:[NSURL URLWithString:self.urlLabel.text ] code:self.codeLabel.text];
+    else
+        [self.navigationController popViewControllerAnimated:YES];
+    
+}
+
 
 @end
