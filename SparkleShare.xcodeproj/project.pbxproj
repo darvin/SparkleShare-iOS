@@ -54,6 +54,13 @@
 		579F9B4E14679DFD00709C70 /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = 579F9B4014679DFD00709C70 /* SBJsonTokeniser.m */; };
 		579F9B4F14679DFD00709C70 /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 579F9B4214679DFD00709C70 /* SBJsonUTF8Stream.m */; };
 		579F9B5014679DFD00709C70 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 579F9B4414679DFD00709C70 /* SBJsonWriter.m */; };
+		57DD1C28146D62670010B621 /* LoginInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DD1C27146D62670010B621 /* LoginInputViewController.m */; };
+		57DD1C2C146D63EE0010B621 /* ManualLoginInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DD1C2A146D63EE0010B621 /* ManualLoginInputViewController.m */; };
+		57DD1C2D146D63EE0010B621 /* ManualLoginInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57DD1C2B146D63EE0010B621 /* ManualLoginInputViewController.xib */; };
+		57DD1C31146D641F0010B621 /* QRCodeLoginInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DD1C2F146D641F0010B621 /* QRCodeLoginInputViewController.m */; };
+		57DD1C32146D641F0010B621 /* QRCodeLoginInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57DD1C30146D641F0010B621 /* QRCodeLoginInputViewController.xib */; };
+		57DD1C36146D64670010B621 /* SelectLoginInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DD1C34146D64670010B621 /* SelectLoginInputViewController.m */; };
+		57DD1C37146D64670010B621 /* SelectLoginInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57DD1C35146D64670010B621 /* SelectLoginInputViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,6 +159,17 @@
 		579F9B4214679DFD00709C70 /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonUTF8Stream.m; sourceTree = "<group>"; };
 		579F9B4314679DFD00709C70 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		579F9B4414679DFD00709C70 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		57DD1C26146D62670010B621 /* LoginInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginInputViewController.h; sourceTree = "<group>"; };
+		57DD1C27146D62670010B621 /* LoginInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginInputViewController.m; sourceTree = "<group>"; };
+		57DD1C29146D63EE0010B621 /* ManualLoginInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualLoginInputViewController.h; sourceTree = "<group>"; };
+		57DD1C2A146D63EE0010B621 /* ManualLoginInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManualLoginInputViewController.m; sourceTree = "<group>"; };
+		57DD1C2B146D63EE0010B621 /* ManualLoginInputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManualLoginInputViewController.xib; sourceTree = "<group>"; };
+		57DD1C2E146D641F0010B621 /* QRCodeLoginInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeLoginInputViewController.h; sourceTree = "<group>"; };
+		57DD1C2F146D641F0010B621 /* QRCodeLoginInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeLoginInputViewController.m; sourceTree = "<group>"; };
+		57DD1C30146D641F0010B621 /* QRCodeLoginInputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QRCodeLoginInputViewController.xib; sourceTree = "<group>"; };
+		57DD1C33146D64670010B621 /* SelectLoginInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectLoginInputViewController.h; sourceTree = "<group>"; };
+		57DD1C34146D64670010B621 /* SelectLoginInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectLoginInputViewController.m; sourceTree = "<group>"; };
+		57DD1C35146D64670010B621 /* SelectLoginInputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectLoginInputViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +238,7 @@
 		579F9AAE14678A4E00709C70 /* SparkleShare */ = {
 			isa = PBXGroup;
 			children = (
+				57DD1C24146D620B0010B621 /* LoginInput */,
 				579F9AE914678A5B00709C70 /* Model */,
 				579F9AB714678A4E00709C70 /* SparkleShareAppDelegate.h */,
 				579F9AB814678A4E00709C70 /* SparkleShareAppDelegate.m */,
@@ -353,6 +372,24 @@
 			path = SBJson;
 			sourceTree = "<group>";
 		};
+		57DD1C24146D620B0010B621 /* LoginInput */ = {
+			isa = PBXGroup;
+			children = (
+				57DD1C26146D62670010B621 /* LoginInputViewController.h */,
+				57DD1C27146D62670010B621 /* LoginInputViewController.m */,
+				57DD1C29146D63EE0010B621 /* ManualLoginInputViewController.h */,
+				57DD1C2A146D63EE0010B621 /* ManualLoginInputViewController.m */,
+				57DD1C2B146D63EE0010B621 /* ManualLoginInputViewController.xib */,
+				57DD1C2E146D641F0010B621 /* QRCodeLoginInputViewController.h */,
+				57DD1C2F146D641F0010B621 /* QRCodeLoginInputViewController.m */,
+				57DD1C30146D641F0010B621 /* QRCodeLoginInputViewController.xib */,
+				57DD1C33146D64670010B621 /* SelectLoginInputViewController.h */,
+				57DD1C34146D64670010B621 /* SelectLoginInputViewController.m */,
+				57DD1C35146D64670010B621 /* SelectLoginInputViewController.xib */,
+			);
+			name = LoginInput;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -428,6 +465,9 @@
 				579F9AC514678A4E00709C70 /* SparkleShareMasterViewController_iPad.xib in Resources */,
 				579F9AC814678A4E00709C70 /* SparkleShareDetailViewController_iPhone.xib in Resources */,
 				579F9ACB14678A4E00709C70 /* SparkleShareDetailViewController_iPad.xib in Resources */,
+				57DD1C2D146D63EE0010B621 /* ManualLoginInputViewController.xib in Resources */,
+				57DD1C32146D641F0010B621 /* QRCodeLoginInputViewController.xib in Resources */,
+				57DD1C37146D64670010B621 /* SelectLoginInputViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,6 +532,10 @@
 				579F9B4E14679DFD00709C70 /* SBJsonTokeniser.m in Sources */,
 				579F9B4F14679DFD00709C70 /* SBJsonUTF8Stream.m in Sources */,
 				579F9B5014679DFD00709C70 /* SBJsonWriter.m in Sources */,
+				57DD1C28146D62670010B621 /* LoginInputViewController.m in Sources */,
+				57DD1C2C146D63EE0010B621 /* ManualLoginInputViewController.m in Sources */,
+				57DD1C31146D641F0010B621 /* QRCodeLoginInputViewController.m in Sources */,
+				57DD1C36146D64670010B621 /* SelectLoginInputViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -687,6 +731,7 @@
 				579F9AE514678A4E00709C70 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		579F9AE614678A4F00709C70 /* Build configuration list for PBXNativeTarget "SparkleShareTests" */ = {
 			isa = XCConfigurationList;
@@ -695,6 +740,7 @@
 				579F9AE814678A4F00709C70 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

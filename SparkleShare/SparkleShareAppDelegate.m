@@ -12,6 +12,8 @@
 
 #import "SparkleShareDetailViewController.h"
 
+#import "SelectLoginInputViewController.h"
+
 @implementation SparkleShareAppDelegate
 
 @synthesize window = _window;
@@ -21,23 +23,32 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        SparkleShareMasterViewController *masterViewController = [[SparkleShareMasterViewController alloc] initWithNibName:@"SparkleShareMasterViewController_iPhone" bundle:nil];
-        self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
+    
+    if (YES) {
+        
+        SelectLoginInputViewController* selectLoginInputViewController = [[SelectLoginInputViewController alloc] initWithNibName:@"SelectLoginInputViewController" bundle:nil];
+        self.navigationController = [[UINavigationController alloc] initWithRootViewController:selectLoginInputViewController];
         self.window.rootViewController = self.navigationController;
-    } else {
-        SparkleShareMasterViewController *masterViewController = [[SparkleShareMasterViewController alloc] initWithNibName:@"SparkleShareMasterViewController_iPad" bundle:nil];
-        UINavigationController *masterNavigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
-        
-        SparkleShareDetailViewController *detailViewController = [[SparkleShareDetailViewController alloc] initWithNibName:@"SparkleShareDetailViewController_iPad" bundle:nil];
-        UINavigationController *detailNavigationController = [[UINavigationController alloc] initWithRootViewController:detailViewController];
-    	
-        self.splitViewController = [[UISplitViewController alloc] init];
-        self.splitViewController.delegate = detailViewController;
-        self.splitViewController.viewControllers = [NSArray arrayWithObjects:masterNavigationController, detailNavigationController, nil];
-        
-        self.window.rootViewController = self.splitViewController;
+    }
+    else {
+    
+        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+            SparkleShareMasterViewController *masterViewController = [[SparkleShareMasterViewController alloc] initWithNibName:@"SparkleShareMasterViewController_iPhone" bundle:nil];
+            self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
+            self.window.rootViewController = self.navigationController;
+        } else {
+            SparkleShareMasterViewController *masterViewController = [[SparkleShareMasterViewController alloc] initWithNibName:@"SparkleShareMasterViewController_iPad" bundle:nil];
+            UINavigationController *masterNavigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
+            
+            SparkleShareDetailViewController *detailViewController = [[SparkleShareDetailViewController alloc] initWithNibName:@"SparkleShareDetailViewController_iPad" bundle:nil];
+            UINavigationController *detailNavigationController = [[UINavigationController alloc] initWithRootViewController:detailViewController];
+            
+            self.splitViewController = [[UISplitViewController alloc] init];
+            self.splitViewController.delegate = detailViewController;
+            self.splitViewController.viewControllers = [NSArray arrayWithObjects:masterNavigationController, detailNavigationController, nil];
+            
+            self.window.rootViewController = self.splitViewController;
+        }
     }
     [self.window makeKeyAndVisible];
     return YES;
