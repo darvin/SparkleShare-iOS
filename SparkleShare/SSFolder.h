@@ -7,41 +7,47 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SSItem.h"
 
 @class SSFolder;
 @class SSConnection;
-@protocol SSFolderItemsLoaderDelegate <NSObject>
+
+
+@protocol SSFolderItemsDelegate <NSObject>
 -(void) folder:(SSFolder*) folder itemsLoaded:(NSArray*) items;
+-(void) folderLoadingFailed:(SSFolder*) folder;
+@optional
+-(void) folder:(SSFolder*) folder countLoaded:(int) count;
 @end
 
-@interface SSFolder : NSObject
-{
-@private
-    NSString* name;
-    NSString* ssid;
-    NSString* type;
-    
-    SSConnection* connection;
-    int count;
-    NSString* revision;
-    NSArray* items;
-}
 
+@protocol SSFolderInfoDelegate <NSObject>
+-(void) folder:(SSFolder*) folder revisionLoaded:(NSString*) revision;
+-(void) folder:(SSFolder*) folder overallCountLoaded:(int) count;
+-(void) folderRevisionLoadedingFailed:(SSFolder*) folder;
+@end
+
+
+
+@interface SSFolder : SSItem
+{
+}
 -(id) initWithConnection:(SSConnection*)aConnection
                     name:(NSString*)aName 
                     ssid:(NSString*)anId
-                    type:(NSString*)aType;
--(NSData*) getDataWithMethod:(NSString*)method path:(NSString*)path;
--(id*) getObjectWithMethod:(NSString*)method path:(NSString*)path;
+                    type:(NSString *)aType;
 
-@property (readonly) NSString* name;
-@property (readonly) NSString* ssid;
-@property (readonly) NSString* type;
 
-@property (readonly) int count;
-@property (readonly) NSString* revision;
-@property (readonly) NSArray* items;
-@property (nonatomic, strong) SSConnection* connection;
+-(void) loadRevision;
+-(void) loadItems;
+-(void) loadCount;
 
+@property (copy) NSString* type;
+
+@property int count;
+@property (copy) NSString* revision;
+@property (copy) NSArray* items;
+@property (strong) id<SSFolderInfoDelegate> infoDelegate;
+@property (strong) id<SSFolderItemsDelegate> delegate;
 
 @end

@@ -9,26 +9,19 @@
 #import "SSFolder.h"
 #import "SSConnection.h"
 
-@interface SSFolder () 
--(NSData*) getDataWithMethod:(NSString*)method;
--(id*) getObjectWithMethod:(NSString*)method;
-@end
-
 @implementation SSFolder
-@synthesize name, ssid, type;
-@synthesize connection;
-
+@synthesize name=_name, ssid=_ssid, type=_type;
+@synthesize count=_count, revision=_revision, items=_items;
+@synthesize delegate=_delegate;
+@synthesize infoDelegate=_infoDelegate;
 
 -(id) initWithConnection:(SSConnection*)aConnection
                     name:(NSString*)aName 
                     ssid:(NSString*)anId
                     type:(NSString*)aType
 {
-    if (self=[super init]){
-        self.connection = aConnection;
-        name = aName;
-        ssid = anId;
-        type = aType;
+    if (self=[self initWithConnection:aConnection name: aName ssid: anId]) {
+        self.type = aType;
     }
     return self;
 }
@@ -37,28 +30,41 @@
 //-H "X-SPARKLE-AUTH: iteLARuURXKzGNJ...solGzbOutrWcfOWaUnm7ZIgNyn-" \
 //http://localhost:3000/api/getAllItemCount/c0acdbe1e1fec3290db71beecc9af500af126f8d
 //14
--(int) count
+-(void) loadCount
 {
-    if (!count){
-        //perform
-        [self getDataWithMethod:@"getAllItemCount"];
-
-    }
-    return count;
+    [self sendRequestWithMethod:@"getAllItemCount" success:
+     ^(NSURLRequest *request, NSURLResponse *response, id JSON) {
+         NSLog(@"%@ %@", response, JSON);
+         self.count = 10; //fixme
+         [self.delegate folder:self countLoaded:self.count];
+     } 
+                        failure:
+     ^( NSURLRequest *request , NSURLResponse *response , NSError *error , id JSON ){
+         NSLog(@"%@ %@", response, error);
+         
+         [self.delegate folderLoadingFailed:self];
+     }];
 }
 
 //$ curl -H "X-SPARKLE-IDENT: qj7cGswA" \
 //-H "X-SPARKLE-AUTH: iteLARuURXKzGNJ...solGzbOutrWcfOWaUnm7ZIgNyn-" \
 //http://localhost:3000/api/getFolderRevision/c0acdbe1e1fec3290db71beecc9af500af126f8d
 //"b26aa22664f2b9759d93df228e1a8c4693dc44af"
--(NSString*) revision
-{
-    if (!revision){
-        //perform
-        [self getDataWithMethod:@"getFolderRevision"];
-
-    }
-    return revision;
+-(void) loadRevision
+{    
+    [self sendRequestWithMethod:@"getFolderRevision" success:
+     ^(NSURLRequest *request, NSURLResponse *response, id JSON) {
+         NSLog(@"%@ %@", response, JSON);
+         self.revision = JSON;
+         [self.infoDelegate folder:self revisionLoaded:self.revision];
+     } 
+                        failure:
+     ^( NSURLRequest *request , NSURLResponse *response , NSError *error , id JSON ){
+         NSLog(@"%@ %@", response, error);
+         
+         [self.infoDelegate folderRevisionLoadedingFailed:self];
+     }];
+    
 }
 
 //$ curl -H "X-SPARKLE-IDENT: qj7cGswA" \
@@ -66,39 +72,20 @@
 //http://localhost:3000/api/getFolderContent/c0acdbe1e1fec3290db71beecc9af500af126f8d
 //[{"id":"83d20198fb3aa38143294226785893964d44b896","type":"file","name":"b","url":"path=b&hash=83d20198fb3aa38143294226785893964d44b896&name=b"},
 //{"id":"b59993a22c86c5e84973d907bce7a4baf04bdb28","type":"dir","name":"c","url":"path=c&hash=b59993a22c86c5e84973d907bce7a4baf04bdb28&name=c"}]
--(NSArray*) items
+-(void) loadItems
 {
-    if (!items){
-        //perform
-        [self getDataWithMethod:@"getFolderContent"];
-    }
-    return items;
+    [self sendRequestWithMethod:@"getFolderContent" success:
+     ^(NSURLRequest *request, NSURLResponse *response, id JSON) {
+         NSLog(@"%@ %@", response, JSON);
+         
+         [self.delegate folder:self itemsLoaded:nil];
+     } 
+                        failure:
+     ^( NSURLRequest *request , NSURLResponse *response , NSError *error , id JSON ){
+         NSLog(@"%@ %@", response, error);
+         
+         [self.delegate folderLoadingFailed:self];
+     }];
 }
-
-//returns data from url http://localhost:3000/api/{method}/{self->ssid}?{path}
--(NSData*) getDataWithMethod:(NSString*)method path:(NSString*)path
-{
-    return [connection getDataWithRequest:[NSString stringWithFormat:@"%@/%@?%@", method, ssid, path]];
-}
-
-//returns decoded data from url http://localhost:3000/api/{method}/{self->ssid}?{path}
--(id*) getObjectWithMethod:(NSString*)method path:(NSString*)path
-{
-    return [connection getObjectWithRequest:[NSString stringWithFormat:@"%@/%@?%@", method, ssid, path]];
-}
-
-
-//returns data from url http://localhost:3000/api/{method}/{self->ssid}
--(NSData*) getDataWithMethod:(NSString*)method
-{
-    return [connection getDataWithRequest:[NSString stringWithFormat:@"%@/%@", method, ssid]];
-}
-
-//returns decoded data from url http://localhost:3000/api/{method}/{self->ssid}
--(id*) getObjectWithMethod:(NSString*)method
-{
-    return [connection getObjectWithRequest:[NSString stringWithFormat:@"%@/%@", method, ssid]];
-}
-
 
 @end

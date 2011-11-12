@@ -21,6 +21,7 @@
 -(void) connectionFoldersLoadingFailed:(SSConnection*) connection;
 @end
 
+
 @interface SSConnection : NSObject
 {
 @private
@@ -40,8 +41,9 @@
 
 -(id) initWithAddress:(NSURL*)anAddress identCode:(NSString*)anIdentCode authCode:(NSString*)anAuthCode;
 -(id) initWithUserDefaults;
--(NSData*) getDataWithRequest:(NSString*)request;
--(id*) getObjectWithRequest:(NSString*)request;
+-(void) sendRequestWithString:(NSString*) string 
+                      success:(void (^)(NSURLRequest *request, NSURLResponse *response, id JSON))success 
+                      failure:(void (^)(NSURLRequest *request, NSURLResponse *response, NSError *error, id JSON))failure;
 -(void) linkDeviceWithAddress:(NSURL*)anAddress code:(NSString*)aCode;
 -(void) loadFolders;
 @end

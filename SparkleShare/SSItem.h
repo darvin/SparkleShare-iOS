@@ -7,28 +7,42 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SSFolder.h"
+
+@class SSConnection;
 
 
-
-@interface SSFolderItem : NSObject
+@interface SSItem : NSObject
 {
-@private
-    NSString* name;
-    NSString* ssid;
-    NSString* url;
-    SSFolder* folder;
+    @private
+    SSConnection* connection;
+
 }
 
--(id) initWithFolder:(SSFolder*)aFolder
+
+-(id) initWithConnection:(SSConnection*)aConnection
                     name:(NSString*)aName 
                     ssid:(NSString*)anId
                     url:(NSString*)anUrl;
--(NSData*) getDataWithMethod:(NSString*)method;
--(id*) getObjectWithMethod:(NSString*)method;
 
-@property (readonly) NSString* name;
-@property (readonly) NSString* ssid;
-@property (readonly) NSString* url;
-@property (nonatomic, strong) SSFolder* folder;
+-(id) initWithConnection:(SSConnection*)aConnection
+                    name:(NSString*)aName 
+                    ssid:(NSString*)anId;
+
+@property (copy) NSString* name;
+@property (copy) NSString* ssid;
+@property (copy) NSString* url;
+
+-(void) sendRequestWithSelfUrlAndMethod:(NSString*) method 
+                      success:(void (^)(NSURLRequest *request, NSURLResponse *response, id JSON))success 
+                      failure:(void (^)(NSURLRequest *request, NSURLResponse *response, NSError *error, id JSON))failure;
+//http://localhost:3000/api/{method}/{self->ssid}
+-(void) sendRequestWithMethod:(NSString*) method 
+                      success:(void (^)(NSURLRequest *request, NSURLResponse *response, id JSON))success 
+                      failure:(void (^)(NSURLRequest *request, NSURLResponse *response, NSError *error, id JSON))failure;
+//http://localhost:3000/api/{method}/{self->ssid}?{path}
+-(void) sendRequestWithMethod:(NSString*) method path:(NSString*)path
+                      success:(void (^)(NSURLRequest *request, NSURLResponse *response, id JSON))success 
+                      failure:(void (^)(NSURLRequest *request, NSURLResponse *response, NSError *error, id JSON))failure;
+
+
 @end

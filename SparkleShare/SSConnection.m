@@ -17,9 +17,7 @@
 @property (readonly) NSURL* address;
 
 -(void) testConnection;
--(void) sendRequestWithString:(NSString*) string 
-                      success:(void (^)(NSURLRequest *request, NSURLResponse *response, id JSON))success 
-                      failure:(void (^)(NSURLRequest *request, NSURLResponse *response, NSError *error, id JSON))failure;
+
 @end
 
 @implementation SSConnection
@@ -91,21 +89,6 @@
     
 }
 
-//$ curl -H "X-SPARKLE-IDENT: qj7cGswA" \
-//-H "X-SPARKLE-AUTH: iteLARuURXKzGNJ...solGzbOutrWcfOWaUnm7ZIgNyn-" \
-//http://localhost:3000/api/getFolderList
-//[{"name":"Git1","id":"c0acdbe1e1fec3290db71beecc9af500af126f8d","type":"git"}]
-
-
-//returns data from url {self->
--(NSData*) getDataWithRequest:(NSString*)request
-{
-}
-
--(id*) getObjectWithRequest:(NSString*)request
-{
-
-}
 
 -(void) sendRequestWithString:(NSString*) string 
                       success:(void (^)(NSURLRequest *request, NSURLResponse *response, id JSON))success 
@@ -139,6 +122,12 @@
             [self.delegate connectionEstablishingFailed:self];
         } ];
 }
+
+
+//$ curl -H "X-SPARKLE-IDENT: qj7cGswA" \
+//-H "X-SPARKLE-AUTH: iteLARuURXKzGNJ...solGzbOutrWcfOWaUnm7ZIgNyn-" \
+//http://localhost:3000/api/getFolderList
+//[{"name":"Git1","id":"c0acdbe1e1fec3290db71beecc9af500af126f8d","type":"git"}]
 
 
 -(void) loadFolders

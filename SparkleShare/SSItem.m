@@ -6,33 +6,63 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "SSFolderItem.h"
+#import "SSItem.h"
+#import "SSConnection.h"
 
-@implementation SSFolderItem
-@synthesize name, ssid, url, folder;
+@implementation SSItem
+@synthesize name=_name, ssid=_ssid, url=_url;
 
--(id) initWithFolder:(SSFolder*)aFolder
-                name:(NSString*)aName 
-                ssid:(NSString*)anId
-                 url:(NSString*)anUrl
+
+-(id) initWithConnection:(SSConnection*)aConnection
+                    name:(NSString*)aName 
+                    ssid:(NSString*)anId;
 {
     if (self=[super init]){
-        self.folder = aFolder;
-        name = aName;
-        ssid = anId;
-        url = anUrl;
+        connection = aConnection;
+        self.name = aName;
+        self.ssid = anId;
     }
     return self;
 }
 
--(NSData*) getDataWithMethod:(NSString*)method
+
+-(id) initWithConnection:(SSConnection*)aConnection
+                    name:(NSString*)aName 
+                    ssid:(NSString*)anId
+                     url:(NSString*)anUrl
 {
-    return [folder getDataWithMethod:method path:url];
+    if (self=[self initWithConnection:aConnection name: aName ssid: anId]) {
+        self.url = anUrl;
+    }
+    return self;
 }
 
--(id*) getObjectWithMethod:(NSString*)method
+
+-(void) sendRequestWithSelfUrlAndMethod:(NSString*) method 
+                      success:(void (^)(NSURLRequest *request, NSURLResponse *response, id JSON))success 
+                      failure:(void (^)(NSURLRequest *request, NSURLResponse *response, NSError *error, id JSON))failure
 {
-    return [folder getObjectWithMethod:method path:url];
+    [self sendRequestWithMethod:method path:self.url success: success failure:failure];
 }
+
+
+
+//http://localhost:3000/api/{method}/{self->ssid}
+-(void) sendRequestWithMethod:(NSString*) method 
+                      success:(void (^)(NSURLRequest *request, NSURLResponse *response, id JSON))success 
+                      failure:(void (^)(NSURLRequest *request, NSURLResponse *response, NSError *error, id JSON))failure
+{
+    [connection sendRequestWithString:[NSString stringWithFormat:@"api/%@/%@", method, self.ssid] success:success failure:failure];
+}
+
+//http://localhost:3000/api/{method}/{self->ssid}?{path}
+-(void) sendRequestWithMethod:(NSString*) method path:(NSString*)path
+                      success:(void (^)(NSURLRequest *request, NSURLResponse *response, id JSON))success 
+                      failure:(void (^)(NSURLRequest *request, NSURLResponse *response, NSError *error, id JSON))failure
+{
+    [connection sendRequestWithString:[NSString stringWithFormat:@"api/%@/%@?%@", method, self.ssid, path] success:success failure:failure];
+}
+
+
 
 @end

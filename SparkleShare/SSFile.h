@@ -6,7 +6,7 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "SSFolderItem.h"
+#import "SSItem.h"
 
 @class SSFile;
 @protocol SSFileDelegate <NSObject>
@@ -14,6 +14,8 @@
 @end
 
 
-@interface SSFile : SSFolderItem
-@property (readonly) NSData* content;
+@interface SSFile : SSItem
+@property (retain) NSData* content;
+@property (strong) id<SSFileDelegate> delegate;
+-(void) loadContent;
 @end
