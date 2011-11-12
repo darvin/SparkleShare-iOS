@@ -15,7 +15,7 @@
 
 
 @interface SSFile : SSItem
-@property (retain) NSData* content;
-@property (strong) id<SSFileDelegate> delegate;
+@property (strong) NSData* content;
+@property (weak) id<SSFileDelegate> delegate;
 -(void) loadContent;
 @end

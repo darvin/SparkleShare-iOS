@@ -21,7 +21,8 @@
 @end
 
 @implementation SSConnection
-@synthesize identCode, authCode, address, delegate, folders, foldersDelegate;
+@synthesize identCode, authCode, address;
+@synthesize delegate=_delegate, folders=_folders, foldersDelegate=_foldersDelegate;
 
 -(id) init
 {

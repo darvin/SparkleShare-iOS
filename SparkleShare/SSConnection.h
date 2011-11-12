@@ -28,16 +28,13 @@
     NSURL* address;
     NSString* identCode;
     NSString* authCode;
-    NSArray* folders;
     NSOperationQueue *queue;
-    id<SSConnectionDelegate> delegate;
-    id<SSConnectionFoldersDelegate> foldersDelegate;
 
 }
 
-@property (strong) id<SSConnectionDelegate> delegate;
-@property (strong) id<SSConnectionFoldersDelegate> foldersDelegate;
-@property (retain) NSArray* folders;
+@property (weak) id<SSConnectionDelegate> delegate;
+@property (weak) id<SSConnectionFoldersDelegate> foldersDelegate;
+@property (strong) NSArray* folders;
 
 -(id) initWithAddress:(NSURL*)anAddress identCode:(NSString*)anIdentCode authCode:(NSString*)anAuthCode;
 -(id) initWithUserDefaults;

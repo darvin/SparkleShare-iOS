@@ -15,6 +15,7 @@
 @implementation SparkleShareMasterViewController
 
 @synthesize detailViewController = _detailViewController;
+@synthesize connection = _connection;
 
 - (id)initWithConnection:(SSConnection*) aConnection
 {
@@ -25,8 +26,8 @@
             self.clearsSelectionOnViewWillAppear = NO;
             self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
         }
-        connection = aConnection;
-        connection.foldersDelegate = self;
+        self.connection = aConnection;
+        self.connection.foldersDelegate = self;
         
         
     }
@@ -60,7 +61,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [connection loadFolders];
+    [self.connection loadFolders];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -96,7 +97,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [connection.folders count];
+    return [self.connection.folders count];
 }
 
 // Customize the appearance of table view cells.
@@ -112,7 +113,7 @@
         }
     }
 
-    SSFolder* folder = [connection.folders objectAtIndex:indexPath.row];
+    SSFolder* folder = [self.connection.folders objectAtIndex:indexPath.row];
     cell.textLabel.text = folder.name;
     cell.detailTextLabel.text = folder.type;
     return cell;

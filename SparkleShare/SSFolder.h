@@ -47,7 +47,7 @@
 @property int count;
 @property (copy) NSString* revision;
 @property (copy) NSArray* items;
-@property (strong) id<SSFolderInfoDelegate> infoDelegate;
-@property (strong) id<SSFolderItemsDelegate> delegate;
+@property (weak) id<SSFolderInfoDelegate> infoDelegate;
+@property (weak) id<SSFolderItemsDelegate> delegate;
 
 @end

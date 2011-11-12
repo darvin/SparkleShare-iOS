@@ -15,10 +15,10 @@
 @interface SparkleShareMasterViewController : UITableViewController <SSConnectionFoldersDelegate>
 
 {
-    SSConnection * connection;
 }
 
 @property (strong, nonatomic) SparkleShareDetailViewController *detailViewController;
+@property (strong) SSConnection* connection;
 - (id)initWithConnection:(SSConnection*) aConnection;
 -(void) connection:(SSConnection*) connection foldersLoaded:(NSArray*) folders;
 -(void) connectionFoldersLoadingFailed:(SSConnection*) connection;
