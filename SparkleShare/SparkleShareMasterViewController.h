@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SSConnection.h"
+
 @class SparkleShareDetailViewController;
 @class SSConnection;
 
-@interface SparkleShareMasterViewController : UITableViewController
+@interface SparkleShareMasterViewController : UITableViewController <SSConnectionFoldersDelegate>
 
 {
     SSConnection * connection;
@@ -18,5 +20,6 @@
 
 @property (strong, nonatomic) SparkleShareDetailViewController *detailViewController;
 - (id)initWithConnection:(SSConnection*) aConnection;
-
+-(void) connection:(SSConnection*) connection foldersLoaded:(NSArray*) folders;
+-(void) connectionFoldersLoadingFailed:(SSConnection*) connection;
 @end

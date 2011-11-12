@@ -18,6 +18,7 @@
 
 @protocol SSConnectionFoldersDelegate <NSObject>
 -(void) connection:(SSConnection*) connection foldersLoaded:(NSArray*) folders;
+-(void) connectionFoldersLoadingFailed:(SSConnection*) connection;
 @end
 
 @interface SSConnection : NSObject
@@ -29,16 +30,18 @@
     NSArray* folders;
     NSOperationQueue *queue;
     id<SSConnectionDelegate> delegate;
+    id<SSConnectionFoldersDelegate> foldersDelegate;
+
 }
 
-@property (readonly) NSArray* folders;
-@property (readonly) NSString* identCode;
-@property (readonly) NSString* authCode;
-@property (readonly) NSURL* address;
-@property (strong, retain) id<SSConnectionDelegate> delegate;
+@property (strong) id<SSConnectionDelegate> delegate;
+@property (strong) id<SSConnectionFoldersDelegate> foldersDelegate;
+@property (retain) NSArray* folders;
+
 -(id) initWithAddress:(NSURL*)anAddress identCode:(NSString*)anIdentCode authCode:(NSString*)anAuthCode;
 -(id) initWithUserDefaults;
 -(NSData*) getDataWithRequest:(NSString*)request;
 -(id*) getObjectWithRequest:(NSString*)request;
 -(void) linkDeviceWithAddress:(NSURL*)anAddress code:(NSString*)aCode;
+-(void) loadFolders;
 @end

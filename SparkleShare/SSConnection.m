@@ -7,14 +7,23 @@
 //
 
 #import "SSConnection.h"
+#import "SSFolder.h"
 #import "AFNetworking.h"
 #import "TTTURLRequestFormatter.h"
 @interface SSConnection ()
+
+@property (readonly) NSString* identCode;
+@property (readonly) NSString* authCode;
+@property (readonly) NSURL* address;
+
 -(void) testConnection;
+-(void) sendRequestWithString:(NSString*) string 
+                      success:(void (^)(NSURLRequest *request, NSURLResponse *response, id JSON))success 
+                      failure:(void (^)(NSURLRequest *request, NSURLResponse *response, NSError *error, id JSON))failure;
 @end
 
 @implementation SSConnection
-@synthesize identCode, authCode, address, delegate;
+@synthesize identCode, authCode, address, delegate, folders, foldersDelegate;
 
 -(id) init
 {
@@ -86,13 +95,7 @@
 //-H "X-SPARKLE-AUTH: iteLARuURXKzGNJ...solGzbOutrWcfOWaUnm7ZIgNyn-" \
 //http://localhost:3000/api/getFolderList
 //[{"name":"Git1","id":"c0acdbe1e1fec3290db71beecc9af500af126f8d","type":"git"}]
--(NSArray*) folders
-{
-    if (!folders) {
-        ;//fill folders
-    }
-    return folders;
-}
+
 
 //returns data from url {self->
 -(NSData*) getDataWithRequest:(NSString*)request
@@ -137,5 +140,30 @@
         } ];
 }
 
+
+-(void) loadFolders
+{
+    [self sendRequestWithString:@"api/getFolderList" 
+                        success:
+     ^(NSURLRequest *request, NSURLResponse *response, id JSON) {
+         NSLog(@"%@ %@", response, JSON);
+         NSMutableArray* newFolders = [NSMutableArray array]; //fixme no reinit existing folders
+         for (NSDictionary* folderInfo in JSON) {
+             SSFolder* newFolder = [[SSFolder alloc] initWithConnection:self 
+                                name:[folderInfo objectForKey:@"name"]
+                                ssid:[folderInfo objectForKey:@"id"]
+                                type:[folderInfo objectForKey:@"type"]];
+             [newFolders addObject:newFolder];
+         }
+         self.folders = [NSArray arrayWithArray:newFolders];
+         [self.foldersDelegate connection:self foldersLoaded:self.folders];
+     } 
+                        failure:
+     ^( NSURLRequest *request , NSURLResponse *response , NSError *error , id JSON ){
+         NSLog(@"%@ %@", response, error);
+         
+         [self.foldersDelegate connectionFoldersLoadingFailed:self];
+     } ];
+}
 
 @end

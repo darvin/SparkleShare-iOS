@@ -7,10 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SSConnection.h"
 
 @class SSFolder;
-
+@class SSConnection;
 @protocol SSFolderItemsLoaderDelegate <NSObject>
 -(void) folder:(SSFolder*) folder itemsLoaded:(NSArray*) items;
 @end

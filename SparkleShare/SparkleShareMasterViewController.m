@@ -10,6 +10,7 @@
 
 #import "SparkleShareDetailViewController.h"
 #import "SSConnection.h"
+#import "SSFolder.h"
 
 @implementation SparkleShareMasterViewController
 
@@ -25,6 +26,7 @@
             self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
         }
         connection = aConnection;
+        connection.foldersDelegate = self;
         
         
     }
@@ -58,6 +60,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [connection loadFolders];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -93,24 +96,25 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return [connection.folders count];
 }
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"FolderCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
         if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
     }
 
-    // Configure the cell.
-    cell.textLabel.text = NSLocalizedString(@"Detail", @"Detail");
+    SSFolder* folder = [connection.folders objectAtIndex:indexPath.row];
+    cell.textLabel.text = folder.name;
+    cell.detailTextLabel.text = folder.type;
     return cell;
 }
 
@@ -160,6 +164,19 @@
 	    }
         [self.navigationController pushViewController:self.detailViewController animated:YES];
     }
+}
+
+
+#pragma mark - connection folders delegate
+
+-(void) connection:(SSConnection*) connection foldersLoaded:(NSArray*) folders
+{
+    NSLog(@"folders");
+    [self.tableView reloadData];
+}
+-(void) connectionFoldersLoadingFailed:(SSConnection*) connection
+{
+    
 }
 
 @end

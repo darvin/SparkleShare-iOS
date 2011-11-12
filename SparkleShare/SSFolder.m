@@ -7,6 +7,7 @@
 //
 
 #import "SSFolder.h"
+#import "SSConnection.h"
 
 @interface SSFolder () 
 -(NSData*) getDataWithMethod:(NSString*)method;
