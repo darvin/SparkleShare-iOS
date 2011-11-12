@@ -8,31 +8,37 @@
 
 #import <Foundation/Foundation.h>
 
+
+@class SSConnection;
+
 @protocol SSConnectionDelegate <NSObject>
--(NSData*) getDataWithRequest:(NSString*)request;
--(id*) getObjectWithRequest:(NSString*)request;
+-(void) connectionEstablishingSuccess:(SSConnection*) connection;
+-(void) connectionEstablishingFailed:(SSConnection*) connection;
 @end
 
-@interface SSConnection : NSObject <SSConnectionDelegate>
+@protocol SSConnectionFoldersDelegate <NSObject>
+-(void) connection:(SSConnection*) connection foldersLoaded:(NSArray*) folders;
+@end
+
+@interface SSConnection : NSObject
 {
 @private
     NSURL* address;
-    NSString* code;
     NSString* identCode;
     NSString* authCode;
     NSArray* folders;
-    
     NSOperationQueue *queue;
+    id<SSConnectionDelegate> delegate;
 }
 
 @property (readonly) NSArray* folders;
 @property (readonly) NSString* identCode;
 @property (readonly) NSString* authCode;
 @property (readonly) NSURL* address;
--(id) initWithAddress:(NSURL*)anAddress code:(NSString*)aCode;
+@property (strong, retain) id<SSConnectionDelegate> delegate;
 -(id) initWithAddress:(NSURL*)anAddress identCode:(NSString*)anIdentCode authCode:(NSString*)anAuthCode;
 -(id) initWithUserDefaults;
 -(NSData*) getDataWithRequest:(NSString*)request;
 -(id*) getObjectWithRequest:(NSString*)request;
-
+-(void) linkDeviceWithAddress:(NSURL*)anAddress code:(NSString*)aCode;
 @end

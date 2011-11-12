@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "LoginInputViewController.h"
-@interface SparkleShareAppDelegate : UIResponder <UIApplicationDelegate, LoginInputViewControllerDelegate>
-
+#import "SSConnection.h"
+@interface SparkleShareAppDelegate : UIResponder <UIApplicationDelegate, LoginInputViewControllerDelegate, SSConnectionDelegate>
+{
+    SSConnection* connection;
+}
 @property (strong, nonatomic) UIWindow *window;
 
 @property (strong, nonatomic) UINavigationController *navigationController;

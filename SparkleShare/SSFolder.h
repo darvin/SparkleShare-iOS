@@ -9,19 +9,20 @@
 #import <Foundation/Foundation.h>
 #import "SSConnection.h"
 
-@protocol SSFolderDelegate <NSObject>
--(NSData*) getDataWithMethod:(NSString*)method path:(NSString*)path;
--(id*) getObjectWithMethod:(NSString*)method path:(NSString*)path;
+@class SSFolder;
+
+@protocol SSFolderItemsLoaderDelegate <NSObject>
+-(void) folder:(SSFolder*) folder itemsLoaded:(NSArray*) items;
 @end
 
-@interface SSFolder : NSObject <SSFolderDelegate>
+@interface SSFolder : NSObject
 {
 @private
     NSString* name;
     NSString* ssid;
     NSString* type;
     
-    id<SSConnectionDelegate> connection;
+    SSConnection* connection;
     int count;
     NSString* revision;
     NSArray* items;
@@ -41,7 +42,7 @@
 @property (readonly) int count;
 @property (readonly) NSString* revision;
 @property (readonly) NSArray* items;
-@property (nonatomic, strong) id<SSConnectionDelegate> connection;
+@property (nonatomic, strong) SSConnection* connection;
 
 
 @end

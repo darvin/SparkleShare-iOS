@@ -8,13 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import "SSFolder.h"
+
+
+
 @interface SSFolderItem : NSObject
 {
 @private
     NSString* name;
     NSString* ssid;
     NSString* url;
-    id<SSFolderDelegate> folder;
+    SSFolder* folder;
 }
 
 -(id) initWithFolder:(SSFolder*)aFolder
@@ -27,5 +30,5 @@
 @property (readonly) NSString* name;
 @property (readonly) NSString* ssid;
 @property (readonly) NSString* url;
-@property (nonatomic, strong) id<SSFolderDelegate> folder;
+@property (nonatomic, strong) SSFolder* folder;
 @end

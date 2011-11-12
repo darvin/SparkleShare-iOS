@@ -8,6 +8,12 @@
 
 #import "SSFolderItem.h"
 
+@class SSFile;
+@protocol SSFileDelegate <NSObject>
+-(void) file:(SSFile*) file contentLoaded:(NSData*) content;
+@end
+
+
 @interface SSFile : SSFolderItem
 @property (readonly) NSData* content;
 @end

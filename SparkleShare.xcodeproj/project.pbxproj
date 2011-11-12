@@ -21,6 +21,7 @@
 		5737A389146DD0BA00F4E2F2 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 5737A386146DD0BA00F4E2F2 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		5737A38A146DD0BA00F4E2F2 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5737A387146DD0BA00F4E2F2 /* README.md */; };
 		5737A38E146DD48C00F4E2F2 /* TTTURLRequestFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5737A38D146DD48C00F4E2F2 /* TTTURLRequestFormatter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		5737A391146DE1B300F4E2F2 /* sparkleshare-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5737A390146DE1B300F4E2F2 /* sparkleshare-logo.png */; };
 		579F9AA914678A4E00709C70 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 579F9AA814678A4E00709C70 /* UIKit.framework */; };
 		579F9AAB14678A4E00709C70 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 579F9AAA14678A4E00709C70 /* Foundation.framework */; };
 		579F9AAD14678A4E00709C70 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 579F9AAC14678A4E00709C70 /* CoreGraphics.framework */; };
@@ -29,7 +30,7 @@
 		579F9AB914678A4E00709C70 /* SparkleShareAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 579F9AB814678A4E00709C70 /* SparkleShareAppDelegate.m */; };
 		579F9ABC14678A4E00709C70 /* SparkleShareMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 579F9ABB14678A4E00709C70 /* SparkleShareMasterViewController.m */; };
 		579F9ABF14678A4E00709C70 /* SparkleShareDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 579F9ABE14678A4E00709C70 /* SparkleShareDetailViewController.m */; };
-		579F9AC214678A4E00709C70 /* SparkleShareMasterViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 579F9AC014678A4E00709C70 /* SparkleShareMasterViewController_iPhone.xib */; };
+		579F9AC214678A4E00709C70 /* SparkleShareMasterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 579F9AC014678A4E00709C70 /* SparkleShareMasterViewController.xib */; };
 		579F9AC514678A4E00709C70 /* SparkleShareMasterViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 579F9AC314678A4E00709C70 /* SparkleShareMasterViewController_iPad.xib */; };
 		579F9AC814678A4E00709C70 /* SparkleShareDetailViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 579F9AC614678A4E00709C70 /* SparkleShareDetailViewController_iPhone.xib */; };
 		579F9ACB14678A4E00709C70 /* SparkleShareDetailViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 579F9AC914678A4E00709C70 /* SparkleShareDetailViewController_iPad.xib */; };
@@ -105,6 +106,7 @@
 		5737A387146DD0BA00F4E2F2 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		5737A38C146DD48C00F4E2F2 /* TTTURLRequestFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTURLRequestFormatter.h; sourceTree = "<group>"; };
 		5737A38D146DD48C00F4E2F2 /* TTTURLRequestFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTURLRequestFormatter.m; sourceTree = "<group>"; };
+		5737A390146DE1B300F4E2F2 /* sparkleshare-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sparkleshare-logo.png"; sourceTree = "<group>"; };
 		579F9AA414678A4E00709C70 /* SparkleShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SparkleShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		579F9AA814678A4E00709C70 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		579F9AAA14678A4E00709C70 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -119,7 +121,7 @@
 		579F9ABB14678A4E00709C70 /* SparkleShareMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SparkleShareMasterViewController.m; sourceTree = "<group>"; };
 		579F9ABD14678A4E00709C70 /* SparkleShareDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SparkleShareDetailViewController.h; sourceTree = "<group>"; };
 		579F9ABE14678A4E00709C70 /* SparkleShareDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SparkleShareDetailViewController.m; sourceTree = "<group>"; };
-		579F9AC114678A4E00709C70 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SparkleShareMasterViewController_iPhone.xib; sourceTree = "<group>"; };
+		579F9AC114678A4E00709C70 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SparkleShareMasterViewController.xib; sourceTree = "<group>"; };
 		579F9AC414678A4E00709C70 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SparkleShareMasterViewController_iPad.xib; sourceTree = "<group>"; };
 		579F9AC714678A4E00709C70 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SparkleShareDetailViewController_iPhone.xib; sourceTree = "<group>"; };
 		579F9ACA14678A4E00709C70 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SparkleShareDetailViewController_iPad.xib; sourceTree = "<group>"; };
@@ -269,6 +271,14 @@
 			path = TTTURLRequestFormatter;
 			sourceTree = "<group>";
 		};
+		5737A38F146DE1B300F4E2F2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5737A390146DE1B300F4E2F2 /* sparkleshare-logo.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		579F9A9914678A4D00709C70 = {
 			isa = PBXGroup;
 			children = (
@@ -312,6 +322,7 @@
 		579F9AAE14678A4E00709C70 /* SparkleShare */ = {
 			isa = PBXGroup;
 			children = (
+				5737A38F146DE1B300F4E2F2 /* Resources */,
 				57DD1C24146D620B0010B621 /* LoginInput */,
 				579F9AE914678A5B00709C70 /* Model */,
 				579F9AB714678A4E00709C70 /* SparkleShareAppDelegate.h */,
@@ -320,7 +331,7 @@
 				579F9ABB14678A4E00709C70 /* SparkleShareMasterViewController.m */,
 				579F9ABD14678A4E00709C70 /* SparkleShareDetailViewController.h */,
 				579F9ABE14678A4E00709C70 /* SparkleShareDetailViewController.m */,
-				579F9AC014678A4E00709C70 /* SparkleShareMasterViewController_iPhone.xib */,
+				579F9AC014678A4E00709C70 /* SparkleShareMasterViewController.xib */,
 				579F9AC314678A4E00709C70 /* SparkleShareMasterViewController_iPad.xib */,
 				579F9AC614678A4E00709C70 /* SparkleShareDetailViewController_iPhone.xib */,
 				579F9AC914678A4E00709C70 /* SparkleShareDetailViewController_iPad.xib */,
@@ -540,7 +551,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				579F9AB314678A4E00709C70 /* InfoPlist.strings in Resources */,
-				579F9AC214678A4E00709C70 /* SparkleShareMasterViewController_iPhone.xib in Resources */,
+				579F9AC214678A4E00709C70 /* SparkleShareMasterViewController.xib in Resources */,
 				579F9AC514678A4E00709C70 /* SparkleShareMasterViewController_iPad.xib in Resources */,
 				579F9AC814678A4E00709C70 /* SparkleShareDetailViewController_iPhone.xib in Resources */,
 				579F9ACB14678A4E00709C70 /* SparkleShareDetailViewController_iPad.xib in Resources */,
@@ -553,6 +564,7 @@
 				57CA606A146D8B08002B747A /* QRCodeLoginInputViewController.xib in Resources */,
 				5737A388146DD0BA00F4E2F2 /* CHANGELOG.md in Resources */,
 				5737A38A146DD0BA00F4E2F2 /* README.md in Resources */,
+				5737A391146DE1B300F4E2F2 /* sparkleshare-logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -642,12 +654,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		579F9AC014678A4E00709C70 /* SparkleShareMasterViewController_iPhone.xib */ = {
+		579F9AC014678A4E00709C70 /* SparkleShareMasterViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				579F9AC114678A4E00709C70 /* en */,
 			);
-			name = SparkleShareMasterViewController_iPhone.xib;
+			name = SparkleShareMasterViewController.xib;
 			sourceTree = "<group>";
 		};
 		579F9AC314678A4E00709C70 /* SparkleShareMasterViewController_iPad.xib */ = {

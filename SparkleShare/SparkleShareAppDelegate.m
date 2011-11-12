@@ -20,43 +20,12 @@
 @synthesize navigationController = _navigationController;
 @synthesize splitViewController = _splitViewController;
 
--(void) openMainViews
-{
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        SparkleShareMasterViewController *masterViewController = [[SparkleShareMasterViewController alloc] initWithNibName:@"SparkleShareMasterViewController_iPhone" bundle:nil];
-        self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
-        self.window.rootViewController = self.navigationController;
-    } else {
-        SparkleShareMasterViewController *masterViewController = [[SparkleShareMasterViewController alloc] initWithNibName:@"SparkleShareMasterViewController_iPad" bundle:nil];
-        UINavigationController *masterNavigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
-        
-        SparkleShareDetailViewController *detailViewController = [[SparkleShareDetailViewController alloc] initWithNibName:@"SparkleShareDetailViewController_iPad" bundle:nil];
-        UINavigationController *detailNavigationController = [[UINavigationController alloc] initWithRootViewController:detailViewController];
-        
-        self.splitViewController = [[UISplitViewController alloc] init];
-        self.splitViewController.delegate = detailViewController;
-        self.splitViewController.viewControllers = [NSArray arrayWithObjects:masterNavigationController, detailNavigationController, nil];
-        
-        self.window.rootViewController = self.splitViewController;
-    }
-
-}
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
 
-    if (![userDefaults boolForKey:@"linked"]) {
-        
-        SelectLoginInputViewController* selectLoginInputViewController = [[SelectLoginInputViewController alloc] initWithNibName:@"SelectLoginInputViewController" bundle:nil];
-        selectLoginInputViewController.delegate = self;
-        self.navigationController = [[UINavigationController alloc] initWithRootViewController:selectLoginInputViewController];
-        self.window.rootViewController = self.navigationController;
-    }
-    else {
-        [self openMainViews];
-    }
+    connection = [[SSConnection alloc] initWithUserDefaults];
+    connection.delegate = self;
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -103,10 +72,39 @@
 -(void)loginInputViewController: (LoginInputViewController*) loginInputViewController   
                     willSetLink:(NSURL*) link code:(NSString*) code;
 {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setURL:link forKey:@"link"];
-    [userDefaults setObject:code forKey:@"code"];
-    [userDefaults synchronize];
-    [self openMainViews];
+    [connection linkDeviceWithAddress:link code:code];
 }
+
+
+-(void) connectionEstablishingSuccess:(SSConnection*) aConnection
+{
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        SparkleShareMasterViewController *masterViewController = [[SparkleShareMasterViewController alloc] initWithConnection:aConnection];
+        self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
+        self.window.rootViewController = self.navigationController;
+    } else {
+        SparkleShareMasterViewController *masterViewController = [[SparkleShareMasterViewController alloc] initWithConnection:aConnection];
+        UINavigationController *masterNavigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
+        
+        SparkleShareDetailViewController *detailViewController = [[SparkleShareDetailViewController alloc] initWithNibName:@"SparkleShareDetailViewController_iPad" bundle:nil];
+        UINavigationController *detailNavigationController = [[UINavigationController alloc] initWithRootViewController:detailViewController];
+        
+        self.splitViewController = [[UISplitViewController alloc] init];
+        self.splitViewController.delegate = detailViewController;
+        self.splitViewController.viewControllers = [NSArray arrayWithObjects:masterNavigationController, detailNavigationController, nil];
+        
+        self.window.rootViewController = self.splitViewController;
+    }
+
+}
+-(void) connectionEstablishingFailed:(SSConnection*) connection
+{
+    //todo: eliminate reinitialization
+    SelectLoginInputViewController* selectLoginInputViewController = [[SelectLoginInputViewController alloc] initWithNibName:@"SelectLoginInputViewController" bundle:nil];
+    selectLoginInputViewController.delegate = self;
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:selectLoginInputViewController];
+    self.window.rootViewController = self.navigationController;
+}
+
+
 @end

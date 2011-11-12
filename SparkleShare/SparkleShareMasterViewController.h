@@ -17,5 +17,6 @@
 }
 
 @property (strong, nonatomic) SparkleShareDetailViewController *detailViewController;
+- (id)initWithConnection:(SSConnection*) aConnection;
 
 @end

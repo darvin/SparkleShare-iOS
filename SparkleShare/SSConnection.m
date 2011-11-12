@@ -10,11 +10,11 @@
 #import "AFNetworking.h"
 #import "TTTURLRequestFormatter.h"
 @interface SSConnection ()
--(void) linkDevice;
+-(void) testConnection;
 @end
 
 @implementation SSConnection
-@synthesize identCode, authCode, address;
+@synthesize identCode, authCode, address, delegate;
 
 -(id) init
 {
@@ -24,14 +24,6 @@
     return self;
 }
 
--(id) initWithAddress:(NSURL*)anAddress code:(NSString*)aCode
-{
-    self=[self init];
-    address = anAddress;
-    code = aCode;
-    [self linkDevice];
-    return self;
-}
 
 -(id) initWithAddress:(NSURL*)anAddress identCode:(NSString*)anIdentCode authCode:(NSString*)anAuthCode
 {
@@ -39,58 +31,54 @@
     address = anAddress;
     authCode = anAuthCode;
     identCode = anIdentCode;
+    [self testConnection];
     return self;
 }
 
 -(id) initWithUserDefaults
 {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    if (![userDefaults URLForKey:@"link"])
-        @throw([NSException exceptionWithName:@"IncorrectUserDefaults" reason:@"no link in user defaults" userInfo:nil]);
-    if (![userDefaults boolForKey:@"linked"])
-        return [self initWithAddress:[userDefaults URLForKey:@"link"] code:[userDefaults objectForKey:@"code"]];
+    if (![userDefaults URLForKey:@"link"]){
+        [self.delegate connectionEstablishingFailed:self];
+        self = nil;
+    }
     else
-        return [self initWithAddress:[userDefaults URLForKey:@"link"] identCode:[userDefaults objectForKey:@"identCode"] authCode:[userDefaults objectForKey:@"authCode"]];
-        
+        self = [self initWithAddress:[userDefaults URLForKey:@"link"] identCode:[userDefaults objectForKey:@"identCode"] authCode:[userDefaults objectForKey:@"authCode"]];
+    return self;
 }
 
 //$ curl --data "code=286685&name=My%20Name" http://localhost:3000/api/getAuthCode
 //{"ident":"qj7cGswA","authCode":"iteLARuURXKzGNJ...solGzbOutrWcfOWaUnm7ZIgNyn-"}
--(void) linkDevice
+-(void) linkDeviceWithAddress:(NSURL*)anAddress code:(NSString*)code
 {
-    if (!identCode||!authCode) {
-        ;
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[address URLByAppendingPathComponent:  @"api/getAuthCode"]];
-        [request setHTTPMethod:@"POST"];
-        NSString* requestString = [NSString stringWithFormat:@"code=%@&name=%@",
-                                   [code stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding],
-                                   [[[UIDevice currentDevice] name] stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
-        NSData *requestData = [NSData dataWithBytes: [requestString UTF8String] length: [requestString length]];
-        [request setHTTPBody: requestData];
+    address = anAddress;
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[address URLByAppendingPathComponent:  @"api/getAuthCode"]];
+    [request setHTTPMethod:@"POST"];
+    NSString* requestString = [NSString stringWithFormat:@"code=%@&name=%@",
+                               [code stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding],
+                               [[[UIDevice currentDevice] name] stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
+    NSData *requestData = [NSData dataWithBytes: [requestString UTF8String] length: [requestString length]];
+    [request setHTTPBody: requestData];
 
-        NSLog(@"%@", [TTTURLRequestFormatter cURLCommandFromURLRequest:request]);
+    NSLog(@"%@", [TTTURLRequestFormatter cURLCommandFromURLRequest:request]);
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSURLResponse *response, id JSON) {
+        identCode = [JSON valueForKey:@"ident"];
+        authCode = [JSON valueForKey:@"authCode"];
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        [userDefaults setObject:identCode forKey:@"identCode"];
+        [userDefaults setObject:authCode forKey:@"authCode"];
+        [userDefaults setURL:address forKey:@"link"];
+        [userDefaults setBool:YES forKey:@"linked"];
+        [userDefaults removeObjectForKey:@"code"];
         
-        AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSURLResponse *response, id JSON) {
-            identCode = [JSON valueForKey:@"ident"];
-            authCode = [JSON valueForKey:@"authCode"];
-            NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-            [userDefaults setObject:identCode forKey:@"identCode"];
-            [userDefaults setObject:authCode forKey:@"authCode"];
-            [userDefaults setURL:address forKey:@"link"];
-            [userDefaults setBool:YES forKey:@"linked"];
-            [userDefaults removeObjectForKey:@"code"];
-            
-            [userDefaults synchronize];
-            NSLog(@"wea are good");
-
-
-
-        } failure:^( NSURLRequest *request , NSURLResponse *response , NSError *error , id JSON ){
-            NSLog(@"resp %@     err  %@", response, error);
-        }];
-        
-        [queue addOperation:operation];
-    }
+        [userDefaults synchronize];
+        [self.delegate connectionEstablishingSuccess:self];
+    } failure:^( NSURLRequest *request , NSURLResponse *response , NSError *error , id JSON ){
+        [self.delegate connectionEstablishingFailed:self];
+    }];
+    
+    [queue addOperation:operation];
     
 }
 
@@ -114,6 +102,39 @@
 -(id*) getObjectWithRequest:(NSString*)request
 {
 
+}
+
+-(void) sendRequestWithString:(NSString*) string 
+                      success:(void (^)(NSURLRequest *request, NSURLResponse *response, id JSON))success 
+                      failure:(void (^)(NSURLRequest *request, NSURLResponse *response, NSError *error, id JSON))failure
+{
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[address URLByAppendingPathComponent:  string]];
+    [request setValue:identCode forHTTPHeaderField:@"X-SPARKLE-IDENT"];
+    [request setValue:authCode forHTTPHeaderField:@"X-SPARKLE-AUTH"];
+    
+    NSLog(@"%@", [TTTURLRequestFormatter cURLCommandFromURLRequest:request]);
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:success
+     failure:failure];
+    
+    [queue addOperation:operation];
+
+}
+
+-(void) testConnection
+{
+    [self sendRequestWithString:@"api/getFolderList" 
+                        success:
+        ^(NSURLRequest *request, NSURLResponse *response, id JSON) {
+            NSLog(@"%@ %@", response, JSON);
+            [self.delegate connectionEstablishingSuccess:self];
+        } 
+                        failure:
+        ^( NSURLRequest *request , NSURLResponse *response , NSError *error , id JSON ){
+            NSLog(@"%@ %@", response, error);
+        
+            [self.delegate connectionEstablishingFailed:self];
+        } ];
 }
 
 

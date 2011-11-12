@@ -15,17 +15,17 @@
 
 @synthesize detailViewController = _detailViewController;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithConnection:(SSConnection*) aConnection
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super init];
     if (self) {
         self.title = NSLocalizedString(@"Master", @"Master");
         if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
             self.clearsSelectionOnViewWillAppear = NO;
             self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
         }
+        connection = aConnection;
         
-        connection = [[SSConnection alloc] initWithUserDefaults];
         
     }
     return self;

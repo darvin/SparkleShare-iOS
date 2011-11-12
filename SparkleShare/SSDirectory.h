@@ -8,6 +8,11 @@
 
 #import "SSFolderItem.h"
 
+@class SSDirectory;
+@protocol SSDirectoryDelegate <NSObject>
+-(void) directory:(SSDirectory*) directory itemsLoaded:(NSArray*) items;
+@end
+
 @interface SSDirectory : SSFolderItem
 {
 @private
