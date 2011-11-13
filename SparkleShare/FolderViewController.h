@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "SSFolder.h"
+#import "SSFile.h"
 
-@interface FolderViewController : UITableViewController <SSFolderInfoDelegate, SSFolderItemsDelegate>
+@interface FolderViewController : UITableViewController <SSFolderInfoDelegate, SSFolderItemsDelegate, SSFileDelegate>
 
 @property (strong) SSFolder* folder;
 - (id)initWithFolder:(SSFolder*) folder;

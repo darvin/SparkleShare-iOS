@@ -70,7 +70,6 @@
 -(void)loginInputViewController: (LoginInputViewController*) loginInputViewController   
                     willSetLink:(NSURL*) link code:(NSString*) code
 {
-    NSLog(@"%@ :::: %@", [link description], code);
     [self.navigationController popViewControllerAnimated:YES];
     [self.delegate loginInputViewController:loginInputViewController willSetLink:link code:code];
 }

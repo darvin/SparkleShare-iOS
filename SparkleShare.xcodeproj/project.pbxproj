@@ -27,6 +27,9 @@
 		579EE168147032230074B72B /* FileSizeFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 579EE167147032230074B72B /* FileSizeFormatter.m */; };
 		579EE16C147034190074B72B /* FileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 579EE16A147034190074B72B /* FileViewController.m */; };
 		579EE16D147034190074B72B /* FileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 579EE16B147034190074B72B /* FileViewController.xib */; };
+		579EE16F147041280074B72B /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 579EE16E147041280074B72B /* QuickLook.framework */; };
+		579EE172147043940074B72B /* FilePreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 579EE171147043930074B72B /* FilePreview.m */; };
+		579EE175147054890074B72B /* NSString+Hashing.m in Sources */ = {isa = PBXBuildFile; fileRef = 579EE174147054890074B72B /* NSString+Hashing.m */; };
 		579F9AA914678A4E00709C70 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 579F9AA814678A4E00709C70 /* UIKit.framework */; };
 		579F9AAB14678A4E00709C70 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 579F9AAA14678A4E00709C70 /* Foundation.framework */; };
 		579F9AAD14678A4E00709C70 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 579F9AAC14678A4E00709C70 /* CoreGraphics.framework */; };
@@ -119,6 +122,11 @@
 		579EE169147034180074B72B /* FileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileViewController.h; sourceTree = "<group>"; };
 		579EE16A147034190074B72B /* FileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileViewController.m; sourceTree = "<group>"; };
 		579EE16B147034190074B72B /* FileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FileViewController.xib; sourceTree = "<group>"; };
+		579EE16E147041280074B72B /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
+		579EE170147043930074B72B /* FilePreview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilePreview.h; sourceTree = "<group>"; };
+		579EE171147043930074B72B /* FilePreview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilePreview.m; sourceTree = "<group>"; };
+		579EE173147054880074B72B /* NSString+Hashing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hashing.h"; sourceTree = "<group>"; };
+		579EE174147054890074B72B /* NSString+Hashing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hashing.m"; sourceTree = "<group>"; };
 		579F9AA414678A4E00709C70 /* SparkleShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SparkleShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		579F9AA814678A4E00709C70 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		579F9AAA14678A4E00709C70 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -203,6 +211,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				579EE16F147041280074B72B /* QuickLook.framework in Frameworks */,
 				57AD9CDD146D82CF00BED6A6 /* libiconv.dylib in Frameworks */,
 				57AD9CDB146D82C600BED6A6 /* QuartzCore.framework in Frameworks */,
 				57AD9CD9146D82BA00BED6A6 /* CoreVideo.framework in Frameworks */,
@@ -292,6 +301,7 @@
 		579F9A9914678A4D00709C70 = {
 			isa = PBXGroup;
 			children = (
+				579EE16E147041280074B72B /* QuickLook.framework */,
 				57AD9CDC146D82CF00BED6A6 /* libiconv.dylib */,
 				57AD9CDA146D82C600BED6A6 /* QuartzCore.framework */,
 				57AD9CD8146D82BA00BED6A6 /* CoreVideo.framework */,
@@ -353,6 +363,10 @@
 				5751447A146F3E52002D3553 /* FolderViewController.xib */,
 				579F9AAF14678A4E00709C70 /* Supporting Files */,
 				579EE164147031EB0074B72B /* Formatters */,
+				579EE170147043930074B72B /* FilePreview.h */,
+				579EE171147043930074B72B /* FilePreview.m */,
+				579EE173147054880074B72B /* NSString+Hashing.h */,
+				579EE174147054890074B72B /* NSString+Hashing.m */,
 			);
 			path = SparkleShare;
 			sourceTree = "<group>";
@@ -644,6 +658,8 @@
 				57514486146F524C002D3553 /* SSJSONRequestOperation.m in Sources */,
 				579EE168147032230074B72B /* FileSizeFormatter.m in Sources */,
 				579EE16C147034190074B72B /* FileViewController.m in Sources */,
+				579EE172147043940074B72B /* FilePreview.m in Sources */,
+				579EE175147054890074B72B /* NSString+Hashing.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

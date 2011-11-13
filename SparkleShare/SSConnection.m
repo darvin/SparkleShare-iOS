@@ -69,7 +69,6 @@
     NSData *requestData = [NSData dataWithBytes: [requestString UTF8String] length: [requestString length]];
     [request setHTTPBody: requestData];
 
-    NSLog(@"%@", [TTTURLRequestFormatter cURLCommandFromURLRequest:request]);
     SSJSONRequestOperation *operation = [SSJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSURLResponse *response, id JSON) {
         identCode = [JSON valueForKey:@"ident"];
         authCode = [JSON valueForKey:@"authCode"];
@@ -100,7 +99,6 @@
     [request setValue:identCode forHTTPHeaderField:@"X-SPARKLE-IDENT"];
     [request setValue:authCode forHTTPHeaderField:@"X-SPARKLE-AUTH"];
     
-    NSLog(@"%@", [TTTURLRequestFormatter cURLCommandFromURLRequest:request]);
     
     SSJSONRequestOperation *operation = [SSJSONRequestOperation JSONRequestOperationWithRequest:request success:success failure:failure];
     
@@ -113,13 +111,11 @@
     [self sendRequestWithString:@"/api/getFolderList" 
                         success:
         ^(NSURLRequest *request, NSURLResponse *response, id JSON) {
-            NSLog(@"%@ %@", response, JSON);
             self.rootFolder = [[SSRootFolder alloc] initWithConnection:self];
             [self.delegate connectionEstablishingSuccess:self];
         } 
                         failure:
         ^( NSURLRequest *request , NSURLResponse *response , NSError *error , id JSON ){
-            NSLog(@"%@ %@", response, error);
         
             [self.delegate connectionEstablishingFailed:self];
         } ];

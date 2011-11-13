@@ -168,8 +168,9 @@
         FolderViewController *newFolderViewController = [[FolderViewController alloc] initWithFolder:(SSFolder*)item];
         [self.navigationController pushViewController:newFolderViewController animated:YES];
     } else if ([item isKindOfClass:[SSFile class]]) {
-        FileViewController* newFileViewController = [[FileViewController alloc] initWithFile:(SSFile*)item];
-        [self.navigationController pushViewController:newFileViewController animated:YES];
+        SSFile* file = (SSFile*)item;
+        file.delegate = self;
+        [file loadContent];
     }
 }
 
@@ -221,6 +222,22 @@
     [self reloadOneItem:folder];
 }
 -(void) folderInfoLoadingFailed:(SSFolder*) folder{}
+
+
+
+
+
+-(void) file:(SSFile*) file contentLoaded:(NSData*) content
+{
+    FilePreview* filePreview = [[FilePreview alloc] initWithFile:file];
+    
+    FileViewController* newFileViewController = [[FileViewController alloc] initWithFilePreview:filePreview filename:file.name];
+    [self.navigationController pushViewController:newFileViewController animated:YES];
+}
+
+-(void) fileContentLoadingFailed:(SSFile*) file
+{
+}
 
 
 @end

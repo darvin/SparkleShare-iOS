@@ -38,7 +38,6 @@
 //(BINARY DATA)
 -(void) loadContent
 {
-    TTTHTTPURLResponseFormatter* respForm = [[TTTHTTPURLResponseFormatter alloc] init];
 
     [self sendRequestWithSelfUrlAndMethod:@"getFile" success:
      ^(NSURLRequest *request, NSURLResponse *response, id JSON) {
@@ -48,7 +47,6 @@
      } 
                                   failure:
      ^( NSURLRequest *request , NSURLResponse *response , NSError *error , id JSON ){
-         NSLog(@"%@", [respForm stringFromHTTPURLResponse:response]);
          [self.delegate fileContentLoadingFailed:self];
      }];}
 

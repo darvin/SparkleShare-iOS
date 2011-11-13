@@ -7,19 +7,12 @@
 //
 
 #import "FileViewController.h"
+#import "FilePreview.h"
 
 @implementation FileViewController
-@synthesize file = _file;
+@synthesize filePreview=_filePreview;
 
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -50,32 +43,36 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [self.file loadContent];
-}
 
-#pragma mark - SSFile stuff
-- (id)initWithFile:(SSFile *)file
+#pragma mark - 
+- (id)initWithFilePreview:(FilePreview*) filePreview filename:(NSString*) filename
 {
     if (self = [super init]) {
-        self.file = file;
-        self.file.delegate = self;
-        self.title = self.file.name;
+        self.filePreview = filePreview;
+        self.dataSource = self;
+        self.title = filename;
 
     }
     return self;
 }
 
--(void) file:(SSFile*) file contentLoaded:(NSData*) content
-{
-    NSLog(@"fileloaded");
-}
 
--(void) fileContentLoadingFailed:(SSFile*) file
+
+- (NSInteger)numberOfPreviewItemsInPreviewController:(QLPreviewController *)controller
 {
-    NSLog(@"fileloading failed");
+    if (self.filePreview) {
+        return 1;
+    } else {
+        return 0;
+    }
 }
+- (id <QLPreviewItem>)previewController:(QLPreviewController *)controller previewItemAtIndex:(NSInteger)index;
+{
+    if (index==0&&self.filePreview) {
+        return self.filePreview;
+    }
+    return nil;
+};
+
 
 @end

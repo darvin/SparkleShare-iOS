@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SSFile.h"
-@interface FileViewController : UIViewController <SSFileDelegate>;
-@property (strong) SSFile* file;
-- (id)initWithFile:(SSFile*) file;
+#import <QuickLook/QuickLook.h>
+#import "FilePreview.h"
+@interface FileViewController : QLPreviewController <QLPreviewControllerDataSource>;
+@property (strong) FilePreview* filePreview;
+- (id)initWithFilePreview:(FilePreview*) filePreview filename:(NSString*) filename;
 
 @end

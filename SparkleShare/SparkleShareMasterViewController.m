@@ -172,7 +172,6 @@
 
 -(void) connection:(SSConnection*) connection foldersLoaded:(NSArray*) folders
 {
-    NSLog(@"folders");
     [self.tableView reloadData];
 }
 -(void) connectionFoldersLoadingFailed:(SSConnection*) connection

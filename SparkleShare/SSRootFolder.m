@@ -29,7 +29,6 @@
     [connection sendRequestWithString:@"/api/getFolderList" 
                         success:
      ^(NSURLRequest *request, NSURLResponse *response, id JSON) {
-         NSLog(@"%@ %@", response, JSON);
          NSMutableArray* newFolders = [NSMutableArray array]; 
          for (NSDictionary* folderInfo in JSON) {
              SSFolder* newFolder = [[SSFolder alloc] initWithConnection:connection
@@ -42,7 +41,6 @@
      } 
                         failure:
      ^( NSURLRequest *request , NSURLResponse *response , NSError *error , id JSON ){
-         NSLog(@"%@ %@", response, error);
          
          [self.delegate folderLoadingFailed:self];
      } ];

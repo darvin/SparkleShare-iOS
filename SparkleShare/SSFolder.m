@@ -105,7 +105,6 @@
 {
     [self sendRequestWithSelfUrlAndMethod:@"getFolderContent" success:
      ^(NSURLRequest *request, NSURLResponse *response, id JSON) {
-         NSLog(@"%@ %@", response, JSON);
          NSMutableArray* newItems = [NSMutableArray array]; 
          for (NSDictionary* itemInfo in JSON) {
              NSString* type = [itemInfo objectForKey:@"type"];
@@ -123,7 +122,6 @@
      } 
                         failure:
      ^( NSURLRequest *request , NSURLResponse *response , NSError *error , id JSON ){
-         NSLog(@"%@ %@", response, error);
          
          [self.delegate folderLoadingFailed:self];
      }];
