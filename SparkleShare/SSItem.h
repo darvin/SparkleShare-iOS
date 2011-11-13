@@ -13,9 +13,7 @@
 
 @interface SSItem : NSObject
 {
-    @private
     SSConnection* connection;
-
 }
 
 

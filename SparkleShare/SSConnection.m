@@ -7,9 +7,10 @@
 //
 
 #import "SSConnection.h"
-#import "SSFolder.h"
-#import "AFNetworking.h"
+#import "SSJSONRequestOperation.h"
 #import "TTTURLRequestFormatter.h"
+#import "SSRootFolder.h"
+
 @interface SSConnection ()
 
 @property (readonly) NSString* identCode;
@@ -22,7 +23,7 @@
 
 @implementation SSConnection
 @synthesize identCode, authCode, address;
-@synthesize delegate=_delegate, folders=_folders, foldersDelegate=_foldersDelegate;
+@synthesize delegate=_delegate, rootFolder=_rootFolder;
 
 -(id) init
 {
@@ -70,7 +71,7 @@
 
     NSLog(@"%@", [TTTURLRequestFormatter cURLCommandFromURLRequest:request]);
     
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSURLResponse *response, id JSON) {
+    SSJSONRequestOperation *operation = (SSJSONRequestOperation *)[SSJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSURLResponse *response, id JSON) {
         identCode = [JSON valueForKey:@"ident"];
         authCode = [JSON valueForKey:@"authCode"];
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
@@ -81,7 +82,7 @@
         [userDefaults removeObjectForKey:@"code"];
         
         [userDefaults synchronize];
-        [self.delegate connectionEstablishingSuccess:self];
+        [self testConnection];
     } failure:^( NSURLRequest *request , NSURLResponse *response , NSError *error , id JSON ){
         [self.delegate connectionEstablishingFailed:self];
     }];
@@ -101,8 +102,7 @@
     
     NSLog(@"%@", [TTTURLRequestFormatter cURLCommandFromURLRequest:request]);
     
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:success
-     failure:failure];
+    SSJSONRequestOperation *operation = (SSJSONRequestOperation *)[SSJSONRequestOperation JSONRequestOperationWithRequest:request success:success failure:failure];
     
     [queue addOperation:operation];
 
@@ -114,6 +114,7 @@
                         success:
         ^(NSURLRequest *request, NSURLResponse *response, id JSON) {
             NSLog(@"%@ %@", response, JSON);
+            self.rootFolder = [[SSRootFolder alloc] initWithConnection:self];
             [self.delegate connectionEstablishingSuccess:self];
         } 
                         failure:
@@ -125,35 +126,5 @@
 }
 
 
-//$ curl -H "X-SPARKLE-IDENT: qj7cGswA" \
-//-H "X-SPARKLE-AUTH: iteLARuURXKzGNJ...solGzbOutrWcfOWaUnm7ZIgNyn-" \
-//http://localhost:3000/api/getFolderList
-//[{"name":"Git1","id":"c0acdbe1e1fec3290db71beecc9af500af126f8d","type":"git"}]
-
-
--(void) loadFolders
-{
-    [self sendRequestWithString:@"api/getFolderList" 
-                        success:
-     ^(NSURLRequest *request, NSURLResponse *response, id JSON) {
-         NSLog(@"%@ %@", response, JSON);
-         NSMutableArray* newFolders = [NSMutableArray array]; //fixme no reinit existing folders
-         for (NSDictionary* folderInfo in JSON) {
-             SSFolder* newFolder = [[SSFolder alloc] initWithConnection:self 
-                                name:[folderInfo objectForKey:@"name"]
-                                ssid:[folderInfo objectForKey:@"id"]
-                                type:[folderInfo objectForKey:@"type"]];
-             [newFolders addObject:newFolder];
-         }
-         self.folders = [NSArray arrayWithArray:newFolders];
-         [self.foldersDelegate connection:self foldersLoaded:self.folders];
-     } 
-                        failure:
-     ^( NSURLRequest *request , NSURLResponse *response , NSError *error , id JSON ){
-         NSLog(@"%@ %@", response, error);
-         
-         [self.foldersDelegate connectionFoldersLoadingFailed:self];
-     } ];
-}
 
 @end

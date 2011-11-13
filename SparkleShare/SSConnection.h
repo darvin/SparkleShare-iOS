@@ -10,15 +10,11 @@
 
 
 @class SSConnection;
+@class SSRootFolder;
 
 @protocol SSConnectionDelegate <NSObject>
 -(void) connectionEstablishingSuccess:(SSConnection*) connection;
 -(void) connectionEstablishingFailed:(SSConnection*) connection;
-@end
-
-@protocol SSConnectionFoldersDelegate <NSObject>
--(void) connection:(SSConnection*) connection foldersLoaded:(NSArray*) folders;
--(void) connectionFoldersLoadingFailed:(SSConnection*) connection;
 @end
 
 
@@ -33,8 +29,7 @@
 }
 
 @property (weak) id<SSConnectionDelegate> delegate;
-@property (weak) id<SSConnectionFoldersDelegate> foldersDelegate;
-@property (strong) NSArray* folders;
+@property (strong) SSRootFolder* rootFolder;
 
 -(id) initWithAddress:(NSURL*)anAddress identCode:(NSString*)anIdentCode authCode:(NSString*)anAuthCode;
 -(id) initWithUserDefaults;
@@ -42,5 +37,4 @@
                       success:(void (^)(NSURLRequest *request, NSURLResponse *response, id JSON))success 
                       failure:(void (^)(NSURLRequest *request, NSURLResponse *response, NSError *error, id JSON))failure;
 -(void) linkDeviceWithAddress:(NSURL*)anAddress code:(NSString*)aCode;
--(void) loadFolders;
 @end

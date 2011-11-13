@@ -7,18 +7,19 @@
 //
 
 #import "SparkleShareAppDelegate.h"
-
-#import "SparkleShareMasterViewController.h"
-
-#import "SparkleShareDetailViewController.h"
+//
+//#import "SparkleShareMasterViewController.h"
+//
+//#import "SparkleShareDetailViewController.h"
 
 #import "SelectLoginInputViewController.h"
+#import "FolderViewController.h"
 
 @implementation SparkleShareAppDelegate
 
 @synthesize window = _window;
 @synthesize navigationController = _navigationController;
-@synthesize splitViewController = _splitViewController;
+//@synthesize splitViewController = _splitViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -78,23 +79,29 @@
 
 -(void) connectionEstablishingSuccess:(SSConnection*) aConnection
 {
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        SparkleShareMasterViewController *masterViewController = [[SparkleShareMasterViewController alloc] initWithConnection:aConnection];
-        self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
-        self.window.rootViewController = self.navigationController;
-    } else {
-        SparkleShareMasterViewController *masterViewController = [[SparkleShareMasterViewController alloc] initWithConnection:aConnection];
-        UINavigationController *masterNavigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
-        
-        SparkleShareDetailViewController *detailViewController = [[SparkleShareDetailViewController alloc] initWithNibName:@"SparkleShareDetailViewController_iPad" bundle:nil];
-        UINavigationController *detailNavigationController = [[UINavigationController alloc] initWithRootViewController:detailViewController];
-        
-        self.splitViewController = [[UISplitViewController alloc] init];
-        self.splitViewController.delegate = detailViewController;
-        self.splitViewController.viewControllers = [NSArray arrayWithObjects:masterNavigationController, detailNavigationController, nil];
-        
-        self.window.rootViewController = self.splitViewController;
-    }
+    //fixme ugly casting
+    id rootFolder = aConnection.rootFolder;
+    NSAssert([rootFolder isKindOfClass:[SSFolder class]], @"Return value is not of type SSFolder as expected.");
+    FolderViewController* folderViewController = [[FolderViewController alloc] initWithFolder: rootFolder];
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:folderViewController];
+    self.window.rootViewController = self.navigationController;
+//    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+//        SparkleShareMasterViewController *masterViewController = [[SparkleShareMasterViewController alloc] initWithConnection:aConnection];
+//        self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
+//        self.window.rootViewController = self.navigationController;
+//    } else {
+//        SparkleShareMasterViewController *masterViewController = [[SparkleShareMasterViewController alloc] initWithConnection:aConnection];
+//        UINavigationController *masterNavigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
+//        
+//        SparkleShareDetailViewController *detailViewController = [[SparkleShareDetailViewController alloc] initWithNibName:@"SparkleShareDetailViewController_iPad" bundle:nil];
+//        UINavigationController *detailNavigationController = [[UINavigationController alloc] initWithRootViewController:detailViewController];
+//        
+//        self.splitViewController = [[UISplitViewController alloc] init];
+//        self.splitViewController.delegate = detailViewController;
+//        self.splitViewController.viewControllers = [NSArray arrayWithObjects:masterNavigationController, detailNavigationController, nil];
+//        
+//        self.window.rootViewController = self.splitViewController;
+//    }
 
 }
 -(void) connectionEstablishingFailed:(SSConnection*) connection

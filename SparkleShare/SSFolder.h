@@ -16,15 +16,14 @@
 @protocol SSFolderItemsDelegate <NSObject>
 -(void) folder:(SSFolder*) folder itemsLoaded:(NSArray*) items;
 -(void) folderLoadingFailed:(SSFolder*) folder;
-@optional
--(void) folder:(SSFolder*) folder countLoaded:(int) count;
 @end
 
 
 @protocol SSFolderInfoDelegate <NSObject>
 -(void) folder:(SSFolder*) folder revisionLoaded:(NSString*) revision;
 -(void) folder:(SSFolder*) folder overallCountLoaded:(int) count;
--(void) folderRevisionLoadedingFailed:(SSFolder*) folder;
+-(void) folderInfoLoadingFailed:(SSFolder*) folder;
+-(void) folder:(SSFolder*) folder countLoaded:(int) count;
 @end
 
 

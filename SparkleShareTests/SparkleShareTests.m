@@ -27,8 +27,6 @@
 
 - (void)testConnectionLinking
 {
-//    SSConnection* connection = [[SSConnection alloc] initWithAddress:[NSURL URLWithString:@"http://127.0.0.1:3000"] code:@"123124"];
-    
 }
 
 @end

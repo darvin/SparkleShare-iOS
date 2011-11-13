@@ -8,6 +8,7 @@
 
 #import "SSFolder.h"
 #import "SSConnection.h"
+#import "TTTURLRequestFormatter.h"
 
 @implementation SSFolder
 @synthesize name=_name, ssid=_ssid, type=_type;
@@ -34,15 +35,13 @@
 {
     [self sendRequestWithMethod:@"getAllItemCount" success:
      ^(NSURLRequest *request, NSURLResponse *response, id JSON) {
-         NSLog(@"%@ %@", response, JSON);
-         self.count = 10; //fixme
-         [self.delegate folder:self countLoaded:self.count];
+         NSNumber* count = JSON;
+         self.count = [count intValue]; //fixme
+         [self.infoDelegate folder:self countLoaded:self.count];
      } 
                         failure:
      ^( NSURLRequest *request , NSURLResponse *response , NSError *error , id JSON ){
-         NSLog(@"%@ %@", response, error);
-         
-         [self.delegate folderLoadingFailed:self];
+         [self.infoDelegate folderInfoLoadingFailed:self];
      }];
 }
 
@@ -54,15 +53,12 @@
 {    
     [self sendRequestWithMethod:@"getFolderRevision" success:
      ^(NSURLRequest *request, NSURLResponse *response, id JSON) {
-         NSLog(@"%@ %@", response, JSON);
          self.revision = JSON;
          [self.infoDelegate folder:self revisionLoaded:self.revision];
      } 
                         failure:
      ^( NSURLRequest *request , NSURLResponse *response , NSError *error , id JSON ){
-         NSLog(@"%@ %@", response, error);
-         
-         [self.infoDelegate folderRevisionLoadedingFailed:self];
+         [self.infoDelegate folderInfoLoadingFailed:self];
      }];
     
 }
