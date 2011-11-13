@@ -9,18 +9,18 @@
 #import <Foundation/Foundation.h>
 
 @class SSConnection;
-
+@class SSFolder;
 
 @interface SSItem : NSObject
 {
     SSConnection* connection;
 }
 
-
 -(id) initWithConnection:(SSConnection*)aConnection
                     name:(NSString*)aName 
                     ssid:(NSString*)anId
-                    url:(NSString*)anUrl;
+                     url:(NSString*)anUrl
+           projectFolder:(SSFolder*) projectFolder;
 
 -(id) initWithConnection:(SSConnection*)aConnection
                     name:(NSString*)aName 
@@ -29,6 +29,7 @@
 @property (copy) NSString* name;
 @property (copy) NSString* ssid;
 @property (copy) NSString* url;
+@property (weak) SSFolder* projectFolder;
 
 -(void) sendRequestWithSelfUrlAndMethod:(NSString*) method 
                       success:(void (^)(NSURLRequest *request, NSURLResponse *response, id JSON))success 

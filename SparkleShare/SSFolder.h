@@ -49,4 +49,6 @@
 @property (weak) id<SSFolderInfoDelegate> infoDelegate;
 @property (weak) id<SSFolderItemsDelegate> delegate;
 
+-(void) loadedItems:(NSArray*) items;
+
 @end

@@ -7,8 +7,12 @@
 //
 
 #import "SSFolder.h"
+#import "SSFile.h"
 #import "SSConnection.h"
 #import "TTTURLRequestFormatter.h"
+
+@interface SSFolder()
+@end
 
 @implementation SSFolder
 @synthesize name=_name, ssid=_ssid, type=_type;
@@ -26,6 +30,20 @@
     }
     return self;
 }
+
+
+
+-(id) initWithConnection:(SSConnection*)aConnection
+                    name:(NSString*)aName 
+                    ssid:(NSString*)anId;
+{
+    if (self = [super initWithConnection:aConnection name:aName ssid:anId])
+    {
+        self.projectFolder = self;
+    }
+    return self;
+}
+
 
 //$ curl -H "X-SPARKLE-IDENT: qj7cGswA" \
 //-H "X-SPARKLE-AUTH: iteLARuURXKzGNJ...solGzbOutrWcfOWaUnm7ZIgNyn-" \
@@ -70,11 +88,23 @@
 //{"id":"b59993a22c86c5e84973d907bce7a4baf04bdb28","type":"dir","name":"c","url":"path=c&hash=b59993a22c86c5e84973d907bce7a4baf04bdb28&name=c"}]
 -(void) loadItems
 {
-    [self sendRequestWithMethod:@"getFolderContent" success:
+    [self sendRequestWithSelfUrlAndMethod:@"getFolderContent" success:
      ^(NSURLRequest *request, NSURLResponse *response, id JSON) {
          NSLog(@"%@ %@", response, JSON);
-         
-         [self.delegate folder:self itemsLoaded:nil];
+         NSMutableArray* newItems = [NSMutableArray array]; 
+         for (NSDictionary* itemInfo in JSON) {
+             NSString* type = [itemInfo objectForKey:@"type"];
+             SSItem* newItem;
+             if ([type isEqual:@"file"]) {
+                 newItem = [[SSFile alloc] initWithConnection:connection name:[itemInfo objectForKey:@"name"] ssid:[itemInfo objectForKey:@"id"] url:[itemInfo objectForKey:@"url"] projectFolder:self.projectFolder];
+             } else if ([type isEqual:@"dir"]) {
+                newItem = [[SSFolder alloc] initWithConnection:connection name:[itemInfo objectForKey:@"name"] ssid:[itemInfo objectForKey:@"id"] url:[itemInfo objectForKey:@"url"] projectFolder:self.projectFolder]; 
+             }
+             
+             
+             [newItems addObject:newItem];
+         }
+         [self loadedItems:[NSArray arrayWithArray:newItems]];         
      } 
                         failure:
      ^( NSURLRequest *request , NSURLResponse *response , NSError *error , id JSON ){
@@ -82,6 +112,12 @@
          
          [self.delegate folderLoadingFailed:self];
      }];
+}
+
+-(void) loadedItems:(NSArray*) items
+{
+    self.items = items;
+    [self.delegate folder:self itemsLoaded:self.items];   
 }
 
 @end

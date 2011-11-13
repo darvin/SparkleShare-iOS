@@ -26,11 +26,11 @@
 
 -(void) loadItems
 {
-    [connection sendRequestWithString:@"api/getFolderList" 
+    [connection sendRequestWithString:@"/api/getFolderList" 
                         success:
      ^(NSURLRequest *request, NSURLResponse *response, id JSON) {
          NSLog(@"%@ %@", response, JSON);
-         NSMutableArray* newFolders = [NSMutableArray array]; //fixme no reinit existing folders
+         NSMutableArray* newFolders = [NSMutableArray array]; 
          for (NSDictionary* folderInfo in JSON) {
              SSFolder* newFolder = [[SSFolder alloc] initWithConnection:connection
                                                                    name:[folderInfo objectForKey:@"name"]
@@ -38,8 +38,7 @@
                                                                    type:[folderInfo objectForKey:@"type"]];
              [newFolders addObject:newFolder];
          }
-         self.items = [NSArray arrayWithArray:newFolders];
-         [self.delegate folder:self itemsLoaded:self.items];
+         [self loadedItems:[NSArray arrayWithArray:newFolders]];
      } 
                         failure:
      ^( NSURLRequest *request , NSURLResponse *response , NSError *error , id JSON ){

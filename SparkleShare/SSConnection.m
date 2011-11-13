@@ -96,7 +96,8 @@
                       success:(void (^)(NSURLRequest *request, NSURLResponse *response, id JSON))success 
                       failure:(void (^)(NSURLRequest *request, NSURLResponse *response, NSError *error, id JSON))failure
 {
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[address URLByAppendingPathComponent:  string]];
+    NSString* urlRequest = [[address absoluteString] stringByAppendingString:string];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlRequest]];
     [request setValue:identCode forHTTPHeaderField:@"X-SPARKLE-IDENT"];
     [request setValue:authCode forHTTPHeaderField:@"X-SPARKLE-AUTH"];
     
@@ -110,7 +111,7 @@
 
 -(void) testConnection
 {
-    [self sendRequestWithString:@"api/getFolderList" 
+    [self sendRequestWithString:@"/api/getFolderList" 
                         success:
         ^(NSURLRequest *request, NSURLResponse *response, id JSON) {
             NSLog(@"%@ %@", response, JSON);
