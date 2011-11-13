@@ -31,6 +31,7 @@
 		579EE172147043940074B72B /* FilePreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 579EE171147043930074B72B /* FilePreview.m */; };
 		579EE175147054890074B72B /* NSString+Hashing.m in Sources */ = {isa = PBXBuildFile; fileRef = 579EE174147054890074B72B /* NSString+Hashing.m */; };
 		579EE17714705F320074B72B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 579EE17614705F320074B72B /* Localizable.strings */; };
+		579EE17A147063590074B72B /* UIColor+ApplicationColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 579EE179147063580074B72B /* UIColor+ApplicationColors.m */; };
 		579F9AA914678A4E00709C70 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 579F9AA814678A4E00709C70 /* UIKit.framework */; };
 		579F9AAB14678A4E00709C70 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 579F9AAA14678A4E00709C70 /* Foundation.framework */; };
 		579F9AAD14678A4E00709C70 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 579F9AAC14678A4E00709C70 /* CoreGraphics.framework */; };
@@ -125,6 +126,8 @@
 		579EE173147054880074B72B /* NSString+Hashing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hashing.h"; sourceTree = "<group>"; };
 		579EE174147054890074B72B /* NSString+Hashing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hashing.m"; sourceTree = "<group>"; };
 		579EE17614705F320074B72B /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		579EE178147063570074B72B /* UIColor+ApplicationColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ApplicationColors.h"; sourceTree = "<group>"; };
+		579EE179147063580074B72B /* UIColor+ApplicationColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ApplicationColors.m"; sourceTree = "<group>"; };
 		579F9AA414678A4E00709C70 /* SparkleShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SparkleShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		579F9AA814678A4E00709C70 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		579F9AAA14678A4E00709C70 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -341,6 +344,8 @@
 				579EE169147034180074B72B /* FileViewController.h */,
 				579EE16A147034190074B72B /* FileViewController.m */,
 				579EE16B147034190074B72B /* FileViewController.xib */,
+				579EE178147063570074B72B /* UIColor+ApplicationColors.h */,
+				579EE179147063580074B72B /* UIColor+ApplicationColors.m */,
 				57514478146F3E52002D3553 /* FolderViewController.h */,
 				57514479146F3E52002D3553 /* FolderViewController.m */,
 				5751447A146F3E52002D3553 /* FolderViewController.xib */,
@@ -640,6 +645,7 @@
 				579EE16C147034190074B72B /* FileViewController.m in Sources */,
 				579EE172147043940074B72B /* FilePreview.m in Sources */,
 				579EE175147054890074B72B /* NSString+Hashing.m in Sources */,
+				579EE17A147063590074B72B /* UIColor+ApplicationColors.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

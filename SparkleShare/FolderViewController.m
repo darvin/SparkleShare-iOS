@@ -13,6 +13,7 @@
 #import "SSRootFolder.h"
 #import "SSFile.h"
 #import "FileSizeFormatter.h"
+#import "UIColor+ApplicationColors.h"
 @implementation FolderViewController
 @synthesize folder=_folder;
 
@@ -30,12 +31,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationController.navigationBar.tintColor = [UIColor navBarColor];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.clearsSelectionOnViewWillAppear = NO;
+
 }
 
 - (void)viewDidUnload

@@ -9,6 +9,7 @@
 #import "SelectLoginInputViewController.h"
 #import "QRCodeLoginInputViewController.h"
 #import "ManualLoginInputViewController.h"
+#import "UIColor+ApplicationColors.h"
 @interface SelectLoginInputViewController ()
 @property (strong, nonatomic) QRCodeLoginInputViewController* qrcodeLoginInputController;
 @property (strong, nonatomic) ManualLoginInputViewController* manualLoginInputViewController;
@@ -51,7 +52,9 @@
 
 - (void) viewWillAppear:(BOOL)animated
 {
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    self.navigationController.navigationBar.tintColor = [UIColor navBarColor];
+
     [super viewWillAppear:animated];
 }
 
