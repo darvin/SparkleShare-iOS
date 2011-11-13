@@ -16,7 +16,7 @@
 
 @implementation SSFolder
 @synthesize name=_name, ssid=_ssid, type=_type;
-@synthesize count=_count, revision=_revision, items=_items;
+@synthesize count=_count, revision=_revision, items=_items, overallCount=_overallCount;
 @synthesize delegate=_delegate;
 @synthesize infoDelegate=_infoDelegate;
 
@@ -49,9 +49,24 @@
 //-H "X-SPARKLE-AUTH: iteLARuURXKzGNJ...solGzbOutrWcfOWaUnm7ZIgNyn-" \
 //http://localhost:3000/api/getAllItemCount/c0acdbe1e1fec3290db71beecc9af500af126f8d
 //14
--(void) loadCount
+-(void) loadOverAllCount
 {
     [self sendRequestWithMethod:@"getAllItemCount" success:
+     ^(NSURLRequest *request, NSURLResponse *response, id JSON) {
+         NSNumber* count = JSON;
+         self.overallCount = [count intValue]; //fixme
+         [self.infoDelegate folder:self overallCountLoaded:self.overallCount];
+     } 
+                        failure:
+     ^( NSURLRequest *request , NSURLResponse *response , NSError *error , id JSON ){
+         [self.infoDelegate folderInfoLoadingFailed:self];
+     }];
+}
+
+
+-(void) loadCount
+{
+    [self sendRequestWithSelfUrlAndMethod:@"getFolderItemCount" success:
      ^(NSURLRequest *request, NSURLResponse *response, id JSON) {
          NSNumber* count = JSON;
          self.count = [count intValue]; //fixme
@@ -96,7 +111,7 @@
              NSString* type = [itemInfo objectForKey:@"type"];
              SSItem* newItem;
              if ([type isEqual:@"file"]) {
-                 newItem = [[SSFile alloc] initWithConnection:connection name:[itemInfo objectForKey:@"name"] ssid:[itemInfo objectForKey:@"id"] url:[itemInfo objectForKey:@"url"] projectFolder:self.projectFolder];
+                 newItem = [[SSFile alloc] initWithConnection:connection name:[itemInfo objectForKey:@"name"] ssid:[itemInfo objectForKey:@"id"] url:[itemInfo objectForKey:@"url"] projectFolder:self.projectFolder mime:[itemInfo objectForKey:@"mime"] filesize:[[itemInfo objectForKey:@"fileSize"] intValue]];
              } else if ([type isEqual:@"dir"]) {
                 newItem = [[SSFolder alloc] initWithConnection:connection name:[itemInfo objectForKey:@"name"] ssid:[itemInfo objectForKey:@"id"] url:[itemInfo objectForKey:@"url"] projectFolder:self.projectFolder]; 
              }

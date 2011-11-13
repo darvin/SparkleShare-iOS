@@ -70,8 +70,7 @@
     [request setHTTPBody: requestData];
 
     NSLog(@"%@", [TTTURLRequestFormatter cURLCommandFromURLRequest:request]);
-    
-    SSJSONRequestOperation *operation = (SSJSONRequestOperation *)[SSJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSURLResponse *response, id JSON) {
+    SSJSONRequestOperation *operation = [SSJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSURLResponse *response, id JSON) {
         identCode = [JSON valueForKey:@"ident"];
         authCode = [JSON valueForKey:@"authCode"];
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
@@ -103,7 +102,7 @@
     
     NSLog(@"%@", [TTTURLRequestFormatter cURLCommandFromURLRequest:request]);
     
-    SSJSONRequestOperation *operation = (SSJSONRequestOperation *)[SSJSONRequestOperation JSONRequestOperationWithRequest:request success:success failure:failure];
+    SSJSONRequestOperation *operation = [SSJSONRequestOperation JSONRequestOperationWithRequest:request success:success failure:failure];
     
     [queue addOperation:operation];
 

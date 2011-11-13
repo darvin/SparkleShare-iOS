@@ -44,6 +44,7 @@
 @property (copy) NSString* type;
 
 @property int count;
+@property int overallCount;
 @property (copy) NSString* revision;
 @property (copy) NSArray* items;
 @property (weak) id<SSFolderInfoDelegate> infoDelegate;

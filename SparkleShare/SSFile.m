@@ -7,10 +7,30 @@
 //
 
 #import "SSFile.h"
+#import "TTTURLRequestFormatter.h"
 
 @implementation SSFile
 @synthesize delegate=_delegate;
 @synthesize content=_content;
+@synthesize filesize=_filesize, mime=_mime;
+
+
+-(id) initWithConnection:(SSConnection*)aConnection
+                    name:(NSString*)aName 
+                    ssid:(NSString*)anId
+                     url:(NSString*)anUrl
+           projectFolder:(SSFolder*) projectFolder
+                    mime:(NSString*) mime
+                filesize:(int) filesize;
+{
+    if (self=[super initWithConnection:aConnection name:aName ssid:anId url:anUrl projectFolder:projectFolder])
+    {
+        self.mime = mime;
+        self.filesize = filesize;
+    }
+    return self;
+}
+
 //$ curl -H "X-SPARKLE-IDENT: qj7cGswA" \
 //-H "X-SPARKLE-AUTH: iteLARuURXKzGNJ...solGzbOutrWcfOWaUnm7ZIgNyn-" \
 //"http://localhost:3000/api/getFile/c0acdbe1e1fec3290db71beecc9\
@@ -18,7 +38,18 @@
 //(BINARY DATA)
 -(void) loadContent
 {
-//    return [self getDataWithMethod:@"getFile"];
-}
+    TTTHTTPURLResponseFormatter* respForm = [[TTTHTTPURLResponseFormatter alloc] init];
+
+    [self sendRequestWithSelfUrlAndMethod:@"getFile" success:
+     ^(NSURLRequest *request, NSURLResponse *response, id JSON) {
+         NSData* content = JSON;
+         self.content = content;
+         [self.delegate file:self contentLoaded:self.content];
+     } 
+                                  failure:
+     ^( NSURLRequest *request , NSURLResponse *response , NSError *error , id JSON ){
+         NSLog(@"%@", [respForm stringFromHTTPURLResponse:response]);
+         [self.delegate fileContentLoadingFailed:self];
+     }];}
 
 @end

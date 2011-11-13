@@ -7,21 +7,15 @@
 //
 
 #import "FolderViewController.h"
+#import "FileViewController.h"
 #import "GitInfoFormatter.h"
 #import "SSFolder.h"
 #import "SSRootFolder.h"
+#import "SSFile.h"
+#import "FileSizeFormatter.h"
 @implementation FolderViewController
 @synthesize folder=_folder;
 
-
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -100,15 +94,28 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        }
     }
     
-    SSFolder* folder = [self.folder.items objectAtIndex:indexPath.row];
-    cell.textLabel.text = folder.name;
-    if ([self.folder isKindOfClass:[SSRootFolder class]])
-            cell.detailTextLabel.text = [NSString stringWithFormat:@"rev %@   %d items",[GitInfoFormatter stringFromGitRevision:folder.revision], folder.count];
+    SSItem* item = [self.folder.items objectAtIndex:indexPath.row];
+    cell.textLabel.text = item.name;
+    if ([item isKindOfClass:[SSFolder class]]){
+        if ([self.folder isKindOfClass:[SSRootFolder class]])
+        {
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"rev %@   %d items",[GitInfoFormatter stringFromGitRevision:((SSRootFolder*)item).revision], ((SSRootFolder*)item).count];
+        }else {
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%d items", ((SSFolder*)item).count];
+        }
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+
+    }
+    else if ([item isKindOfClass:[SSFile class]]){
+        FileSizeFormatter* sizeFormatter = [[FileSizeFormatter alloc] init];
+        NSString* sizeString = [sizeFormatter stringFromNumber: [NSNumber numberWithInt: ((SSFile*)item).filesize ]];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@  %@", 
+                                     ((SSFile*)item).mime, sizeString];
+        cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+    }
+        
     return cell;
 }
 
@@ -156,9 +163,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SSItem* folder = [self.folder.items objectAtIndex:indexPath.row];
-    FolderViewController *newFolderViewController = [[FolderViewController alloc] initWithFolder:folder];
-    [self.navigationController pushViewController:newFolderViewController animated:YES];
+    SSItem* item = [self.folder.items objectAtIndex:indexPath.row];
+    if ([item isKindOfClass:[SSFolder class]]){
+        FolderViewController *newFolderViewController = [[FolderViewController alloc] initWithFolder:(SSFolder*)item];
+        [self.navigationController pushViewController:newFolderViewController animated:YES];
+    } else if ([item isKindOfClass:[SSFile class]]) {
+        FileViewController* newFileViewController = [[FileViewController alloc] initWithFile:(SSFile*)item];
+        [self.navigationController pushViewController:newFileViewController animated:YES];
+    }
 }
 
 
@@ -168,6 +180,7 @@
         self.folder = folder;
         self.folder.delegate = self;
         self.folder.infoDelegate = self;
+        self.title = self.folder.name;
     }
     return self;
 }

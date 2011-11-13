@@ -15,12 +15,4 @@
 - (id)initWithFolder:(SSFolder*) folder;
 
 
--(void) folder:(SSFolder*) folder itemsLoaded:(NSArray*) items;
--(void) folderLoadingFailed:(SSFolder*) folder;
--(void) folder:(SSFolder*) folder countLoaded:(int) count;
-
--(void) folder:(SSFolder*) folder revisionLoaded:(NSString*) revision;
--(void) folder:(SSFolder*) folder overallCountLoaded:(int) count;
--(void) folderInfoLoadingFailed:(SSFolder*) folder;
-
 @end
