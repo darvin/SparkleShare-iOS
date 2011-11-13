@@ -92,11 +92,14 @@ static dispatch_queue_t json_request_operation_processing_queue() {
         {
             NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
             NSNumber* numberResponce = [f numberFromString:rawData];
+            [f release];
             if (numberResponce)
                 responce = numberResponce;
             else
                 responce = self.responseData;
         }
+        [rawData release];
+
         return responce;
     } else{
         return _responseJSON;

@@ -25,8 +25,5 @@
     [super tearDown];
 }
 
-- (void)testConnectionLinking
-{
-}
 
 @end

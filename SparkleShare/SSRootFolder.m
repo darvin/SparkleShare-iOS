@@ -14,7 +14,7 @@
 {
     if (self=[super init]){
         connection = aConnection;
-        self.name = @"_ROOT_";
+        self.name = NSLocalizedString(@"Projects", nil);
     }
     return self;
 }
