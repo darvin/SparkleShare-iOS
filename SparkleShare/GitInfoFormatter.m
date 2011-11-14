@@ -9,8 +9,8 @@
 #import "GitInfoFormatter.h"
 
 @implementation GitInfoFormatter
-+ (NSString *)stringFromGitRevision:(NSString *)revision
-{
-    return [revision substringToIndex:11];
++ (NSString *)stringFromGitRevision: (NSString *) revision {
+	return [revision substringToIndex: 11];
 }
+
 @end

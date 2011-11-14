@@ -9,5 +9,5 @@
 #import "SSFolder.h"
 
 @interface SSRootFolder : SSFolder
--(id) initWithConnection:(SSConnection *)aConnection;
+- (id)initWithConnection: (SSConnection *)aConnection;
 @end

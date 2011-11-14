@@ -10,7 +10,7 @@
 #import <QuickLook/QuickLook.h>
 #import "FilePreview.h"
 @interface FileViewController : QLPreviewController <QLPreviewControllerDataSource>;
-@property (strong) FilePreview* filePreview;
-- (id)initWithFilePreview:(FilePreview*) filePreview filename:(NSString*) filename;
+@property (strong) FilePreview *filePreview;
+- (id)initWithFilePreview: (FilePreview *)filePreview filename: (NSString *)filename;
 
 @end

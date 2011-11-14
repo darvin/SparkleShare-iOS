@@ -10,12 +10,12 @@
 @class LoginInputViewController;
 @protocol LoginInputViewControllerDelegate <NSObject>
 
--(void)loginInputViewController: (LoginInputViewController*) loginInputViewController   
-                    willSetLink:(NSURL*) link code:(NSString*) code;
+- (void)loginInputViewController: (LoginInputViewController *)loginInputViewController
+       willSetLink: (NSURL *)link code: (NSString *)code;
 
 @end
 
 
 @interface LoginInputViewController : UIViewController
-@property (strong, nonatomic) id<LoginInputViewControllerDelegate> delegate;
+@property (strong, nonatomic) id <LoginInputViewControllerDelegate> delegate;
 @end

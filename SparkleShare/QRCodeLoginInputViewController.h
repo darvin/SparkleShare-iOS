@@ -11,11 +11,11 @@
 
 @interface QRCodeLoginInputViewController : LoginInputViewController <ZBarReaderViewDelegate>
 {
-    ZBarReaderView *readerView;
-    ZBarCameraSimulator *cameraSim;
-    UILabel *codeLabel;
-    UILabel *urlLabel;
-    BOOL qrCaptured;
+	ZBarReaderView *readerView;
+	ZBarCameraSimulator *cameraSim;
+	UILabel *codeLabel;
+	UILabel *urlLabel;
+	BOOL qrCaptured;
 }
 
 @property (nonatomic, retain) IBOutlet ZBarReaderView *readerView;

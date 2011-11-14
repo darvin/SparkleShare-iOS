@@ -8,16 +8,16 @@
 #import "AFHTTPRequestOperation.h"
 
 @interface SSJSONRequestOperation : AFHTTPRequestOperation {
-@private
-    id _responseJSON;
-    NSError *_JSONError;
+	@private
+	id _responseJSON;
+	NSError *_JSONError;
 }
 
 @property (readonly, nonatomic, retain) id responseJSON;
 
 
-+ (SSJSONRequestOperation *)JSONRequestOperationWithRequest:(NSURLRequest *)urlRequest
-                                                    success:(void (^)(NSURLRequest *request, NSURLResponse *response, id JSON))success 
-                                                    failure:(void (^)(NSURLRequest *request, NSURLResponse *response, NSError *error, id JSON))failure;
++ (SSJSONRequestOperation *)JSONRequestOperationWithRequest: (NSURLRequest *)urlRequest
+       success: ( void(^) (NSURLRequest * request, NSURLResponse * response, id JSON) ) success
+       failure: ( void(^) (NSURLRequest * request, NSURLResponse * response, NSError * error, id JSON) )failure;
 
 @end

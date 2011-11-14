@@ -9,7 +9,7 @@
 #import "LoginInputViewController.h"
 
 @interface ManualLoginInputViewController : LoginInputViewController
-@property (retain) IBOutlet UITextField* urlField;
-@property (retain) IBOutlet UITextField* codeField;
+@property (retain) IBOutlet UITextField *urlField;
+@property (retain) IBOutlet UITextField *codeField;
 
 @end

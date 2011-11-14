@@ -11,7 +11,7 @@
 #import "SSConnection.h"
 @interface SparkleShareAppDelegate : UIResponder <UIApplicationDelegate, LoginInputViewControllerDelegate, SSConnectionDelegate>
 {
-    SSConnection* connection;
+	SSConnection *connection;
 }
 @property (strong, nonatomic) UIWindow *window;
 

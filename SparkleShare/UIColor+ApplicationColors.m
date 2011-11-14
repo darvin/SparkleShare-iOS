@@ -11,8 +11,7 @@
 @implementation UIColor (ApplicationColors)
 
 + (UIColor *)navBarColor {
-    return [UIColor orangeColor];
+	return [UIColor orangeColor];
 }
-
 
 @end
