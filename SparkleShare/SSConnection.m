@@ -108,15 +108,18 @@
 
 -(void) testConnection
 {
-    [self sendRequestWithString:@"/api/getFolderList" 
-                        success:
+    [self sendRequestWithString:@"/api/ping" 
+        success:
         ^(NSURLRequest *request, NSURLResponse *response, id JSON) {
-            self.rootFolder = [[SSRootFolder alloc] initWithConnection:self];
-            [self.delegate connectionEstablishingSuccess:self];
+            if ([@"pong" isEqual:JSON]) {
+                self.rootFolder = [[SSRootFolder alloc] initWithConnection:self];
+                [self.delegate connectionEstablishingSuccess:self];
+            } else {
+                [self.delegate connectionEstablishingFailed:self];
+            }
         } 
-                        failure:
+        failure:
         ^( NSURLRequest *request , NSURLResponse *response , NSError *error , id JSON ){
-        
             [self.delegate connectionEstablishingFailed:self];
         } ];
 }
