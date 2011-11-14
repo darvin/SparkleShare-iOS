@@ -14,6 +14,7 @@
 #import "SSFile.h"
 #import "FileSizeFormatter.h"
 #import "UIColor+ApplicationColors.h"
+#import "SVProgressHUD.h"
 @implementation FolderViewController
 @synthesize folder=_folder;
 
@@ -47,6 +48,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [SVProgressHUD show];
     [self.folder loadItems];
 }
 
@@ -169,6 +171,7 @@
     } else if ([item isKindOfClass:[SSFile class]]) {
         SSFile* file = (SSFile*)item;
         file.delegate = self;
+        [SVProgressHUD show];
         [file loadContent];
     }
 }
@@ -197,6 +200,7 @@
             [folder loadCount];
         }
     }
+    [SVProgressHUD dismiss];
 }
 -(void) reloadOneItem:(SSItem*) item
 {
@@ -206,7 +210,10 @@
     
     [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
 }
--(void) folderLoadingFailed:(SSFolder*) folder{}
+-(void) folderLoadingFailed:(SSFolder*) folder
+{
+    [SVProgressHUD dismiss];
+}
 -(void) folder:(SSFolder*) folder countLoaded:(int) count
 {
     [self reloadOneItem:folder];
@@ -220,7 +227,9 @@
 {
     [self reloadOneItem:folder];
 }
--(void) folderInfoLoadingFailed:(SSFolder*) folder{}
+-(void) folderInfoLoadingFailed:(SSFolder*) folder
+{
+}
 
 
 
@@ -228,14 +237,17 @@
 
 -(void) file:(SSFile*) file contentLoaded:(NSData*) content
 {
+    
     FilePreview* filePreview = [[FilePreview alloc] initWithFile:file];
     
     FileViewController* newFileViewController = [[FileViewController alloc] initWithFilePreview:filePreview filename:file.name];
+    [SVProgressHUD dismiss];
     [self.navigationController pushViewController:newFileViewController animated:YES];
 }
 
 -(void) fileContentLoadingFailed:(SSFile*) file
 {
+    [SVProgressHUD dismiss];
 }
 
 

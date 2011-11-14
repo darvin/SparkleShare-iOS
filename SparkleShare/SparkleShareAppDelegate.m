@@ -7,13 +7,10 @@
 //
 
 #import "SparkleShareAppDelegate.h"
-//
-//#import "SparkleShareMasterViewController.h"
-//
-//#import "SparkleShareDetailViewController.h"
-
 #import "SelectLoginInputViewController.h"
 #import "FolderViewController.h"
+
+#import "StartingViewController.h"
 
 @implementation SparkleShareAppDelegate
 
@@ -27,6 +24,11 @@
 
     connection = [[SSConnection alloc] initWithUserDefaults];
     connection.delegate = self;
+    
+    StartingViewController* startingViewController = [[StartingViewController alloc] init];
+    self.window.rootViewController = startingViewController;
+    
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
