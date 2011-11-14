@@ -102,7 +102,7 @@
 	         NSMutableArray *newItems = [NSMutableArray array];
 	         for (NSDictionary * itemInfo in JSON) {
 	                 NSString *type = [itemInfo objectForKey: @"type"];
-	                 SSItem *newItem;
+	                 SSFolderItem *newItem;
 	                 if ([type isEqual: @"file"]) {
 	                         newItem = [[SSFile alloc] initWithConnection: connection name: [itemInfo objectForKey: @"name"] ssid: [itemInfo objectForKey: @"id"] url: [itemInfo objectForKey: @"url"] projectFolder: self.projectFolder mime: [itemInfo objectForKey: @"mime"] filesize: [[itemInfo objectForKey: @"fileSize"] intValue]];
 			 }

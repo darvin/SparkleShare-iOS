@@ -85,7 +85,7 @@
 		cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleSubtitle reuseIdentifier: CellIdentifier];
 	}
 
-	SSItem *item = [self.folder.items objectAtIndex: indexPath.row];
+	SSFolderItem *item = [self.folder.items objectAtIndex: indexPath.row];
 	cell.textLabel.text = item.name;
 	if ([item isKindOfClass: [SSFolder class]]) {
 		if ([self.folder isKindOfClass: [SSRootFolder class]]) {
@@ -149,7 +149,7 @@
 #pragma mark - Table view delegate
 
 - (void)tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
-	SSItem *item = [self.folder.items objectAtIndex: indexPath.row];
+	SSFolderItem *item = [self.folder.items objectAtIndex: indexPath.row];
 	if ([item isKindOfClass: [SSFolder class]]) {
 		FolderViewController *newFolderViewController = [[FolderViewController alloc] initWithFolder: (SSFolder *)item];
 		[self.navigationController pushViewController: newFolderViewController animated: YES];
@@ -175,7 +175,7 @@
 
 - (void) folder: (SSFolder *) folder itemsLoaded: (NSArray *) items {
 	[self.tableView reloadData];
-	for (SSItem *item in self.folder.items) {
+	for (SSFolderItem *item in self.folder.items) {
 		if ([item isKindOfClass: [SSFolder class]]) {
 			SSFolder *folder = (SSFolder *)item;
 			folder.infoDelegate = self;
@@ -186,7 +186,7 @@
 	[SVProgressHUD dismiss];
 }
 
-- (void) reloadOneItem: (SSItem *) item {
+- (void) reloadOneItem: (SSFolderItem *) item {
 	int i = [self.folder.items indexOfObject: item];
 
 	NSIndexPath *indexPath = [NSIndexPath indexPathForRow: i inSection: 0];

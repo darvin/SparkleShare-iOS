@@ -17,6 +17,7 @@
 		57514480146F3FD2002D3553 /* SSRootFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5751447F146F3FD2002D3553 /* SSRootFolder.m */; };
 		57514483146F4806002D3553 /* GitInfoFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 57514482146F4806002D3553 /* GitInfoFormatter.m */; };
 		57514486146F524C002D3553 /* SSJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 57514485146F524C002D3553 /* SSJSONRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		57583B291471B7DD0011D27B /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 57583B281471B7DD0011D27B /* Settings.bundle */; };
 		579EE168147032230074B72B /* FileSizeFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 579EE167147032230074B72B /* FileSizeFormatter.m */; };
 		579EE16C147034190074B72B /* FileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 579EE16A147034190074B72B /* FileViewController.m */; };
 		579EE16D147034190074B72B /* FileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 579EE16B147034190074B72B /* FileViewController.xib */; };
@@ -38,7 +39,7 @@
 		579F9AE014678A4E00709C70 /* SparkleShareTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 579F9ADF14678A4E00709C70 /* SparkleShareTests.m */; };
 		579F9AEF14678BC900709C70 /* SSFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 579F9AEE14678BC900709C70 /* SSFolder.m */; };
 		579F9AF214678BD900709C70 /* SSConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 579F9AF114678BD900709C70 /* SSConnection.m */; };
-		579F9AF514678BEA00709C70 /* SSItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 579F9AF414678BEA00709C70 /* SSItem.m */; };
+		579F9AF514678BEA00709C70 /* SSFolderItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 579F9AF414678BEA00709C70 /* SSFolderItem.m */; };
 		579F9AFB14678C1B00709C70 /* SSFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 579F9AFA14678C1B00709C70 /* SSFile.m */; };
 		579F9B2414679D5A00709C70 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 579F9B2314679D5A00709C70 /* CFNetwork.framework */; };
 		579F9B2614679D6C00709C70 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 579F9B2514679D6C00709C70 /* libz.dylib */; };
@@ -106,6 +107,7 @@
 		57514482146F4806002D3553 /* GitInfoFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GitInfoFormatter.m; sourceTree = "<group>"; };
 		57514484146F524B002D3553 /* SSJSONRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSJSONRequestOperation.h; sourceTree = "<group>"; };
 		57514485146F524C002D3553 /* SSJSONRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSJSONRequestOperation.m; sourceTree = "<group>"; };
+		57583B281471B7DD0011D27B /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = ../Settings.bundle; sourceTree = "<group>"; };
 		579EE166147032230074B72B /* FileSizeFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileSizeFormatter.h; sourceTree = "<group>"; };
 		579EE167147032230074B72B /* FileSizeFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileSizeFormatter.m; sourceTree = "<group>"; };
 		579EE169147034180074B72B /* FileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileViewController.h; sourceTree = "<group>"; };
@@ -139,8 +141,8 @@
 		579F9AEE14678BC900709C70 /* SSFolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSFolder.m; sourceTree = "<group>"; };
 		579F9AF014678BD900709C70 /* SSConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSConnection.h; sourceTree = "<group>"; };
 		579F9AF114678BD900709C70 /* SSConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSConnection.m; sourceTree = "<group>"; };
-		579F9AF314678BEA00709C70 /* SSItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSItem.h; sourceTree = "<group>"; };
-		579F9AF414678BEA00709C70 /* SSItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSItem.m; sourceTree = "<group>"; };
+		579F9AF314678BEA00709C70 /* SSFolderItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSFolderItem.h; sourceTree = "<group>"; };
+		579F9AF414678BEA00709C70 /* SSFolderItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSFolderItem.m; sourceTree = "<group>"; };
 		579F9AF914678C1B00709C70 /* SSFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSFile.h; sourceTree = "<group>"; };
 		579F9AFA14678C1B00709C70 /* SSFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSFile.m; sourceTree = "<group>"; };
 		579F9B2314679D5A00709C70 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -320,6 +322,7 @@
 		5737A38F146DE1B300F4E2F2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				57583B281471B7DD0011D27B /* Settings.bundle */,
 				572920D81471AC6C00E4A3E8 /* StartingViewController.xib */,
 				57DD1C2B146D63EE0010B621 /* ManualLoginInputViewController.xib */,
 				57CA6069146D8B08002B747A /* QRCodeLoginInputViewController.xib */,
@@ -442,8 +445,8 @@
 				579F9AEE14678BC900709C70 /* SSFolder.m */,
 				579F9AF014678BD900709C70 /* SSConnection.h */,
 				579F9AF114678BD900709C70 /* SSConnection.m */,
-				579F9AF314678BEA00709C70 /* SSItem.h */,
-				579F9AF414678BEA00709C70 /* SSItem.m */,
+				579F9AF314678BEA00709C70 /* SSFolderItem.h */,
+				579F9AF414678BEA00709C70 /* SSFolderItem.m */,
 				579F9AF914678C1B00709C70 /* SSFile.h */,
 				579F9AFA14678C1B00709C70 /* SSFile.m */,
 				5751447E146F3FD2002D3553 /* SSRootFolder.h */,
@@ -722,6 +725,7 @@
 				57F73A731470D81A00276BF1 /* zbar-samples.png in Resources */,
 				572920CD1471AB6100E4A3E8 /* SVProgressHUD.bundle in Resources */,
 				572920DA1471AC6C00E4A3E8 /* StartingViewController.xib in Resources */,
+				57583B291471B7DD0011D27B /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -774,7 +778,7 @@
 				579F9AB914678A4E00709C70 /* SparkleShareAppDelegate.m in Sources */,
 				579F9AEF14678BC900709C70 /* SSFolder.m in Sources */,
 				579F9AF214678BD900709C70 /* SSConnection.m in Sources */,
-				579F9AF514678BEA00709C70 /* SSItem.m in Sources */,
+				579F9AF514678BEA00709C70 /* SSFolderItem.m in Sources */,
 				579F9AFB14678C1B00709C70 /* SSFile.m in Sources */,
 				57DD1C28146D62670010B621 /* LoginInputViewController.m in Sources */,
 				57DD1C2C146D63EE0010B621 /* ManualLoginInputViewController.m in Sources */,

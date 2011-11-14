@@ -6,7 +6,7 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "SSItem.h"
+#import "SSFolderItem.h"
 
 @class SSFile;
 @protocol SSFileDelegate <NSObject>
@@ -15,7 +15,7 @@
 @end
 
 
-@interface SSFile : SSItem
+@interface SSFile : SSFolderItem
 
 - (id)initWithConnection: (SSConnection *) aConnection
        name: (NSString *) aName

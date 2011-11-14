@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SSItem.h"
+#import "SSFolderItem.h"
 
 @class SSFolder;
 @class SSConnection;
@@ -28,7 +28,7 @@
 
 
 
-@interface SSFolder : SSItem
+@interface SSFolder : SSFolderItem
 {
 }
 - (id)initWithConnection: (SSConnection *) aConnection

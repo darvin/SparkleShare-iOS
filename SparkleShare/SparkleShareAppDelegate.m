@@ -11,21 +11,26 @@
 #import "FolderViewController.h"
 
 #import "StartingViewController.h"
+#import "SVProgressHUD.h"
 
 @implementation SparkleShareAppDelegate
 
 @synthesize window = _window;
 @synthesize navigationController = _navigationController;
 //@synthesize splitViewController = _splitViewController;
+@synthesize loginInputViewController = _loginInputViewController;
 
 - (BOOL)application: (UIApplication *) application didFinishLaunchingWithOptions: (NSDictionary *) launchOptions {
 	self.window = [[UIWindow alloc] initWithFrame: [[UIScreen mainScreen] bounds]];
 
-	connection = [[SSConnection alloc] initWithUserDefaults];
-	connection.delegate = self;
-
+    
 	StartingViewController *startingViewController = [[StartingViewController alloc] init];
 	self.window.rootViewController = startingViewController;
+    
+	connection = [[SSConnection alloc] initWithUserDefaults];
+    connection.delegate = self;
+    [connection estabilishConnection];
+
 
 
 	[self.window makeKeyAndVisible];
@@ -69,6 +74,7 @@
 - (void)loginInputViewController: (LoginInputViewController *) loginInputViewController
        willSetLink: (NSURL *) link code: (NSString *) code;
 {
+    [SVProgressHUD showInView:self.loginInputViewController.view status:@"Linking in progress"];
 	[connection linkDeviceWithAddress: link code: code];
 }
 
@@ -100,11 +106,21 @@
 }
 
 - (void) connectionEstablishingFailed: (SSConnection *) connection {
-	//todo: eliminate reinitialization
-	SelectLoginInputViewController *selectLoginInputViewController = [[SelectLoginInputViewController alloc] initWithNibName: @"SelectLoginInputViewController" bundle: nil];
-	selectLoginInputViewController.delegate = self;
-	self.navigationController = [[UINavigationController alloc] initWithRootViewController: selectLoginInputViewController];
+    if (!self.loginInputViewController) {
+        self.loginInputViewController = [[SelectLoginInputViewController alloc] initWithNibName: @"SelectLoginInputViewController" bundle: nil];
+        self.loginInputViewController.delegate = self;
+    }
+	
+	self.navigationController = [[UINavigationController alloc] initWithRootViewController: self.loginInputViewController];
 	self.window.rootViewController = self.navigationController;
+}
+
+- (void)connectionLinkingSuccess: (SSConnection *) connection {
+    [SVProgressHUD dismissWithSuccess:@"Linked!"];
+}
+
+- (void)connectionLinkingFailed: (SSConnection *) connection {
+    [SVProgressHUD dismissWithError:@"Error during linking"];
 }
 
 @end

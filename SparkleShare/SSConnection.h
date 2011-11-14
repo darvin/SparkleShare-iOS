@@ -15,6 +15,8 @@
 @protocol SSConnectionDelegate <NSObject>
 - (void)connectionEstablishingSuccess: (SSConnection *) connection;
 - (void)connectionEstablishingFailed: (SSConnection *) connection;
+- (void)connectionLinkingSuccess: (SSConnection *) connection;
+- (void)connectionLinkingFailed: (SSConnection *) connection;
 @end
 
 
@@ -30,8 +32,8 @@
 @property (weak) id <SSConnectionDelegate> delegate;
 @property (strong) SSRootFolder *rootFolder;
 
-- (id)initWithAddress: (NSURL *) anAddress identCode: (NSString *) anIdentCode authCode: (NSString *) anAuthCode;
 - (id)initWithUserDefaults;
+- (void)estabilishConnection;
 - (void)sendRequestWithString: (NSString *) string
        success: ( void (^)(NSURLRequest * request, NSURLResponse * response, id JSON) ) success
        failure: ( void (^)(NSURLRequest * request, NSURLResponse * response, NSError * error, id JSON) ) failure;
