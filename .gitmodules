@@ -1,0 +1,6 @@
+[submodule "libs/FormatterKit"]
+	path = libs/FormatterKit
+	url = https://github.com/mattt/FormatterKit.git
+[submodule "libs/AFNetworking"]
+	path = libs/AFNetworking
+	url = https://github.com/AFNetworking/AFNetworking.git
