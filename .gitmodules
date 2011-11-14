@@ -4,3 +4,6 @@
 [submodule "libs/FormatterKit"]
 	path = libs/FormatterKit
 	url = git://github.com/mattt/FormatterKit.git
+[submodule "libs/SVProgressHUD"]
+	path = libs/SVProgressHUD
+	url = git://github.com/samvermette/SVProgressHUD.git
