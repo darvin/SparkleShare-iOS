@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface GitInfoFormatter : NSFormatter
-+ (NSString *)stringFromGitRevision: (NSString *)revision;
++ (NSString *)stringFromGitRevision: (NSString *) revision;
 
 @end

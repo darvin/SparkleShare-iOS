@@ -14,16 +14,16 @@
 
 
 @protocol SSFolderItemsDelegate <NSObject>
-- (void)folder: (SSFolder *)folder itemsLoaded: (NSArray *)items;
-- (void)folderLoadingFailed: (SSFolder *)folder;
+- (void)folder: (SSFolder *) folder itemsLoaded: (NSArray *) items;
+- (void)folderLoadingFailed: (SSFolder *) folder;
 @end
 
 
 @protocol SSFolderInfoDelegate <NSObject>
-- (void)folder: (SSFolder *)folder revisionLoaded: (NSString *)revision;
-- (void)folder: (SSFolder *)folder overallCountLoaded: (int)count;
-- (void)folderInfoLoadingFailed: (SSFolder *)folder;
-- (void)folder: (SSFolder *)folder countLoaded: (int)count;
+- (void)folder: (SSFolder *) folder revisionLoaded: (NSString *) revision;
+- (void)folder: (SSFolder *) folder overallCountLoaded: (int) count;
+- (void)folderInfoLoadingFailed: (SSFolder *) folder;
+- (void)folder: (SSFolder *) folder countLoaded: (int) count;
 @end
 
 
@@ -31,10 +31,10 @@
 @interface SSFolder : SSItem
 {
 }
-- (id)initWithConnection: (SSConnection *)aConnection
-       name: (NSString *)aName
-       ssid: (NSString *)anId
-       type: (NSString *)aType;
+- (id)initWithConnection: (SSConnection *) aConnection
+       name: (NSString *) aName
+       ssid: (NSString *) anId
+       type: (NSString *) aType;
 
 
 - (void)loadRevision;
@@ -50,6 +50,6 @@
 @property (weak) id <SSFolderInfoDelegate> infoDelegate;
 @property (weak) id <SSFolderItemsDelegate> delegate;
 
-- (void)loadedItems: (NSArray *)items;
+- (void)loadedItems: (NSArray *) items;
 
 @end

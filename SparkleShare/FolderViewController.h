@@ -13,7 +13,7 @@
 @interface FolderViewController : UITableViewController <SSFolderInfoDelegate, SSFolderItemsDelegate, SSFileDelegate>
 
 @property (strong) SSFolder *folder;
-- (id)initWithFolder: (SSFolder *)folder;
+- (id)initWithFolder: (SSFolder *) folder;
 
 
 @end

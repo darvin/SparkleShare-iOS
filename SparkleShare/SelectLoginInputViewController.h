@@ -9,10 +9,10 @@
 #import "LoginInputViewController.h"
 
 @interface SelectLoginInputViewController : LoginInputViewController <LoginInputViewControllerDelegate>
-- (void)loginInputViewController: (LoginInputViewController *)loginInputViewController
-       willSetLink: (NSURL *)link code: (NSString *)code;
+- (void)loginInputViewController: (LoginInputViewController *) loginInputViewController
+       willSetLink: (NSURL *) link code: (NSString *) code;
 
-- (IBAction)openQRCodeView: (id)sender;
-- (IBAction)openManualView: (id)sender;
+- (IBAction)openQRCodeView: (id) sender;
+- (IBAction)openManualView: (id) sender;
 
 @end

@@ -10,20 +10,20 @@
 
 @class SSFile;
 @protocol SSFileDelegate <NSObject>
-- (void)file: (SSFile *)file contentLoaded: (NSData *)content;
-- (void)fileContentLoadingFailed: (SSFile *)file;
+- (void)file: (SSFile *) file contentLoaded: (NSData *) content;
+- (void)fileContentLoadingFailed: (SSFile *) file;
 @end
 
 
 @interface SSFile : SSItem
 
-- (id)initWithConnection: (SSConnection *)aConnection
-       name: (NSString *)aName
-       ssid: (NSString *)anId
-       url: (NSString *)anUrl
-       projectFolder: (SSFolder *)projectFolder
-       mime: (NSString *)mime
-       filesize: (int)filesize;
+- (id)initWithConnection: (SSConnection *) aConnection
+       name: (NSString *) aName
+       ssid: (NSString *) anId
+       url: (NSString *) anUrl
+       projectFolder: (SSFolder *) projectFolder
+       mime: (NSString *) mime
+       filesize: (int) filesize;
 
 
 @property (strong) NSData *content;

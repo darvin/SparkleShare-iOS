@@ -10,8 +10,8 @@
 @class LoginInputViewController;
 @protocol LoginInputViewControllerDelegate <NSObject>
 
-- (void)loginInputViewController: (LoginInputViewController *)loginInputViewController
-       willSetLink: (NSURL *)link code: (NSString *)code;
+- (void)loginInputViewController: (LoginInputViewController *) loginInputViewController
+       willSetLink: (NSURL *) link code: (NSString *) code;
 
 @end
 

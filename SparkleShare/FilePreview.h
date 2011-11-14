@@ -10,7 +10,7 @@
 #import <QuickLook/QuickLook.h>
 @class SSFile;
 @interface FilePreview : NSObject <QLPreviewItem>
-- (id)initWithFile: (SSFile *)file;
+- (id)initWithFile: (SSFile *) file;
 @property (copy) NSString *filename;
 @property (copy) NSURL *localURL;
 
