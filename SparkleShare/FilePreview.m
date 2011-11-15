@@ -40,7 +40,8 @@
 			return self;
 		}
 		else {
-			self.localURL = [NSURL URLWithString: tempFileName];
+			self.localURL = [NSURL fileURLWithPath: tempFileName];
+            NSLog(@"File url: %@", self.localURL);
 		}
 	}
 	return self;
