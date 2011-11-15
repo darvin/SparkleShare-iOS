@@ -8,6 +8,7 @@
 
 #import "FileViewController.h"
 #import "FilePreview.h"
+#import "UIViewController+AutoPlatformNibName.h"
 
 @implementation FileViewController
 @synthesize filePreview = _filePreview;
@@ -35,13 +36,12 @@
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation: (UIInterfaceOrientation) interfaceOrientation {
-	// Return YES for supported orientations
-	return (interfaceOrientation == UIInterfaceOrientationPortrait);
+	return YES;
 }
 
 #pragma mark -
 - (id)initWithFilePreview: (FilePreview *) filePreview filename: (NSString *) filename {
-	if (self = [super init]) {
+	if (self = [super initWithAutoPlatformNibName]) {
 		self.filePreview = filePreview;
 		self.dataSource = self;
 		self.title = filename;

@@ -15,8 +15,8 @@
 @implementation QRCodeLoginInputViewController
 @synthesize readerView, urlLabel, codeLabel;
 
-- (id)initWithNibName: (NSString *) nibNameOrNil bundle: (NSBundle *) nibBundleOrNil {
-	self = [super initWithNibName: nibNameOrNil bundle: nibBundleOrNil];
+- (id)init {
+	self = [super init];
 	if (self) {
 		[ZBarReaderView class];
 	}
@@ -59,9 +59,9 @@
 	[readerView stop];
 }
 
+
 - (BOOL)shouldAutorotateToInterfaceOrientation: (UIInterfaceOrientation) interfaceOrientation {
-	// Return YES for supported orientations
-	return (interfaceOrientation == UIInterfaceOrientationPortrait);
+	return YES;
 }
 
 - (void) readerView: (ZBarReaderView *) view

@@ -107,7 +107,7 @@
 
 - (void) connectionEstablishingFailed: (SSConnection *) connection {
     if (!self.loginInputViewController) {
-        self.loginInputViewController = [[SelectLoginInputViewController alloc] initWithNibName: @"SelectLoginInputViewController" bundle: nil];
+        self.loginInputViewController = [[SelectLoginInputViewController alloc] init];
         self.loginInputViewController.delegate = self;
     }
 	

@@ -17,31 +17,26 @@
 		self.filename = file.name;
 		NSString *path = [NSTemporaryDirectory () stringByAppendingPathComponent: [file.url sha1]];
 		NSError *error;
-		NSLog(@"Directory path: %@", path);
 		if (![[NSFileManager defaultManager] fileExistsAtPath: path]) { //Does directory already exist?
 			if (![[NSFileManager defaultManager] createDirectoryAtPath: path
 			      withIntermediateDirectories: NO
 			      attributes: nil
 			      error: &error]) {
-				NSLog(@"Create directory error: %@", error);
 				self = nil;
 				return self;
 			}
 		}
 
 		NSString *tempFileName = [path stringByAppendingPathComponent: self.filename];
-		NSLog(@"File path: %@", tempFileName);
 
 		if (![[NSFileManager defaultManager] createFileAtPath: tempFileName
 		      contents: file.content
 		      attributes: nil]) {
-			NSLog(@"Create file error");
 			self = nil;
 			return self;
 		}
 		else {
 			self.localURL = [NSURL fileURLWithPath: tempFileName];
-            NSLog(@"File url: %@", self.localURL);
 		}
 	}
 	return self;

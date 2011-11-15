@@ -18,13 +18,6 @@
 
 @implementation SelectLoginInputViewController
 @synthesize qrcodeLoginInputController, manualLoginInputViewController;
-- (id)initWithNibName: (NSString *) nibNameOrNil bundle: (NSBundle *) nibBundleOrNil {
-	self = [super initWithNibName: nibNameOrNil bundle: nibBundleOrNil];
-	if (self) {
-		// Custom initialization
-	}
-	return self;
-}
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
@@ -58,9 +51,9 @@
 	[super viewWillDisappear: animated];
 }
 
+
 - (BOOL)shouldAutorotateToInterfaceOrientation: (UIInterfaceOrientation) interfaceOrientation {
-	// Return YES for supported orientations
-	return (interfaceOrientation == UIInterfaceOrientationPortrait);
+	return YES;
 }
 
 - (void)loginInputViewController: (LoginInputViewController *) loginInputViewController

@@ -10,17 +10,24 @@
 		572920CD1471AB6100E4A3E8 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 572920BC1471AB6000E4A3E8 /* SVProgressHUD.bundle */; };
 		572920CE1471AB6100E4A3E8 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 572920BE1471AB6000E4A3E8 /* SVProgressHUD.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		572920D91471AC6C00E4A3E8 /* StartingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 572920D71471AC6C00E4A3E8 /* StartingViewController.m */; };
-		572920DA1471AC6C00E4A3E8 /* StartingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 572920D81471AC6C00E4A3E8 /* StartingViewController.xib */; };
+		572920DA1471AC6C00E4A3E8 /* StartingViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 572920D81471AC6C00E4A3E8 /* StartingViewController_iPhone.xib */; };
 		5737A391146DE1B300F4E2F2 /* sparkleshare-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5737A390146DE1B300F4E2F2 /* sparkleshare-logo.png */; };
 		5751447B146F3E52002D3553 /* FolderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57514479146F3E52002D3553 /* FolderViewController.m */; };
-		5751447C146F3E52002D3553 /* FolderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5751447A146F3E52002D3553 /* FolderViewController.xib */; };
+		5751447C146F3E52002D3553 /* FolderViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5751447A146F3E52002D3553 /* FolderViewController_iPhone.xib */; };
 		57514480146F3FD2002D3553 /* SSRootFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5751447F146F3FD2002D3553 /* SSRootFolder.m */; };
 		57514483146F4806002D3553 /* GitInfoFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 57514482146F4806002D3553 /* GitInfoFormatter.m */; };
 		57514486146F524C002D3553 /* SSJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 57514485146F524C002D3553 /* SSJSONRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		57583B291471B7DD0011D27B /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 57583B281471B7DD0011D27B /* Settings.bundle */; };
+		5774E1D41471F5D500E31A1A /* UIViewController+AutoPlatformNibName.m in Sources */ = {isa = PBXBuildFile; fileRef = 5774E1D31471F5D500E31A1A /* UIViewController+AutoPlatformNibName.m */; };
+		5774E1D71471F9E300E31A1A /* StartingViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5774E1D61471F9E300E31A1A /* StartingViewController_iPad.xib */; };
+		5774E1D91471FA2200E31A1A /* ManualLoginInputViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5774E1D81471FA2200E31A1A /* ManualLoginInputViewController_iPad.xib */; };
+		5774E1DB1471FA3A00E31A1A /* QRCodeLoginInputViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5774E1DA1471FA3A00E31A1A /* QRCodeLoginInputViewController_iPad.xib */; };
+		5774E1DD1471FA4E00E31A1A /* SelectLoginInputViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5774E1DC1471FA4E00E31A1A /* SelectLoginInputViewController_iPad.xib */; };
+		5774E1DF1471FA6400E31A1A /* FileViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5774E1DE1471FA6400E31A1A /* FileViewController_iPad.xib */; };
+		5774E1E11471FA7500E31A1A /* FolderViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5774E1E01471FA7500E31A1A /* FolderViewController_iPad.xib */; };
 		579EE168147032230074B72B /* FileSizeFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 579EE167147032230074B72B /* FileSizeFormatter.m */; };
 		579EE16C147034190074B72B /* FileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 579EE16A147034190074B72B /* FileViewController.m */; };
-		579EE16D147034190074B72B /* FileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 579EE16B147034190074B72B /* FileViewController.xib */; };
+		579EE16D147034190074B72B /* FileViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 579EE16B147034190074B72B /* FileViewController_iPhone.xib */; };
 		579EE16F147041280074B72B /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 579EE16E147041280074B72B /* QuickLook.framework */; };
 		579EE172147043940074B72B /* FilePreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 579EE171147043930074B72B /* FilePreview.m */; };
 		579EE175147054890074B72B /* NSString+Hashing.m in Sources */ = {isa = PBXBuildFile; fileRef = 579EE174147054890074B72B /* NSString+Hashing.m */; };
@@ -50,13 +57,13 @@
 		57AD9CD9146D82BA00BED6A6 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57AD9CD8146D82BA00BED6A6 /* CoreVideo.framework */; };
 		57AD9CDB146D82C600BED6A6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57AD9CDA146D82C600BED6A6 /* QuartzCore.framework */; };
 		57AD9CDD146D82CF00BED6A6 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 57AD9CDC146D82CF00BED6A6 /* libiconv.dylib */; };
-		57CA606A146D8B08002B747A /* QRCodeLoginInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57CA6069146D8B08002B747A /* QRCodeLoginInputViewController.xib */; };
+		57CA606A146D8B08002B747A /* QRCodeLoginInputViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57CA6069146D8B08002B747A /* QRCodeLoginInputViewController_iPhone.xib */; };
 		57DD1C28146D62670010B621 /* LoginInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DD1C27146D62670010B621 /* LoginInputViewController.m */; };
 		57DD1C2C146D63EE0010B621 /* ManualLoginInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DD1C2A146D63EE0010B621 /* ManualLoginInputViewController.m */; };
-		57DD1C2D146D63EE0010B621 /* ManualLoginInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57DD1C2B146D63EE0010B621 /* ManualLoginInputViewController.xib */; };
+		57DD1C2D146D63EE0010B621 /* ManualLoginInputViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57DD1C2B146D63EE0010B621 /* ManualLoginInputViewController_iPhone.xib */; };
 		57DD1C31146D641F0010B621 /* QRCodeLoginInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DD1C2F146D641F0010B621 /* QRCodeLoginInputViewController.m */; };
 		57DD1C36146D64670010B621 /* SelectLoginInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DD1C34146D64670010B621 /* SelectLoginInputViewController.m */; };
-		57DD1C37146D64670010B621 /* SelectLoginInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57DD1C35146D64670010B621 /* SelectLoginInputViewController.xib */; };
+		57DD1C37146D64670010B621 /* SelectLoginInputViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57DD1C35146D64670010B621 /* SelectLoginInputViewController_iPhone.xib */; };
 		57F73A0C1470D75D00276BF1 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 57F739741470D75C00276BF1 /* AFHTTPClient.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		57F73A0D1470D75D00276BF1 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 57F739761470D75C00276BF1 /* AFHTTPRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		57F73A0E1470D75D00276BF1 /* AFImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 57F739781470D75C00276BF1 /* AFImageCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -96,11 +103,11 @@
 		572920BE1471AB6000E4A3E8 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		572920D61471AC6C00E4A3E8 /* StartingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartingViewController.h; sourceTree = "<group>"; };
 		572920D71471AC6C00E4A3E8 /* StartingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartingViewController.m; sourceTree = "<group>"; };
-		572920D81471AC6C00E4A3E8 /* StartingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StartingViewController.xib; path = ../StartingViewController.xib; sourceTree = "<group>"; };
+		572920D81471AC6C00E4A3E8 /* StartingViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StartingViewController_iPhone.xib; path = ../StartingViewController_iPhone.xib; sourceTree = "<group>"; };
 		5737A390146DE1B300F4E2F2 /* sparkleshare-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sparkleshare-logo.png"; sourceTree = "<group>"; };
 		57514478146F3E52002D3553 /* FolderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FolderViewController.h; sourceTree = "<group>"; };
 		57514479146F3E52002D3553 /* FolderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FolderViewController.m; sourceTree = "<group>"; };
-		5751447A146F3E52002D3553 /* FolderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FolderViewController.xib; path = ../FolderViewController.xib; sourceTree = "<group>"; };
+		5751447A146F3E52002D3553 /* FolderViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FolderViewController_iPhone.xib; path = ../FolderViewController_iPhone.xib; sourceTree = "<group>"; };
 		5751447E146F3FD2002D3553 /* SSRootFolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSRootFolder.h; sourceTree = "<group>"; };
 		5751447F146F3FD2002D3553 /* SSRootFolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSRootFolder.m; sourceTree = "<group>"; };
 		57514481146F4806002D3553 /* GitInfoFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GitInfoFormatter.h; sourceTree = "<group>"; };
@@ -108,11 +115,19 @@
 		57514484146F524B002D3553 /* SSJSONRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSJSONRequestOperation.h; sourceTree = "<group>"; };
 		57514485146F524C002D3553 /* SSJSONRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSJSONRequestOperation.m; sourceTree = "<group>"; };
 		57583B281471B7DD0011D27B /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = ../Settings.bundle; sourceTree = "<group>"; };
+		5774E1D21471F5D500E31A1A /* UIViewController+AutoPlatformNibName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+AutoPlatformNibName.h"; sourceTree = "<group>"; };
+		5774E1D31471F5D500E31A1A /* UIViewController+AutoPlatformNibName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+AutoPlatformNibName.m"; sourceTree = "<group>"; };
+		5774E1D61471F9E300E31A1A /* StartingViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StartingViewController_iPad.xib; sourceTree = "<group>"; };
+		5774E1D81471FA2200E31A1A /* ManualLoginInputViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManualLoginInputViewController_iPad.xib; sourceTree = "<group>"; };
+		5774E1DA1471FA3A00E31A1A /* QRCodeLoginInputViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QRCodeLoginInputViewController_iPad.xib; sourceTree = "<group>"; };
+		5774E1DC1471FA4E00E31A1A /* SelectLoginInputViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectLoginInputViewController_iPad.xib; sourceTree = "<group>"; };
+		5774E1DE1471FA6400E31A1A /* FileViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FileViewController_iPad.xib; sourceTree = "<group>"; };
+		5774E1E01471FA7500E31A1A /* FolderViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FolderViewController_iPad.xib; sourceTree = "<group>"; };
 		579EE166147032230074B72B /* FileSizeFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileSizeFormatter.h; sourceTree = "<group>"; };
 		579EE167147032230074B72B /* FileSizeFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileSizeFormatter.m; sourceTree = "<group>"; };
 		579EE169147034180074B72B /* FileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileViewController.h; sourceTree = "<group>"; };
 		579EE16A147034190074B72B /* FileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileViewController.m; sourceTree = "<group>"; };
-		579EE16B147034190074B72B /* FileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FileViewController.xib; path = ../FileViewController.xib; sourceTree = "<group>"; };
+		579EE16B147034190074B72B /* FileViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FileViewController_iPhone.xib; path = ../FileViewController_iPhone.xib; sourceTree = "<group>"; };
 		579EE16E147041280074B72B /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
 		579EE170147043930074B72B /* FilePreview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilePreview.h; sourceTree = "<group>"; };
 		579EE171147043930074B72B /* FilePreview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilePreview.m; sourceTree = "<group>"; };
@@ -154,17 +169,17 @@
 		57AD9CD8146D82BA00BED6A6 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		57AD9CDA146D82C600BED6A6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		57AD9CDC146D82CF00BED6A6 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
-		57CA6069146D8B08002B747A /* QRCodeLoginInputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = QRCodeLoginInputViewController.xib; path = ../QRCodeLoginInputViewController.xib; sourceTree = "<group>"; };
+		57CA6069146D8B08002B747A /* QRCodeLoginInputViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = QRCodeLoginInputViewController_iPhone.xib; path = ../QRCodeLoginInputViewController_iPhone.xib; sourceTree = "<group>"; };
 		57DD1C26146D62670010B621 /* LoginInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginInputViewController.h; sourceTree = "<group>"; };
 		57DD1C27146D62670010B621 /* LoginInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginInputViewController.m; sourceTree = "<group>"; };
 		57DD1C29146D63EE0010B621 /* ManualLoginInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualLoginInputViewController.h; sourceTree = "<group>"; };
 		57DD1C2A146D63EE0010B621 /* ManualLoginInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManualLoginInputViewController.m; sourceTree = "<group>"; };
-		57DD1C2B146D63EE0010B621 /* ManualLoginInputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ManualLoginInputViewController.xib; path = ../ManualLoginInputViewController.xib; sourceTree = "<group>"; };
+		57DD1C2B146D63EE0010B621 /* ManualLoginInputViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ManualLoginInputViewController_iPhone.xib; path = ../ManualLoginInputViewController_iPhone.xib; sourceTree = "<group>"; };
 		57DD1C2E146D641F0010B621 /* QRCodeLoginInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeLoginInputViewController.h; sourceTree = "<group>"; };
 		57DD1C2F146D641F0010B621 /* QRCodeLoginInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeLoginInputViewController.m; sourceTree = "<group>"; };
 		57DD1C33146D64670010B621 /* SelectLoginInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectLoginInputViewController.h; sourceTree = "<group>"; };
 		57DD1C34146D64670010B621 /* SelectLoginInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectLoginInputViewController.m; sourceTree = "<group>"; };
-		57DD1C35146D64670010B621 /* SelectLoginInputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SelectLoginInputViewController.xib; path = ../SelectLoginInputViewController.xib; sourceTree = "<group>"; };
+		57DD1C35146D64670010B621 /* SelectLoginInputViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SelectLoginInputViewController_iPhone.xib; path = ../SelectLoginInputViewController_iPhone.xib; sourceTree = "<group>"; };
 		57F739731470D75C00276BF1 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		57F739741470D75C00276BF1 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		57F739751470D75C00276BF1 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -315,6 +330,8 @@
 				579EE173147054880074B72B /* NSString+Hashing.h */,
 				579EE174147054890074B72B /* NSString+Hashing.m */,
 				579EE164147031EB0074B72B /* Formatters */,
+				5774E1D21471F5D500E31A1A /* UIViewController+AutoPlatformNibName.h */,
+				5774E1D31471F5D500E31A1A /* UIViewController+AutoPlatformNibName.m */,
 			);
 			name = Supporting;
 			sourceTree = "<group>";
@@ -323,14 +340,20 @@
 			isa = PBXGroup;
 			children = (
 				57583B281471B7DD0011D27B /* Settings.bundle */,
-				572920D81471AC6C00E4A3E8 /* StartingViewController.xib */,
-				57DD1C2B146D63EE0010B621 /* ManualLoginInputViewController.xib */,
-				57CA6069146D8B08002B747A /* QRCodeLoginInputViewController.xib */,
-				57DD1C35146D64670010B621 /* SelectLoginInputViewController.xib */,
-				579EE16B147034190074B72B /* FileViewController.xib */,
-				5751447A146F3E52002D3553 /* FolderViewController.xib */,
+				572920D81471AC6C00E4A3E8 /* StartingViewController_iPhone.xib */,
+				57DD1C2B146D63EE0010B621 /* ManualLoginInputViewController_iPhone.xib */,
+				57CA6069146D8B08002B747A /* QRCodeLoginInputViewController_iPhone.xib */,
+				57DD1C35146D64670010B621 /* SelectLoginInputViewController_iPhone.xib */,
+				579EE16B147034190074B72B /* FileViewController_iPhone.xib */,
+				5751447A146F3E52002D3553 /* FolderViewController_iPhone.xib */,
 				5737A390146DE1B300F4E2F2 /* sparkleshare-logo.png */,
 				579EE17614705F320074B72B /* Localizable.strings */,
+				5774E1D61471F9E300E31A1A /* StartingViewController_iPad.xib */,
+				5774E1D81471FA2200E31A1A /* ManualLoginInputViewController_iPad.xib */,
+				5774E1DA1471FA3A00E31A1A /* QRCodeLoginInputViewController_iPad.xib */,
+				5774E1DC1471FA4E00E31A1A /* SelectLoginInputViewController_iPad.xib */,
+				5774E1DE1471FA6400E31A1A /* FileViewController_iPad.xib */,
+				5774E1E01471FA7500E31A1A /* FolderViewController_iPad.xib */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -712,20 +735,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				579F9AB314678A4E00709C70 /* InfoPlist.strings in Resources */,
-				57DD1C2D146D63EE0010B621 /* ManualLoginInputViewController.xib in Resources */,
-				57DD1C37146D64670010B621 /* SelectLoginInputViewController.xib in Resources */,
-				57CA606A146D8B08002B747A /* QRCodeLoginInputViewController.xib in Resources */,
+				57DD1C2D146D63EE0010B621 /* ManualLoginInputViewController_iPhone.xib in Resources */,
+				57DD1C37146D64670010B621 /* SelectLoginInputViewController_iPhone.xib in Resources */,
+				57CA606A146D8B08002B747A /* QRCodeLoginInputViewController_iPhone.xib in Resources */,
 				5737A391146DE1B300F4E2F2 /* sparkleshare-logo.png in Resources */,
-				5751447C146F3E52002D3553 /* FolderViewController.xib in Resources */,
-				579EE16D147034190074B72B /* FileViewController.xib in Resources */,
+				5751447C146F3E52002D3553 /* FolderViewController_iPhone.xib in Resources */,
+				579EE16D147034190074B72B /* FileViewController_iPhone.xib in Resources */,
 				579EE17714705F320074B72B /* Localizable.strings in Resources */,
 				57F73A701470D81A00276BF1 /* zbar-back.png in Resources */,
 				57F73A711470D81A00276BF1 /* zbar-help.html in Resources */,
 				57F73A721470D81A00276BF1 /* zbar-helpicons.png in Resources */,
 				57F73A731470D81A00276BF1 /* zbar-samples.png in Resources */,
 				572920CD1471AB6100E4A3E8 /* SVProgressHUD.bundle in Resources */,
-				572920DA1471AC6C00E4A3E8 /* StartingViewController.xib in Resources */,
+				572920DA1471AC6C00E4A3E8 /* StartingViewController_iPhone.xib in Resources */,
 				57583B291471B7DD0011D27B /* Settings.bundle in Resources */,
+				5774E1D71471F9E300E31A1A /* StartingViewController_iPad.xib in Resources */,
+				5774E1D91471FA2200E31A1A /* ManualLoginInputViewController_iPad.xib in Resources */,
+				5774E1DB1471FA3A00E31A1A /* QRCodeLoginInputViewController_iPad.xib in Resources */,
+				5774E1DD1471FA4E00E31A1A /* SelectLoginInputViewController_iPad.xib in Resources */,
+				5774E1DF1471FA6400E31A1A /* FileViewController_iPad.xib in Resources */,
+				5774E1E11471FA7500E31A1A /* FolderViewController_iPad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -811,6 +840,7 @@
 				57F73A471470D75D00276BF1 /* TTTURLRequestFormatter.m in Sources */,
 				572920CE1471AB6100E4A3E8 /* SVProgressHUD.m in Sources */,
 				572920D91471AC6C00E4A3E8 /* StartingViewController.m in Sources */,
+				5774E1D41471F5D500E31A1A /* UIViewController+AutoPlatformNibName.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
