@@ -30,6 +30,11 @@
 	return self;
 }
 
+
+- (NSString*) mime {
+    return @"text/directory";
+}
+
 - (id) initWithConnection: (SSConnection *) aConnection
        name: (NSString *) aName
        ssid: (NSString *) anId;

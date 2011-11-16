@@ -12,7 +12,7 @@
 @implementation SSFile
 @synthesize delegate = _delegate;
 @synthesize content = _content;
-@synthesize filesize = _filesize, mime = _mime;
+@synthesize filesize = _filesize;
 
 
 - (id) initWithConnection: (SSConnection *) aConnection

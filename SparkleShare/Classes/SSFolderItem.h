@@ -28,6 +28,7 @@
 
 @property (copy) NSString *name;
 @property (copy) NSString *ssid;
+@property (copy) NSString *mime;
 @property (copy) NSString *url;
 @property (weak) SSFolder *projectFolder;
 

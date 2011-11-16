@@ -27,7 +27,6 @@
 
 
 @property (strong) NSData *content;
-@property (copy) NSString *mime;
 @property int filesize;
 @property (weak) id <SSFileDelegate> delegate;
 - (void)loadContent;

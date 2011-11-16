@@ -16,17 +16,14 @@
 #import "UIColor+ApplicationColors.h"
 #import "SVProgressHUD.h"
 #import "UIViewController+AutoPlatformNibName.h"
-
+#import "UIImage+FileType.h"
 
 @implementation FolderViewController
 @synthesize folder = _folder;
 
 
 - (void)didReceiveMemoryWarning {
-	// Releases the view if it doesn't have a superview.
 	[super didReceiveMemoryWarning];
-
-	// Release any cached data, images, etc that aren't in use.
 }
 
 #pragma mark - View lifecycle
@@ -107,6 +104,8 @@
 		cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
 	}
 
+    [cell.imageView setImage:[UIImage imageForMimeType:item.mime size:32]];
+    
 	return cell;
 }
 
