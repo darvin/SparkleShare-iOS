@@ -951,13 +951,6 @@
 		57AD9CD9146D82BA00BED6A6 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57AD9CD8146D82BA00BED6A6 /* CoreVideo.framework */; };
 		57AD9CDB146D82C600BED6A6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57AD9CDA146D82C600BED6A6 /* QuartzCore.framework */; };
 		57AD9CDD146D82CF00BED6A6 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 57AD9CDC146D82CF00BED6A6 /* libiconv.dylib */; };
-		57C773A61472C56C00F7CDC7 /* .name in Resources */ = {isa = PBXBuildFile; fileRef = 57C7702B1472C56900F7CDC7 /* .name */; };
-		57C773A71472C56C00F7CDC7 /* encodings.xml in Resources */ = {isa = PBXBuildFile; fileRef = 57C7702C1472C56900F7CDC7 /* encodings.xml */; };
-		57C773A81472C56C00F7CDC7 /* Extras.iml in Resources */ = {isa = PBXBuildFile; fileRef = 57C7702D1472C56900F7CDC7 /* Extras.iml */; };
-		57C773A91472C56C00F7CDC7 /* misc.xml in Resources */ = {isa = PBXBuildFile; fileRef = 57C7702E1472C56900F7CDC7 /* misc.xml */; };
-		57C773AA1472C56C00F7CDC7 /* modules.xml in Resources */ = {isa = PBXBuildFile; fileRef = 57C7702F1472C56900F7CDC7 /* modules.xml */; };
-		57C773AB1472C56C00F7CDC7 /* vcs.xml in Resources */ = {isa = PBXBuildFile; fileRef = 57C770301472C56900F7CDC7 /* vcs.xml */; };
-		57C773AC1472C56C00F7CDC7 /* workspace.xml in Resources */ = {isa = PBXBuildFile; fileRef = 57C770311472C56900F7CDC7 /* workspace.xml */; };
 		57C773AD1472C56C00F7CDC7 /* generate_icons_from_gnome_theme.py in Resources */ = {isa = PBXBuildFile; fileRef = 57C770321472C56900F7CDC7 /* generate_icons_from_gnome_theme.py */; };
 		57C773AE1472C56C00F7CDC7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 57C770331472C56900F7CDC7 /* README.md */; };
 		57C773AF1472C56C00F7CDC7 /* FileTypeIcons.plist in Resources */ = {isa = PBXBuildFile; fileRef = 57C770351472C56900F7CDC7 /* FileTypeIcons.plist */; };
@@ -1966,13 +1959,6 @@
 		57AD9CD8146D82BA00BED6A6 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		57AD9CDA146D82C600BED6A6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		57AD9CDC146D82CF00BED6A6 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
-		57C7702B1472C56900F7CDC7 /* .name */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .name; sourceTree = "<group>"; };
-		57C7702C1472C56900F7CDC7 /* encodings.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = encodings.xml; sourceTree = "<group>"; };
-		57C7702D1472C56900F7CDC7 /* Extras.iml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Extras.iml; sourceTree = "<group>"; };
-		57C7702E1472C56900F7CDC7 /* misc.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = misc.xml; sourceTree = "<group>"; };
-		57C7702F1472C56900F7CDC7 /* modules.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = modules.xml; sourceTree = "<group>"; };
-		57C770301472C56900F7CDC7 /* vcs.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = vcs.xml; sourceTree = "<group>"; };
-		57C770311472C56900F7CDC7 /* workspace.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = workspace.xml; sourceTree = "<group>"; };
 		57C770321472C56900F7CDC7 /* generate_icons_from_gnome_theme.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = generate_icons_from_gnome_theme.py; sourceTree = "<group>"; };
 		57C770331472C56900F7CDC7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		57C770351472C56900F7CDC7 /* FileTypeIcons.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FileTypeIcons.plist; sourceTree = "<group>"; };
@@ -3212,24 +3198,9 @@
 		57C770291472C56900F7CDC7 /* Extras */ = {
 			isa = PBXGroup;
 			children = (
-				57C7702A1472C56900F7CDC7 /* .idea */,
 				57C770321472C56900F7CDC7 /* generate_icons_from_gnome_theme.py */,
 			);
 			path = Extras;
-			sourceTree = "<group>";
-		};
-		57C7702A1472C56900F7CDC7 /* .idea */ = {
-			isa = PBXGroup;
-			children = (
-				57C7702B1472C56900F7CDC7 /* .name */,
-				57C7702C1472C56900F7CDC7 /* encodings.xml */,
-				57C7702D1472C56900F7CDC7 /* Extras.iml */,
-				57C7702E1472C56900F7CDC7 /* misc.xml */,
-				57C7702F1472C56900F7CDC7 /* modules.xml */,
-				57C770301472C56900F7CDC7 /* vcs.xml */,
-				57C770311472C56900F7CDC7 /* workspace.xml */,
-			);
-			path = .idea;
 			sourceTree = "<group>";
 		};
 		57C770341472C56900F7CDC7 /* Resources */ = {
@@ -3502,13 +3473,6 @@
 				57A975F5147203430043B4B3 /* StartingViewController_iPad.xib in Resources */,
 				57A975F6147203430043B4B3 /* StartingViewController_iPhone.xib in Resources */,
 				57A975F8147203430043B4B3 /* Settings.bundle in Resources */,
-				57C773A61472C56C00F7CDC7 /* .name in Resources */,
-				57C773A71472C56C00F7CDC7 /* encodings.xml in Resources */,
-				57C773A81472C56C00F7CDC7 /* Extras.iml in Resources */,
-				57C773A91472C56C00F7CDC7 /* misc.xml in Resources */,
-				57C773AA1472C56C00F7CDC7 /* modules.xml in Resources */,
-				57C773AB1472C56C00F7CDC7 /* vcs.xml in Resources */,
-				57C773AC1472C56C00F7CDC7 /* workspace.xml in Resources */,
 				57C773AD1472C56C00F7CDC7 /* generate_icons_from_gnome_theme.py in Resources */,
 				57C773AE1472C56C00F7CDC7 /* README.md in Resources */,
 				57C773AF1472C56C00F7CDC7 /* FileTypeIcons.plist in Resources */,

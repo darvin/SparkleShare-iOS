@@ -21,26 +21,22 @@
 @synthesize infoDelegate = _infoDelegate;
 
 - (id) initWithConnection: (SSConnection *) aConnection
+                     name: (NSString *) aName
+                     ssid: (NSString *) anId;
+{
+	if (self = [super initWithConnection: aConnection name: aName ssid: anId]) {
+		self.projectFolder = self;
+		self.mime = @"text/directory";
+	}
+	return self;
+}
+
+- (id) initWithConnection: (SSConnection *) aConnection
        name: (NSString *) aName
        ssid: (NSString *) anId
        type: (NSString *) aType {
 	if (self = [self initWithConnection: aConnection name: aName ssid: anId]) {
 		self.type = aType;
-	}
-	return self;
-}
-
-
-- (NSString*) mime {
-    return @"text/directory";
-}
-
-- (id) initWithConnection: (SSConnection *) aConnection
-       name: (NSString *) aName
-       ssid: (NSString *) anId;
-{
-	if (self = [super initWithConnection: aConnection name: aName ssid: anId]) {
-		self.projectFolder = self;
 	}
 	return self;
 }
