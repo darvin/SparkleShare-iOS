@@ -148,6 +148,7 @@
 		}
 	}
 	[SVProgressHUD dismiss];
+    [self dataSourceDidFinishLoadingNewData];
 }
 
 - (void) reloadOneItem: (SSFolderItem *) item {
@@ -159,7 +160,9 @@
 }
 
 - (void) folderLoadingFailed: (SSFolder *) folder {
-	[SVProgressHUD dismiss];
+	[SVProgressHUD dismissWithError:@"Folder data loading failed"];
+    [self dataSourceDidFinishLoadingNewData];
+
 }
 
 - (void) folder: (SSFolder *) folder countLoaded: (int) count {
@@ -186,7 +189,17 @@
 }
 
 - (void) fileContentLoadingFailed: (SSFile *) file {
-	[SVProgressHUD dismiss];
+	[SVProgressHUD dismissWithError:@"File content loading failed"];
 }
+
+
+
+#pragma mark - refreshHeaderView Methods
+
+- (void) reloadTableViewDataSource
+{
+	[self.folder loadItems];
+}
+
 
 @end

@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "SSFolder.h"
 #import "SSFile.h"
+#import "PullToRefreshTableViewController.h"
 
-@interface FolderViewController : UITableViewController <SSFolderInfoDelegate, SSFolderItemsDelegate, SSFileDelegate>
+@interface FolderViewController : PullToRefreshTableViewController <SSFolderInfoDelegate, SSFolderItemsDelegate, SSFileDelegate>
 
 @property (strong) SSFolder *folder;
 - (id)initWithFolder: (SSFolder *) folder;

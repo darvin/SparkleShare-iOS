@@ -893,6 +893,13 @@
 		571F4ECA1473B29A00D440FD /* 48_x-office-presentation.png in Resources */ = {isa = PBXBuildFile; fileRef = 571F4B551473B29900D440FD /* 48_x-office-presentation.png */; };
 		571F4ECB1473B29A00D440FD /* 48_x-office-spreadsheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 571F4B561473B29900D440FD /* 48_x-office-spreadsheet.png */; };
 		571F4ECC1473B29A00D440FD /* 48_zip.png in Resources */ = {isa = PBXBuildFile; fileRef = 571F4B571473B29900D440FD /* 48_zip.png */; };
+		571F4F991473C12A00D440FD /* PullToRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 571F4F831473C12A00D440FD /* PullToRefreshTableViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		571F4F9A1473C12A00D440FD /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 571F4F851473C12A00D440FD /* RootViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		571F4F9B1473C12A00D440FD /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 571F4F881473C12A00D440FD /* EGORefreshTableHeaderView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		571F4F9C1473C12A00D440FD /* blackArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 571F4F8A1473C12A00D440FD /* blackArrow.png */; };
+		571F4F9D1473C12A00D440FD /* blueArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 571F4F8B1473C12A00D440FD /* blueArrow.png */; };
+		571F4F9E1473C12A00D440FD /* blueArrow_new.png in Resources */ = {isa = PBXBuildFile; fileRef = 571F4F8C1473C12A00D440FD /* blueArrow_new.png */; };
+		571F4F9F1473C12A00D440FD /* whiteArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 571F4F8D1473C12A00D440FD /* whiteArrow.png */; };
 		572920CD1471AB6100E4A3E8 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 572920BC1471AB6000E4A3E8 /* SVProgressHUD.bundle */; };
 		572920CE1471AB6100E4A3E8 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 572920BE1471AB6000E4A3E8 /* SVProgressHUD.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		579EE16F147041280074B72B /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 579EE16E147041280074B72B /* QuickLook.framework */; };
@@ -951,8 +958,6 @@
 		57AD9CD9146D82BA00BED6A6 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57AD9CD8146D82BA00BED6A6 /* CoreVideo.framework */; };
 		57AD9CDB146D82C600BED6A6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57AD9CDA146D82C600BED6A6 /* QuartzCore.framework */; };
 		57AD9CDD146D82CF00BED6A6 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 57AD9CDC146D82CF00BED6A6 /* libiconv.dylib */; };
-		57C773AD1472C56C00F7CDC7 /* generate_icons_from_gnome_theme.py in Resources */ = {isa = PBXBuildFile; fileRef = 57C770321472C56900F7CDC7 /* generate_icons_from_gnome_theme.py */; };
-		57C773AE1472C56C00F7CDC7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 57C770331472C56900F7CDC7 /* README.md */; };
 		57C773AF1472C56C00F7CDC7 /* FileTypeIcons.plist in Resources */ = {isa = PBXBuildFile; fileRef = 57C770351472C56900F7CDC7 /* FileTypeIcons.plist */; };
 		57C777211472C5BC00F7CDC7 /* UIImage+FileType.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C777201472C5BC00F7CDC7 /* UIImage+FileType.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		57F73A0C1470D75D00276BF1 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 57F739741470D75C00276BF1 /* AFHTTPClient.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -1876,6 +1881,16 @@
 		571F4B551473B29900D440FD /* 48_x-office-presentation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "48_x-office-presentation.png"; sourceTree = "<group>"; };
 		571F4B561473B29900D440FD /* 48_x-office-spreadsheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "48_x-office-spreadsheet.png"; sourceTree = "<group>"; };
 		571F4B571473B29900D440FD /* 48_zip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 48_zip.png; sourceTree = "<group>"; };
+		571F4F821473C12A00D440FD /* PullToRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullToRefreshTableViewController.h; sourceTree = "<group>"; };
+		571F4F831473C12A00D440FD /* PullToRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullToRefreshTableViewController.m; sourceTree = "<group>"; };
+		571F4F841473C12A00D440FD /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		571F4F851473C12A00D440FD /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		571F4F871473C12A00D440FD /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
+		571F4F881473C12A00D440FD /* EGORefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableHeaderView.m; sourceTree = "<group>"; };
+		571F4F8A1473C12A00D440FD /* blackArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackArrow.png; sourceTree = "<group>"; };
+		571F4F8B1473C12A00D440FD /* blueArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueArrow.png; sourceTree = "<group>"; };
+		571F4F8C1473C12A00D440FD /* blueArrow_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueArrow_new.png; sourceTree = "<group>"; };
+		571F4F8D1473C12A00D440FD /* whiteArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteArrow.png; sourceTree = "<group>"; };
 		572920BC1471AB6000E4A3E8 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		572920BD1471AB6000E4A3E8 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		572920BE1471AB6000E4A3E8 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
@@ -1959,8 +1974,6 @@
 		57AD9CD8146D82BA00BED6A6 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		57AD9CDA146D82C600BED6A6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		57AD9CDC146D82CF00BED6A6 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
-		57C770321472C56900F7CDC7 /* generate_icons_from_gnome_theme.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = generate_icons_from_gnome_theme.py; sourceTree = "<group>"; };
-		57C770331472C56900F7CDC7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		57C770351472C56900F7CDC7 /* FileTypeIcons.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FileTypeIcons.plist; sourceTree = "<group>"; };
 		57C7771F1472C5BC00F7CDC7 /* UIImage+FileType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+FileType.h"; sourceTree = "<group>"; };
 		57C777201472C5BC00F7CDC7 /* UIImage+FileType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FileType.m"; sourceTree = "<group>"; };
@@ -3013,6 +3026,63 @@
 			path = Icons;
 			sourceTree = "<group>";
 		};
+		571F4F6E1473C12A00D440FD /* EGOTableViewPullRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				571F4F7F1473C12A00D440FD /* EGOTableViewPullRefresh */,
+			);
+			path = EGOTableViewPullRefresh;
+			sourceTree = "<group>";
+		};
+		571F4F7F1473C12A00D440FD /* EGOTableViewPullRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				571F4F801473C12A00D440FD /* Classes */,
+				571F4F891473C12A00D440FD /* Resources */,
+			);
+			path = EGOTableViewPullRefresh;
+			sourceTree = "<group>";
+		};
+		571F4F801473C12A00D440FD /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				571F4F811473C12A00D440FD /* Controller */,
+				571F4F861473C12A00D440FD /* View */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		571F4F811473C12A00D440FD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				571F4F821473C12A00D440FD /* PullToRefreshTableViewController.h */,
+				571F4F831473C12A00D440FD /* PullToRefreshTableViewController.m */,
+				571F4F841473C12A00D440FD /* RootViewController.h */,
+				571F4F851473C12A00D440FD /* RootViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		571F4F861473C12A00D440FD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				571F4F871473C12A00D440FD /* EGORefreshTableHeaderView.h */,
+				571F4F881473C12A00D440FD /* EGORefreshTableHeaderView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		571F4F891473C12A00D440FD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				571F4F8A1473C12A00D440FD /* blackArrow.png */,
+				571F4F8B1473C12A00D440FD /* blueArrow.png */,
+				571F4F8C1473C12A00D440FD /* blueArrow_new.png */,
+				571F4F8D1473C12A00D440FD /* whiteArrow.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		572920A71471AB6000E4A3E8 /* SVProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -3034,6 +3104,7 @@
 		579BC0A81470CD4100BB8233 /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				571F4F6E1473C12A00D440FD /* EGOTableViewPullRefresh */,
 				57C770281472C56900F7CDC7 /* UIImage-FileType */,
 				572920A71471AB6000E4A3E8 /* SVProgressHUD */,
 				57F73A511470D81A00276BF1 /* ZBarSDK */,
@@ -3184,8 +3255,6 @@
 		57C770281472C56900F7CDC7 /* UIImage-FileType */ = {
 			isa = PBXGroup;
 			children = (
-				57C770291472C56900F7CDC7 /* Extras */,
-				57C770331472C56900F7CDC7 /* README.md */,
 				57C770341472C56900F7CDC7 /* Resources */,
 				57C7771F1472C5BC00F7CDC7 /* UIImage+FileType.h */,
 				57C777201472C5BC00F7CDC7 /* UIImage+FileType.m */,
@@ -3193,14 +3262,6 @@
 				571F47D314739C9900D440FD /* SKFileTypeImageLoader.m */,
 			);
 			path = "UIImage-FileType";
-			sourceTree = "<group>";
-		};
-		57C770291472C56900F7CDC7 /* Extras */ = {
-			isa = PBXGroup;
-			children = (
-				57C770321472C56900F7CDC7 /* generate_icons_from_gnome_theme.py */,
-			);
-			path = Extras;
 			sourceTree = "<group>";
 		};
 		57C770341472C56900F7CDC7 /* Resources */ = {
@@ -3473,8 +3534,6 @@
 				57A975F5147203430043B4B3 /* StartingViewController_iPad.xib in Resources */,
 				57A975F6147203430043B4B3 /* StartingViewController_iPhone.xib in Resources */,
 				57A975F8147203430043B4B3 /* Settings.bundle in Resources */,
-				57C773AD1472C56C00F7CDC7 /* generate_icons_from_gnome_theme.py in Resources */,
-				57C773AE1472C56C00F7CDC7 /* README.md in Resources */,
 				57C773AF1472C56C00F7CDC7 /* FileTypeIcons.plist in Resources */,
 				571F4B581473B29900D440FD /* 16_application-7zip.png in Resources */,
 				571F4B591473B29900D440FD /* 16_application-atom+xml.png in Resources */,
@@ -4361,6 +4420,10 @@
 				571F4ECA1473B29A00D440FD /* 48_x-office-presentation.png in Resources */,
 				571F4ECB1473B29A00D440FD /* 48_x-office-spreadsheet.png in Resources */,
 				571F4ECC1473B29A00D440FD /* 48_zip.png in Resources */,
+				571F4F9C1473C12A00D440FD /* blackArrow.png in Resources */,
+				571F4F9D1473C12A00D440FD /* blueArrow.png in Resources */,
+				571F4F9E1473C12A00D440FD /* blueArrow_new.png in Resources */,
+				571F4F9F1473C12A00D440FD /* whiteArrow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4449,6 +4512,9 @@
 				57A975F7147203430043B4B3 /* main.m in Sources */,
 				57C777211472C5BC00F7CDC7 /* UIImage+FileType.m in Sources */,
 				571F47D414739C9900D440FD /* SKFileTypeImageLoader.m in Sources */,
+				571F4F991473C12A00D440FD /* PullToRefreshTableViewController.m in Sources */,
+				571F4F9A1473C12A00D440FD /* RootViewController.m in Sources */,
+				571F4F9B1473C12A00D440FD /* EGORefreshTableHeaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

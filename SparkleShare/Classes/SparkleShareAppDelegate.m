@@ -74,7 +74,7 @@
 - (void)loginInputViewController: (LoginInputViewController *) loginInputViewController
        willSetLink: (NSURL *) link code: (NSString *) code;
 {
-    [SVProgressHUD showInView:self.loginInputViewController.view status:@"Linking in progress"];
+    [SVProgressHUD showWithStatus:@"Linking in progress"];
 	[connection linkDeviceWithAddress: link code: code];
 }
 
