@@ -19,7 +19,7 @@
 #import "UIImage+FileType.h"
 
 @implementation FolderViewController
-@synthesize folder = _folder;
+@synthesize folder = _folder, iconSize = _iconSize;
 
 
 - (void)didReceiveMemoryWarning {
@@ -33,6 +33,11 @@
 	self.navigationController.navigationBar.tintColor = [UIColor navBarColor];
 
 	self.clearsSelectionOnViewWillAppear = NO;
+    if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)] && [[UIScreen mainScreen] scale] == 2)
+        self.iconSize = 48;
+    else
+        self.iconSize = 32;
+    
 }
 
 - (void)viewDidUnload {
@@ -104,7 +109,8 @@
 		cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
 	}
 
-    [cell.imageView setImage:[UIImage imageForMimeType:item.mime size:32]];
+
+    [cell.imageView setImage:[UIImage imageForMimeType:item.mime size:self.iconSize]];
     
 	return cell;
 }

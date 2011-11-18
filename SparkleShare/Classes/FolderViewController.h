@@ -16,5 +16,5 @@
 @property (strong) SSFolder *folder;
 - (id)initWithFolder: (SSFolder *) folder;
 
-
+@property int iconSize;
 @end
