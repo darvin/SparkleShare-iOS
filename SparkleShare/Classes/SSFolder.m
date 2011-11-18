@@ -10,7 +10,7 @@
 #import "SSFile.h"
 #import "SSConnection.h"
 #import "TTTURLRequestFormatter.h"
-
+#import "SSFolderItem.h"
 @interface SSFolder ()
 @end
 
@@ -124,7 +124,18 @@
 }
 
 - (void) loadedItems: (NSArray *) items {
-	self.items = items;
+	self.items = [items sortedArrayUsingComparator:(NSComparator)^(id obj1, id obj2){
+        if ([obj1 class]==[obj2 class]) {
+            return [((SSFolderItem*)obj1).name caseInsensitiveCompare: ((SSFolderItem*)obj2).name];
+        } else {
+            if ([obj1 isKindOfClass:[SSFolder class]]) {
+                return NSOrderedAscending;
+            } else {
+                return NSOrderedDescending;
+            }
+        }
+                 return NSOrderedSame;
+    }];
 	[self.delegate folder: self itemsLoaded: self.items];
 }
 
