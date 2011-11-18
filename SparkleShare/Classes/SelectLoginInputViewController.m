@@ -53,8 +53,9 @@
 
 
 - (BOOL)shouldAutorotateToInterfaceOrientation: (UIInterfaceOrientation) interfaceOrientation {
-	return YES;
+	return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
 
 - (void)loginInputViewController: (LoginInputViewController *) loginInputViewController
        willSetLink: (NSURL *) link code: (NSString *) code {

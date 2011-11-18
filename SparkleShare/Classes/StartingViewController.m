@@ -38,7 +38,7 @@
 }
 
 - (void) viewDidAppear: (BOOL) animated {
-	[SVProgressHUD show];
+	[SVProgressHUD showWithStatus:@"Connecting"];
 }
 
 - (void) viewWillDisappear: (BOOL) animated {

@@ -26,14 +26,14 @@
     
 	StartingViewController *startingViewController = [[StartingViewController alloc] init];
 	self.window.rootViewController = startingViewController;
-    
+    [self.window makeKeyAndVisible];
+
 	connection = [[SSConnection alloc] initWithUserDefaults];
     connection.delegate = self;
     [connection estabilishConnection];
 
 
 
-	[self.window makeKeyAndVisible];
 	return YES;
 }
 
