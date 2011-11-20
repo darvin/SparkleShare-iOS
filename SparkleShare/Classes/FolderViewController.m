@@ -33,10 +33,10 @@
 	self.navigationController.navigationBar.tintColor = [UIColor navBarColor];
 
 	self.clearsSelectionOnViewWillAppear = NO;
-    if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)] && [[UIScreen mainScreen] scale] == 2)
-        self.iconSize = 48;
+    if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)])
+        self.iconSize = 40*[[UIScreen mainScreen] scale];
     else
-        self.iconSize = 32;
+        self.iconSize = 40;
     
 }
 
