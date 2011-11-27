@@ -28,4 +28,5 @@ SparkleShare for iOS is in Alpha development stage
         git submodule update --init
         
 * start xcode and open project at:
-  projects/SparkleShare-iOS/SparkleShare.xcodeproj
+
+        projects/SparkleShare-iOS/SparkleShare.xcodeproj
