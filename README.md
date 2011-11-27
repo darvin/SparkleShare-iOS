@@ -36,6 +36,7 @@ projects/SparkleShare-iOS/SparkleShare.xcodeproj
 
 * If subversion fails on SVProgressHUD then do this:
         
+        close xcode (to avoide xcode crash)
         cd projects/SparkleShare-iOS/libs/
         rm -rf SVProgressHUD
         git clone git://github.com/samvermette/SVProgressHUD.git
