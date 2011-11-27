@@ -14,7 +14,7 @@ SparkleShare for iOS is in Alpha development stage
 
  - Uploading files
 
-### build on osx
+### Build on osx
 
 
 * install git [[http://help.github.com/mac-set-up-git/]]
