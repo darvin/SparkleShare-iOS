@@ -38,4 +38,6 @@ projects/SparkleShare-iOS/SparkleShare.xcodeproj
         
         cd projects/SparkleShare-iOS/libs/
         rm -rf SVProgressHUD
-        git clone https://github.com/samvermette/SVProgressHUD.git
+        git clone git://github.com/samvermette/SVProgressHUD.git
+        git clone  git@github.com:darvin/UIImage-FileType.git
+        
