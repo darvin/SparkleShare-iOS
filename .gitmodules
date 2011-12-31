@@ -10,3 +10,6 @@
 [submodule "libs/EGOTableViewPullRefresh"]
 	path = libs/EGOTableViewPullRefresh
 	url = git://github.com/jessedc/EGOTableViewPullRefresh.git
+[submodule "libs/SVProgressHUD"]
+	path = libs/SVProgressHUD
+	url = git://github.com/samvermette/SVProgressHUD.git
