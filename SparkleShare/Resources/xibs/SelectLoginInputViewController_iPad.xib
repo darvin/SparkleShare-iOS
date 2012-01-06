@@ -103,7 +103,7 @@
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">sparkleshare-logo-ipad.png</string>
+							<string key="NSResourceName">sparkleshare-logo.png</string>
 						</object>
 					</object>
 					<object class="IBUILabel" id="161560577">
@@ -252,8 +252,8 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="NS.key.0">sparkleshare-logo-ipad.png</string>
-			<string key="NS.object.0">{16, 16}</string>
+			<string key="NS.key.0">sparkleshare-logo.png</string>
+			<string key="NS.object.0">{196, 196}</string>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">933</string>
 	</data>
