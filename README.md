@@ -31,14 +31,3 @@ SparkleShare for iOS is in Alpha development stage
 
 projects/SparkleShare-iOS/SparkleShare.xcodeproj
 
-
-### Known issues & workarounds
-
-* If subversion fails on SVProgressHUD then do this:
-        
-        close xcode (to avoide xcode crash)
-        cd projects/SparkleShare-iOS/libs/
-        rm -rf SVProgressHUD
-        git clone git://github.com/samvermette/SVProgressHUD.git
-        git clone git://github.com/darvin/UIImage-FileType.git
-        

@@ -2060,10 +2060,10 @@
 		572979831476C69B007A2947 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../../../Default@2x.png"; sourceTree = "<group>"; };
 		572979851476C805007A2947 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait~ipad.png"; path = "../../../Default-Portrait~ipad.png"; sourceTree = "<group>"; };
 		572979871476C82F007A2947 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape~ipad.png"; path = "../../../Default-Landscape~ipad.png"; sourceTree = "<group>"; };
-		57852B3414B1AC59003A1FFC /* SparkleShare-Donate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SparkleShare-Donate.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		57852B3614B1AC5A003A1FFC /* SparkleShare copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "SparkleShare copy-Info.plist"; path = "/Users/darvin/Workspace/SparkleShare-iOS/SparkleShare copy-Info.plist"; sourceTree = "<absolute>"; };
+		5756D10C14B82725006A7239 /* SparkleShareAppStore-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SparkleShareAppStore-Info.plist"; sourceTree = "<group>"; };
+		5756D10E14B8272D006A7239 /* SparkleShareAppStoreDonate-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SparkleShareAppStoreDonate-Info.plist"; sourceTree = "<group>"; };
+		57852B3414B1AC59003A1FFC /* SparkleShareDonate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SparkleShareDonate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57852DDD14B1B582003A1FFC /* SparkleShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SparkleShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		57852DDF14B1B583003A1FFC /* SparkleShare copy2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "SparkleShare copy2-Info.plist"; path = "/Users/darvin/Workspace/SparkleShare-iOS/SparkleShare copy2-Info.plist"; sourceTree = "<absolute>"; };
 		579EE16E147041280074B72B /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
 		579F9AA414678A4E00709C70 /* SparkleShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SparkleShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		579F9AA814678A4E00709C70 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -3022,8 +3022,6 @@
 				579F9AA714678A4E00709C70 /* Frameworks */,
 				579F9AA514678A4E00709C70 /* Products */,
 				579BC0A81470CD4100BB8233 /* libs */,
-				57852B3614B1AC5A003A1FFC /* SparkleShare copy-Info.plist */,
-				57852DDF14B1B583003A1FFC /* SparkleShare copy2-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -3032,7 +3030,7 @@
 			children = (
 				579F9AA414678A4E00709C70 /* SparkleShare.app */,
 				579F9AD114678A4E00709C70 /* SparkleShareTests.octest */,
-				57852B3414B1AC59003A1FFC /* SparkleShare-Donate.app */,
+				57852B3414B1AC59003A1FFC /* SparkleShareDonate.app */,
 				57852DDD14B1B582003A1FFC /* SparkleShare.app */,
 			);
 			name = Products;
@@ -3158,6 +3156,8 @@
 				57A975CF147203430043B4B3 /* main.m */,
 				57A975D0147203430043B4B3 /* Settings.bundle */,
 				57A975D1147203430043B4B3 /* SparkleShare-Info.plist */,
+				5756D10E14B8272D006A7239 /* SparkleShareAppStoreDonate-Info.plist */,
+				5756D10C14B82725006A7239 /* SparkleShareAppStore-Info.plist */,
 				57A975D2147203430043B4B3 /* SparkleShare-Prefix.pch */,
 			);
 			path = Supporting;
@@ -3956,7 +3956,7 @@
 			);
 			name = "SparkleShare Donate AppStore";
 			productName = SparkleShare;
-			productReference = 57852B3414B1AC59003A1FFC /* SparkleShare-Donate.app */;
+			productReference = 57852B3414B1AC59003A1FFC /* SparkleShareDonate.app */;
 			productType = "com.apple.product-type.application";
 		};
 		57852B3714B1B582003A1FFC /* SparkleShare AppStore */ = {
@@ -6150,7 +6150,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SparkleShare/Supporting/SparkleShare-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INFOPLIST_FILE = "SparkleShare copy-Info.plist";
+				INFOPLIST_FILE = "SparkleShare/Supporting/SparkleShareAppStoreDonate-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/libs/ZBarSDK\"",
@@ -6169,7 +6169,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SparkleShare/Supporting/SparkleShare-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INFOPLIST_FILE = "SparkleShare copy-Info.plist";
+				INFOPLIST_FILE = "SparkleShare/Supporting/SparkleShareAppStoreDonate-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/libs/ZBarSDK\"",
@@ -6189,7 +6189,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SparkleShare/Supporting/SparkleShare-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INFOPLIST_FILE = "SparkleShare copy2-Info.plist";
+				INFOPLIST_FILE = "SparkleShare/Supporting/SparkleShareAppStore-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/libs/ZBarSDK\"",
@@ -6208,7 +6208,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SparkleShare/Supporting/SparkleShare-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INFOPLIST_FILE = "SparkleShare copy2-Info.plist";
+				INFOPLIST_FILE = "SparkleShare/Supporting/SparkleShareAppStore-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/libs/ZBarSDK\"",
