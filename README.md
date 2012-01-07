@@ -24,4 +24,3 @@ SparkleShare for iOS is in Alpha development stage
     open SparkleShare.xcodeproj
         
 * Build SparkleShare for iOS
-
