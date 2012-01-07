@@ -18,9 +18,11 @@ SparkleShare for iOS is in Alpha development stage
 
 * Execute:
 
-    git clone git://github.com/darvin/SparkleShare-iOS.git
-    cd SparkleShare-iOS
-    git submodule update --init
-    open SparkleShare.xcodeproj
-        
+```sh
+git clone git://github.com/darvin/SparkleShare-iOS.git
+cd SparkleShare-iOS
+git submodule update --init
+open SparkleShare.xcodeproj
+```
+
 * Build SparkleShare for iOS
