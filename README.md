@@ -5,7 +5,9 @@ Grab it right away at http://appsto.com/sparkleshare !
 ## Screenshots ##
 
 ![Projects (aka root folders) list](http://a5.mzstatic.com/us/r30/Purple/e0/fa/07/mzl.cncmqbop.320x480-75.jpg "Projects aka root folders list")
+&nbsp;
 ![Folder's listing](http://a3.mzstatic.com/us/r30/Purple/ac/a5/d5/mzl.lbpgkwfu.320x480-75.jpg "Folder's listing")
+&nbsp;
 ![File preview](http://a3.mzstatic.com/us/r30/Purple/82/b7/36/mzl.cimtaoai.320x480-75.jpg "File preview")
 
 There is iPad version as well
