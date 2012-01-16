@@ -11,8 +11,7 @@
 #import "SSFolder.h"
 
 @implementation SSFolderItem
-@synthesize name = _name, ssid = _ssid, url = _url, projectFolder = _projectFolder, mime=_mime;
-
+@synthesize name = _name, ssid = _ssid, url = _url, projectFolder = _projectFolder, mime=_mime, completely_loaded=_completely_loaded;
 
 - (id) initWithConnection: (SSConnection *) aConnection
        name: (NSString *) aName

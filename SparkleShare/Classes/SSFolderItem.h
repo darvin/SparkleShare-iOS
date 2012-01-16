@@ -14,6 +14,7 @@
 @interface SSFolderItem : NSObject
 {
 	SSConnection *connection;
+    BOOL _completely_loaded;
 }
 
 - (id)initWithConnection: (SSConnection *) aConnection
@@ -31,6 +32,7 @@
 @property (copy) NSString *mime;
 @property (copy) NSString *url;
 @property (weak) SSFolder *projectFolder;
+@property (readonly) BOOL completely_loaded;
 
 - (void)sendRequestWithSelfUrlAndMethod: (NSString *) method
        success: ( void (^)(NSURLRequest * request, NSURLResponse * response, id JSON) ) success

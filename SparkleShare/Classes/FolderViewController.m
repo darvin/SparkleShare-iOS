@@ -12,6 +12,7 @@
 #import "SSFolder.h"
 #import "SSRootFolder.h"
 #import "SSFile.h"
+#import "SSFolderItem.h"
 #import "FileSizeFormatter.h"
 #import "UIColor+ApplicationColors.h"
 #import "SVProgressHUD.h"
@@ -120,6 +121,9 @@
 
 - (void)tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
 	SSFolderItem *item = [self.folder.items objectAtIndex: indexPath.row];
+    if (!item.completely_loaded) {
+        return;
+    }
 	if ([item isKindOfClass: [SSFolder class]]) {
 		FolderViewController *newFolderViewController = [[FolderViewController alloc] initWithFolder: (SSFolder *)item];
 		[self.navigationController pushViewController: newFolderViewController animated: YES];

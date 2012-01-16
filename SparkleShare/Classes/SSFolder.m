@@ -67,6 +67,8 @@
 	         NSNumber *count = JSON;
 	         self.count = [count intValue]; //fixme
 	         [self.infoDelegate folder: self countLoaded: self.count];
+         _completely_loaded = YES;
+
 	 }
 	 failure:
 	 ^(NSURLRequest * request, NSURLResponse * response, NSError * error, id JSON) {

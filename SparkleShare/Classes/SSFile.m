@@ -26,6 +26,8 @@
 	if (self = [super initWithConnection: aConnection name: aName ssid: anId url: anUrl projectFolder: projectFolder]) {
 		self.mime = mime;
 		self.filesize = filesize;
+        _completely_loaded = YES;
+
 	}
 	return self;
 }

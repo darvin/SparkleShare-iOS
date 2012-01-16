@@ -6266,7 +6266,7 @@
 		579F9AE414678A4E00709C70 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DSTROOT = /tmp/xcodeproj.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SparkleShare/Supporting/SparkleShare-Prefix.pch";
@@ -6277,6 +6277,7 @@
 					"\"$(SRCROOT)/libs/ZBarSDK\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = NO;
 				WRAPPER_EXTENSION = app;
 			};
@@ -6285,7 +6286,7 @@
 		579F9AE514678A4E00709C70 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DSTROOT = /tmp/xcodeproj.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SparkleShare/Supporting/SparkleShare-Prefix.pch";
@@ -6296,6 +6297,7 @@
 					"\"$(SRCROOT)/libs/ZBarSDK\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = NO;
 				WRAPPER_EXTENSION = app;
 			};
