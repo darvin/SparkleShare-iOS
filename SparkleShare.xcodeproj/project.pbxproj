@@ -6203,7 +6203,7 @@
 		57852DDC14B1B582003A1FFC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Sergey Klimov";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				DSTROOT = /tmp/xcodeproj.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SparkleShare/Supporting/SparkleShare-Prefix.pch";
@@ -6214,7 +6214,7 @@
 					"\"$(SRCROOT)/libs/ZBarSDK\"",
 				);
 				PRODUCT_NAME = SparkleShare;
-				PROVISIONING_PROFILE = "22E5FFF2-91CD-46AD-9D0B-9B1A973EB7FA";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = NO;
 				WRAPPER_EXTENSION = app;
 			};
