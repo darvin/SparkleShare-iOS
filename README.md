@@ -1,20 +1,11 @@
-iOS Client for SparkleShare Project at http://www.sparkleshare.org
+iOS Client for [SparkleShare Project](http://www.sparkleshare.org)
 
-Grab it right away at http://appsto.com/sparkleshare !
+Grab it right away at [AppStore](http://bit.ly/zA54N5)! Or support me by buying [paid version](http://itunes.apple.com/us/app/sparkleshare-support-us!/id492519879)
 
-## Screenshots ##
-
-![Projects (aka root folders) list](http://a5.mzstatic.com/us/r30/Purple/e0/fa/07/mzl.cncmqbop.320x480-75.jpg "Projects aka root folders list")
-&nbsp;
-![Folder's listing](http://a3.mzstatic.com/us/r30/Purple/ac/a5/d5/mzl.lbpgkwfu.320x480-75.jpg "Folder's listing")
-&nbsp;
-![File preview](http://a3.mzstatic.com/us/r30/Purple/82/b7/36/mzl.cimtaoai.320x480-75.jpg "File preview")
-
-There is iPad version as well
 
 ## Current Development Status ##
 
-SparkleShare for iOS is in Alpha development stage
+SparkleShare for iOS is in Beta development stage
 
 ### Implemented features ###
 
