@@ -2,6 +2,10 @@ iOS Client for [SparkleShare Project](http://www.sparkleshare.org)
 
 Grab it right away at [AppStore](http://bit.ly/zA54N5)! Or support me by buying [paid version](http://itunes.apple.com/us/app/sparkleshare-support-us!/id492519879)
 
+<a href="https://www.cisimple.com/jobs/vocmunsave861uxic"><img src='https://www.cisimple.com/jobs/vocmunsave861uxic/build_status.png'/></a>
+
+Continuous Integration provided by [cisimple](https://www.cisimple.com).
+
 
 ## Current Development Status ##
 
